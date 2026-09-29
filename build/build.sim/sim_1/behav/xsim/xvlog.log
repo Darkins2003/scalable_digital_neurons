@@ -1,0 +1,11 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/hdl/neuron_params_generated_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/hdl/neuron_params_pkg.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/hdl/fixed_point_package.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/hdl/base_two_exponential_pipe.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base_two_exponential_pipe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/hdl/single_neuron.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module single_neuron
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/hdl/top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/sim/testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench

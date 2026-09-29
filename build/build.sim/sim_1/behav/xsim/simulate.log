@@ -1,0 +1,17 @@
+Time resolution is 1 ps
+iteration: 1 exponent: 2.000000 valid_out: 0 result: 0.000000
+iteration: 2 exponent: 2.000000 valid_out: 0 result: 0.000000
+iteration: 3 exponent: 2.000000 valid_out: 0 result: 1.000000
+iteration: 4 exponent: 2.000000 valid_out: 0 result: 1.000000
+iteration: 5 exponent: 2.000000 valid_out: 1 result: 4.000000
+iteration: 1 exponent: -3.500000 valid_out: 0 result: 4.000000
+iteration: 2 exponent: -3.500000 valid_out: 0 result: 4.000000
+iteration: 3 exponent: -3.500000 valid_out: 0 result: 4.000000
+iteration: 4 exponent: -3.500000 valid_out: 0 result: 4.000000
+iteration: 5 exponent: -3.500000 valid_out: 1 result: 0.085938
+iteration: 1 valid_out: 1 result: 2.000000
+iteration: 2 valid_out: 1 result: 4.000000
+iteration: 3 valid_out: 1 result: 8.000000
+iteration: 4 valid_out: 1 result: 16.000000
+iteration: 5 valid_out: 1 result: 32.000000
+$finish called at time : 290 ns : File "C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/sim/testbench.sv" Line 107

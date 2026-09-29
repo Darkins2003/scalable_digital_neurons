@@ -1,0 +1,31 @@
+package fixed_point_package;
+
+    import neuron_params_generated_pkg::*;
+
+    function automatic fixed_t mul_24_24_24(input fixed_t a, input fixed_t b);
+        // Multiplies 2 32 bit signed numbers, each with 24 fractional bits.
+        // 24 LSB are removed so the result has 24 fractional bits. 
+        // Result is then truncated to 32 bits.
+        logic signed [63:0] product;
+        fixed_t out;
+
+        product = ( $signed({{32{a[VALUE_WIDTH-1]}}, a}) * $signed({{32{b[VALUE_WIDTH-1]}}, b}) ) >>> STATE_FRAC_BITS; // Mutliply and shift right by 24 bits
+        out = fixed_t'(product); // Truncate to 32 bits
+
+        return out;
+    endfunction
+
+    function automatic fixed_t mul_24_8_8(input fixed_t a, input fixed_t b);
+        // Multiplies 2 32 bit signed numbers, one with 24 fractional bits and the other with 8 fractional bits.
+        // 24 LSB are removed so the result has 8 fractional bits. 
+        // Result is then truncated to 32 bits.
+        logic signed [63:0] product;
+        fixed_t out;
+
+        product = ( $signed({{32{a[VALUE_WIDTH-1]}}, a}) * $signed({{32{b[VALUE_WIDTH-1]}}, b}) ) >>> STATE_FRAC_BITS; // Mutliply and shift right by 24 bits
+        out = fixed_t'(product); // Truncate to 32 bits
+
+        return out;
+    endfunction
+
+endpackage
