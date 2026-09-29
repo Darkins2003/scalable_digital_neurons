@@ -1,2 +1,26 @@
+# Python-generated files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Vivado/XSim generated project and build files
+build/
+.Xil/
+*.xpr
+*.jou
+*.log
+*.str
+*.wdb
+*.wcfg
+*.sim/
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.gen/
+*.srcs/
+
+# Operating-system/editor files
+.DS_Store
+Thumbs.db
+.vscode/
