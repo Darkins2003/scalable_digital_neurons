@@ -7,62 +7,67 @@ module single_neuron (
     input logic rst,
 
     input fixed_t current_in,
+
+    output logic step_ready,
+    output logic step_done,
     output fixed_t vmem_out
 );
 
     fixed_t neuron_state_variables [0:3] = INITIAL_STATE;
     fixed_t current_vector [0:7];
-    fixed_t transformation_matrix [0:3][0:7];
-
-    typedef struct packed {
-        fixed_t current_vector_1;
-        logic valid;
-    } pipeline_t;
-
-    localparam int PIPELINE_STAGES = 3;
-    pipeline_t pipe [0:PIPELINE_STAGES-1];
+    fixed_t mul_dy_dt_dt [0:3];
 
     logic valid_in;
-    logic valid_out;
+    logic compute_current_vector_valid_out;
+    logic matrix_mul_and_euler_update_valid_out;
 
-    assign valid_in = 1'b1; //TEMPORARY
+    assign valid_in = step_ready & !rst; 
+    assign vmem_out = neuron_state_variables[0];
 
-    base_two_exponential_pipe i_one(
+    compute_current_vector compute_current_vector_i(
         .clk(clk),
         .rst(rst),
-        .exponent(neuron_state_variables[0]),
-        .valid_in(valid_in),
 
-        .valid_out(valid_out),
-        .result(pipe[0].current_vector_1)
+        .valid_in(valid_in),
+        .current_in(current_in),
+        .neuron_state_variables(neuron_state_variables),
+
+        .valid_out(compute_current_vector_valid_out),
+        .current_vector(current_vector)
+    );
+
+    matrix_mul_and_euler_update matrix_mul_and_euler_update_i(
+        .clk(clk),
+        .rst(rst),
+
+        .valid_in(compute_current_vector_valid_out),
+        .current_vector(current_vector),
+
+        .valid_out(matrix_mul_and_euler_update_valid_out),
+        .mul_dy_dt_dt(mul_dy_dt_dt)
     );
 
     always_ff @(posedge clk) begin
         if (rst) begin
             neuron_state_variables <= INITIAL_STATE;
-
-            for (int i=0; i < PIPELINE_STAGES; i++) begin
-                pipe[i] <= '0;
-            end 
-
-            current_vector[1] <= '{default:'0};
+            step_ready <= '1;
+            step_done <= '0;
 
         end else begin
-            // ------------------------------STAGE 0-----------------------------
-            pipe[1].valid <= valid_out;
+            // ------------------------------EULER UPDATE-----------------------------
+            if (matrix_mul_and_euler_update_valid_out) begin
+                step_ready <= '1;
+                step_done <= '1;
 
-            if (valid_out) begin
-                pipe[1].current_vector_1 <= mul_24_8_8(EXPMEL, pipe[0].current_vector_1);
+                for (int i = 0; i < 4; i++) begin
+                    neuron_state_variables[i] <= neuron_state_variables[i] + mul_dy_dt_dt[i];
+                end 
+            end else begin
+                step_ready <= '0;
+                step_done <= '0;
             end 
 
-            // ------------------------------STAGE 1-----------------------------
-            if (pipe[1].valid) begin
-                pipe[2].valid <= pipe[1].valid;
-                current_vector[1] <= ONE_Q8 - pipe[1].current_vector_1;
-            end 
         end 
     end
-
-    assign vmem_out = current_vector[1]; // temp
 
 endmodule
