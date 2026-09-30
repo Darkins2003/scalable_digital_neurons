@@ -6,20 +6,25 @@ module top (
     input logic clk,
     input logic rst,
 
-    output fixed_t out //temp
+    input fixed_t current_in,
+    output fixed_t out 
 );
 
-    fixed_t current_in;
     fixed_t vmem_out;
+    logic step_ready;
+    logic step_done;
+
+    assign out = vmem_out; 
 
     single_neuron single_neuron_i(
         .clk(clk),
         .rst(rst),
 
         .current_in(current_in),
+
+        .step_ready(step_ready),
+        .step_done(step_done),
         .vmem_out(vmem_out)
     );
-
-    assign out = vmem_out; // temp
 
 endmodule 

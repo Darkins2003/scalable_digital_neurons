@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 
 # Vivado/XSim generated project and build files
-/build/
+build/
 .Xil/
 *.xpr
 *.jou
@@ -24,3 +24,4 @@ __pycache__/
 .DS_Store
 Thumbs.db
 .vscode/
+images/

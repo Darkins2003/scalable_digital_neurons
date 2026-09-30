@@ -2,7 +2,7 @@
 
 import neuron_params_generated_pkg::*;
 
-module testbench;
+module tb_base_two_exp;
     logic clk;
     logic rst;
     fixed_t exponent;

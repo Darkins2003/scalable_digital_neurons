@@ -2,7 +2,7 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module base_two_exponential_pipe (
+module base_two_exponential_pipe_cubic (
     input logic clk,
     input logic rst,
     input fixed_t exponent,
@@ -30,6 +30,7 @@ module base_two_exponential_pipe (
     fixed_t frac_exponent_squared;
     fixed_t frac_exponent_squared_minus_frac_exponent_div_four; 
     fixed_t frac_exponent_squared_minus_frac_exponent_div_four_plus_one; 
+    fixed_t frac_exponent_squared_minus_frac_exponent_div_four_plus_one_d1; 
     fixed_t mult_term; 
 
     always_ff @(posedge clk) begin
@@ -41,6 +42,7 @@ module base_two_exponential_pipe (
             frac_exponent_squared <= 0;
             frac_exponent_squared_minus_frac_exponent_div_four <= 0; 
             frac_exponent_squared_minus_frac_exponent_div_four_plus_one <= 0; 
+            frac_exponent_squared_minus_frac_exponent_div_four_plus_one_d1 <= 0; 
             mult_term <= 0; 
             result <= 0; 
 
@@ -91,15 +93,15 @@ module base_two_exponential_pipe (
             // ------------------------------STAGE 4------------------------------
             // Drive the pipeline
             pipe[4].valid <= pipe[3].valid;
-            pipe[4].two_to_pwr_int_exponent <= pipe[3].two_to_pwr_int_exponent;
+            frac_exponent_squared_minus_frac_exponent_div_four_plus_one_d1 <= frac_exponent_squared_minus_frac_exponent_div_four_plus_one;
 
-            mult_term <= mul_24_24_24(pipe[3].frac_exponent_plus_one, frac_exponent_squared_minus_frac_exponent_div_four_plus_one);
+            mult_term <= mul_24_8_8(pipe[3].frac_exponent_plus_one, pipe[3].two_to_pwr_int_exponent);
 
             // ------------------------------STAGE 5------------------------------
             // Drive the pipeline
             valid_out <= pipe[4].valid;
 
-            result <= mul_24_8_8(mult_term, pipe[4].two_to_pwr_int_exponent);
+            result <= mul_24_8_8(mult_term, frac_exponent_squared_minus_frac_exponent_div_four_plus_one_d1);
         end 
     end
 
