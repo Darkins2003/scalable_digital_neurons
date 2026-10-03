@@ -1,6 +1,11 @@
 # scalable_digital_neurons
 Research and development of scalable Farquhar-Hasler digital neuron models for FPGA implementation
 
+The [three-neuron C/RTL validation](sim/mut/three_neurons_1D/scripts/README.md)
+generates identical step-indexed stimulus for the fixed-point C synfire model
+and `three_neurons_1D`, compares all neuron and triangle states, and records
+the current RTL review findings.
+
 ## Generate fixed-point RTL parameters
 
 The floating-point reference values are stored in
