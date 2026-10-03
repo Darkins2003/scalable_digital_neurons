@@ -7,22 +7,24 @@ module single_neuron (
     input logic rst,
 
     input fixed_t current_in,
+    input logic valid_in,
 
-    output logic step_ready,
-    output logic step_done,
-    output fixed_t vmem_out
+    output logic valid_out,
+    output fixed_t vmem_out,
+    output fixed_t vmem_out_previous
 );
 
     fixed_t neuron_state_variables [0:3] = INITIAL_STATE;
     fixed_t current_vector [0:7];
     fixed_t mul_dy_dt_dt [0:3];
 
-    logic valid_in;
+    fixed_t vmem_out_reg_previous = INITIAL_STATE[0];
+
     logic compute_current_vector_valid_out;
     logic matrix_mul_and_euler_update_valid_out;
 
-    assign valid_in = step_ready & !rst; 
     assign vmem_out = neuron_state_variables[0];
+    assign vmem_out_previous = vmem_out_reg_previous;
 
     compute_current_vector compute_current_vector_i(
         .clk(clk),
@@ -50,23 +52,20 @@ module single_neuron (
     always_ff @(posedge clk) begin
         if (rst) begin
             neuron_state_variables <= INITIAL_STATE;
-            step_ready <= '1;
-            step_done <= '0;
+            vmem_out_reg_previous <= INITIAL_STATE[0];
+            valid_out <= '0;
 
         end else begin
             // ------------------------------EULER UPDATE-----------------------------
+            valid_out <= matrix_mul_and_euler_update_valid_out;
+
             if (matrix_mul_and_euler_update_valid_out) begin
-                step_ready <= '1;
-                step_done <= '1;
+                vmem_out_reg_previous <= neuron_state_variables[0]; // Store the previous vmem for the triangular generator input
 
                 for (int i = 0; i < 4; i++) begin
                     neuron_state_variables[i] <= neuron_state_variables[i] + mul_dy_dt_dt[i];
                 end 
-            end else begin
-                step_ready <= '0;
-                step_done <= '0;
             end 
-
         end 
     end
 

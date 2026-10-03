@@ -162,7 +162,7 @@ module compute_current_vector(
         .result(result_base_two_exponential_vg)
     );
 
-    always @(posedge clk) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             for (int i = 0; i < PIPELINE_STAGES; i++) begin
                 pipe[i] <= '0;

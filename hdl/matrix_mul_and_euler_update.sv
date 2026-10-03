@@ -21,7 +21,7 @@ module matrix_mul_and_euler_update(
 
     fixed_t dy_dt [0:3];
 
-    always @(posedge clk) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
             products <= '{default:'0};
             layer_one_sums <= '{default:'0};
