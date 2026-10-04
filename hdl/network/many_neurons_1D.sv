@@ -2,7 +2,7 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module three_neurons_1D (
+module many_neurons_1D (
     input logic clk,
     input logic rst,
 

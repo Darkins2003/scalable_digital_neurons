@@ -341,16 +341,16 @@ def main() -> None:
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parents[1]
-    output_path = repo_root / "hdl" / "neuron_params_generated_pkg.sv"
+    output_path = repo_root / "hdl" / "packages" / "neuron_params_generated_pkg.sv"
     generated_text = generate_package()
 
     if args.check:
         if not output_path.exists() or output_path.read_text(encoding="utf-8") != generated_text:
             raise SystemExit(
-                "hdl/neuron_params_generated_pkg.sv is out of date. "
+                "hdl/packages/neuron_params_generated_pkg.sv is out of date. "
                 "Run: python scripts/generate_neuron_params.py"
             )
-        print("hdl/neuron_params_generated_pkg.sv is up to date.")
+        print("hdl/packages/neuron_params_generated_pkg.sv is up to date.")
         return
 
     output_path.write_text(generated_text, encoding="utf-8")

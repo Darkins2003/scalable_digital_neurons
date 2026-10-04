@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER neuron_axil
+	OPTION supported_peripherals = (neuron_axil);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = neuron_axil;
+END DRIVER

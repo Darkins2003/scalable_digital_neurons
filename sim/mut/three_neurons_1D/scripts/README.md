@@ -42,12 +42,7 @@ The 100-step strong pulse case passes for all 18 state values per step:
 python sim/mut/three_neurons_1D/scripts/validate_three_neurons_1D.py --steps 100 --pulse-start 1 --pulse-end 99 --pulse-height-q8 256000 --plot
 ```
 
-The remaining test infrastructure issue is:
 
-1. The existing `sim/mut/single_neuron/tb_single_neuron.sv` instantiates
-   `single_neuron` with `step_ready` and `step_done`, which are no longer ports
-   of that module. This is separate from the three-neuron validator and
-   prevents the older single-neuron validation from testing current RTL.
 
 The C reference itself also has non-void functions that reach the end without
 returning a value. This wrapper uses their output arguments, as the original

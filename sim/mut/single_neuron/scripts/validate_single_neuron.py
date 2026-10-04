@@ -99,14 +99,14 @@ def run_simulator(directory: Path, vivado_bin: Path | None) -> None:
         )
 
     source_names = (
-        "neuron_params_generated_pkg.sv",
-        "neuron_params_pkg.sv",
-        "fixed_point_package.sv",
-        "base_two_exponential_pipe_linear.sv",
-        "base_two_exponential_pipe_cubic.sv",
-        "compute_current_vector.sv",
-        "matrix_mul_and_euler_update.sv",
-        "single_neuron.sv",
+        "packages/neuron_params_generated_pkg.sv",
+        "packages/neuron_params_pkg.sv",
+        "packages/fixed_point_package.sv",
+        "math/base_two_exponential_pipe_linear.sv",
+        "math/base_two_exponential_pipe_cubic.sv",
+        "math/compute_current_vector.sv",
+        "math/matrix_mul_and_euler_update.sv",
+        "neuron/single_neuron.sv",
     )
     sources = [str(ROOT / "hdl" / name) for name in source_names]
     sources.append(str(ROOT / "sim" / "mut" / "single_neuron" / "tb_single_neuron.sv"))
