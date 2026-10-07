@@ -28,7 +28,7 @@ python scripts/generate_neuron_params.py
 It writes:
 
 ```text
-hdl/neuron_params_generated_pkg.sv
+hdl/packages/neuron_params_generated_pkg.sv
 ```
 
 The conversion matches the C expression:

@@ -1,8 +1,17 @@
 # Single-neuron C/HDL validation
 
+Run the numbered testcase with the common runner:
+
+```powershell
+./sim/run_testcase.ps1 ./sim/mut/single_neuron/testcases/tc_001_c_reference_trace.svh
+```
+
+The `.svh` testcase calls this Python script to create and compare the C
+reference. The longer, configurable regression below remains available.
+
 These scripts validate the single-neuron RTL against the fixed-point C reference. Run commands below from the `scalable_digital_neurons` project root.
 
-`sim/mut/single_neuron/scripts/validate_single_neuron.py` creates a step-indexed input file, compiles `single_neuron_reference.c`, runs the testbench with Vivado's `xvlog`, `xelab`, and `xsim`, and compares the four updated state integers after every `step_done`. GCC must be on `PATH`. The script searches for Vivado tools on `PATH` and in common Windows install locations. Pass `--vivado-bin` if Vivado is installed elsewhere.
+`sim/mut/single_neuron/scripts/validate_single_neuron.py` creates a step-indexed input file, compiles `single_neuron_reference.c`, runs the testbench with Vivado's `xvlog`, `xelab`, and `xsim`, and compares the four updated state integers after every `valid_out` completion. The testbench pulses `valid_in` once per step and checks `vmem_out_previous` against the prior step. GCC must be on `PATH`. The script searches for Vivado tools on `PATH` and in common Windows install locations. Pass `--vivado-bin` if Vivado is installed elsewhere.
 
 Run the original C model's 100,000-step input pulse:
 

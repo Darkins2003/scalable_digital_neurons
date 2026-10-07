@@ -6,6 +6,10 @@ generates identical step-indexed stimulus for the fixed-point C synfire model
 and `three_neurons_1D`, compares all neuron and triangle states, and records
 the current RTL review findings.
 
+The [AXI-Lite integration simulation](sim/mut/three_neurons_1D/AXIL_README.md)
+configures the three-neuron network through registers and checks its completed
+step count and three membrane-voltage readbacks.
+
 ## Generate fixed-point RTL parameters
 
 The floating-point reference values are stored in
@@ -15,12 +19,12 @@ The floating-point reference values are stored in
 python scripts/generate_neuron_params.py
 ```
 
-This writes `hdl/neuron_params_generated_pkg.sv`. Do not edit the generated
+This writes `hdl/packages/neuron_params_generated_pkg.sv`. Do not edit the generated
 package by hand. Change the source values in the Python script and regenerate
 it instead.
 
 For project-specific parameters, use the hand-written package
-`hdl/neuron_params_pkg.sv`. Add new parameters there so they are not
+`hdl/packages/neuron_params_pkg.sv`. Add new parameters there so they are not
 overwritten by the Python generator. Import both packages in a module:
 
 ```systemverilog

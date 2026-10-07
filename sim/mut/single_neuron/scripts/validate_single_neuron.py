@@ -73,7 +73,7 @@ def write_stimulus(path: Path, values: list[int]) -> None:
 
 
 def generate_reference(directory: Path, gcc: str, stimulus: Path,
-                       wide_reference: bool) -> Path:
+                       wide_reference: bool, skip_compile: bool = False) -> Path:
     executable = directory / ("single_neuron_reference.exe" if os.name == "nt" else
                               "single_neuron_reference")
     reference = directory / "c_trace.csv"
@@ -82,7 +82,8 @@ def generate_reference(directory: Path, gcc: str, stimulus: Path,
         compile_command.append("-DWIDE_MUL=1")
     compile_command.extend([str(SCRIPT_DIR / "single_neuron_reference.c"),
                             "-o", str(executable)])
-    run(compile_command, directory)
+    if not skip_compile:
+        run(compile_command, directory)
     run([str(executable), str(stimulus), str(reference)], directory)
     return reference
 
@@ -99,21 +100,24 @@ def run_simulator(directory: Path, vivado_bin: Path | None) -> None:
         )
 
     source_names = (
-        "neuron_params_generated_pkg.sv",
-        "neuron_params_pkg.sv",
-        "fixed_point_package.sv",
-        "base_two_exponential_pipe_linear.sv",
-        "base_two_exponential_pipe_cubic.sv",
-        "compute_current_vector.sv",
-        "matrix_mul_and_euler_update.sv",
-        "single_neuron.sv",
+        "packages/neuron_params_generated_pkg.sv",
+        "packages/neuron_params_pkg.sv",
+        "packages/fixed_point_package.sv",
+        "math/base_two_exponential_pipe_linear.sv",
+        "math/base_two_exponential_pipe_cubic.sv",
+        "math/compute_current_vector.sv",
+        "math/matrix_mul_and_euler_update.sv",
+        "neuron/single_neuron.sv",
     )
     sources = [str(ROOT / "hdl" / name) for name in source_names]
     sources.append(str(ROOT / "sim" / "mut" / "single_neuron" / "tb_single_neuron.sv"))
 
-    run([tools["xvlog"], "-sv", "--relax", *sources], directory)
+    run([tools["xvlog"], "-sv", "--relax", "-i",
+         str(ROOT / "sim" / "mut" / "single_neuron" / "testcases"), *sources], directory)
     run([tools["xelab"], "tb_single_neuron", "-s", "tb_single_neuron_sim"], directory)
-    run([tools["xsim"], "tb_single_neuron_sim", "-runall"], directory)
+    run([tools["xsim"], "tb_single_neuron_sim", "-runall",
+         "-testplusarg", "tc_001_c_reference_trace",
+         "-testplusarg", "external_reference"], directory)
 
 
 def compare(reference: Path, hdl: Path) -> bool:
@@ -213,6 +217,10 @@ def main() -> int:
                         help="Directory containing xvlog, xelab and xsim")
     parser.add_argument("--reference-only", action="store_true",
                         help="Create stimulus and C trace without running HDL simulation")
+    parser.add_argument("--prepare-only", action="store_true",
+                        help="Generate stimulus and C reference for an SV testcase")
+    parser.add_argument("--skip-compile", action="store_true",
+                        help="Use a C reference executable already built in --output-dir")
     parser.add_argument("--compare-only", action="store_true",
                         help="Compare existing C and HDL traces in --output-dir")
     parser.add_argument("--plot", action="store_true",
@@ -231,12 +239,14 @@ def main() -> int:
     try:
         if not args.compare_only:
             write_stimulus(stimulus, input_values(args))
-            generate_reference(directory, args.gcc, stimulus, args.wide_reference)
+            generate_reference(directory, args.gcc, stimulus, args.wide_reference,
+                               args.skip_compile)
             print("Stimulus:", stimulus)
             print("C trace:", reference)
-            if args.reference_only:
-                print("Run tb_single_neuron with this directory as the simulator working directory.")
-                print("Then use --compare-only --output-dir", directory)
+            if args.reference_only or args.prepare_only:
+                if args.reference_only:
+                    print("Run tb_single_neuron with this directory as the simulator working directory.")
+                    print("Then use --compare-only --output-dir", directory)
                 return 0
             # Never compare a trace left by an earlier simulation run.
             if hdl.exists():
