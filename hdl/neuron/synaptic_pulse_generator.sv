@@ -7,7 +7,7 @@ module synaptic_pulse_generator (
     input logic rst,
 
     input logic valid_in,
-    input logic start,
+    input logic start_pulse,
     input fixed_t excitatory_triangular_state, // Te Q16.16
     input fixed_t inhibitory_triangular_state, // Ti Q16.16
 
@@ -29,27 +29,25 @@ module synaptic_pulse_generator (
     fixed_t excitatory_exponent_argument; // Xe
     fixed_t inhibitory_exponent_argument; // Xi
 
-    logic [1:0] base_two_exponential_linear_valid_out;
+    logic [2:0] exponential_valid;
 
-    assign valid_out = &base_two_exponential_linear_valid_out;
+    assign valid_out = exponential_valid[2];
 
     base_two_exponential_pipe_linear base_two_exponential_linear_excitatory_exponent(
         .clk(clk),
         .rst(rst),
-        .exponent(excitatory_exponent_argument + SYNAPSE_EXP_BIAS_Q24[0]),
-        .valid_in(pipe[2].valid),
 
-        .valid_out(base_two_exponential_linear_valid_out[0]),
+        .exponent(excitatory_exponent_argument + SYNAPSE_EXP_BIAS_Q24[0]),
+
         .result(excitatory_pulse)
     );
     
     base_two_exponential_pipe_linear base_two_exponential_linear_inhibitory_exponent(
         .clk(clk),
         .rst(rst),
-        .exponent(inhibitory_exponent_argument + SYNAPSE_EXP_BIAS_Q24[1]),
-        .valid_in(pipe[2].valid),
 
-        .valid_out(base_two_exponential_linear_valid_out[1]),
+        .exponent(inhibitory_exponent_argument + SYNAPSE_EXP_BIAS_Q24[1]),
+        
         .result(inhibitory_pulse)
     );
 
@@ -61,10 +59,11 @@ module synaptic_pulse_generator (
 
             excitatory_exponent_argument <= '0;
             inhibitory_exponent_argument <= '0;
+            exponential_valid <= '0;
 
         end else begin
             // ------------------------------STAGE 0-----------------------------
-            pipe[0].valid <= valid_in | start;
+            pipe[0].valid <= valid_in | start_pulse;
 
             pipe[0].scaled_excitatory_triangular_state <= mul_24_16_16(SYNAPSE_TRIANGLE_SCALE_Q24, excitatory_triangular_state);
             pipe[0].scaled_inhibitory_triangular_state <= mul_24_16_16(SYNAPSE_TRIANGLE_SCALE_Q24, inhibitory_triangular_state);
@@ -80,7 +79,11 @@ module synaptic_pulse_generator (
 
             excitatory_exponent_argument <= mul_16_24_24(pipe[1].scaled_excitatory_triangular_state, SYNAPSE_EFFECTIVE_COUPLING_Q24);
             inhibitory_exponent_argument <= mul_16_24_24(pipe[1].scaled_inhibitory_triangular_state, SYNAPSE_EFFECTIVE_COUPLING_Q24);
+
+            exponential_valid[0] <= pipe[2].valid;
+            exponential_valid[1] <= exponential_valid[0];
+            exponential_valid[2] <= exponential_valid[1];
         end 
 
     end 
-endmodule 
+endmodule

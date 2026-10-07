@@ -8,7 +8,7 @@ module neuron_with_pulse_generator (
 
     input fixed_t current_in,
     input logic valid_in,
-    input logic start,
+    input logic start_pulse,
 
     output logic valid_out,
     output fixed_t vmem_out,
@@ -56,7 +56,7 @@ module neuron_with_pulse_generator (
         .rst(rst),
 
         .valid_in(synaptic_triangular_generator_valid_out),
-        .start(start),
+        .start_pulse(start_pulse),
         .excitatory_triangular_state(excitatory_triangular_state), 
         .inhibitory_triangular_state(inhibitory_triangular_state), 
 

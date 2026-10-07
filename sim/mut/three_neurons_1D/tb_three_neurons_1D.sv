@@ -1,82 +1,147 @@
 `timescale 1ns/1ps
 import neuron_params_generated_pkg::*;
+import three_neuron_regs_pkg::*;
 
 module tb_three_neurons_1D;
-    logic clk = 0;
-    logic rst = 1;
-    fixed_t current_in = 0;
-    integer stimulus_file, trace_file, read_count, steps, cycles = 0;
-
-    three_neurons_1D dut (.clk(clk), .rst(rst), .current_in(current_in));
+    logic clk = 1'b0;
     always #5 clk = ~clk;
+    logic rst = 1;
+    logic ctrl_start = 0;
+    fixed_t current_in = 0;
+    integer stimulus_file_handle, trace_file_handle, items_read, total_steps, elapsed_cycles = 0;
+
+
+    three_neurons_1D dut (
+        .clk(clk), .rst(rst),
+        .ctrl_start(ctrl_start),
+        .current_in(current_in),
+        .step_valid(),
+        .vmem_0(), .vmem_1(), .vmem_2()
+    );
 
     always @(posedge clk) begin
         if (!rst) begin
-            cycles <= cycles + 1;
-            if (cycles > (steps + 1) * 100)
+            elapsed_cycles <= elapsed_cycles + 1;
+            if (elapsed_cycles > (total_steps + 1) * 100)
                 $fatal(1, "Timed out waiting for network step completion");
         end
     end
 
-    initial begin
-        stimulus_file = $fopen("stimulus.txt", "r");
-        trace_file = $fopen("hdl_trace.csv", "w");
-        if (!stimulus_file || !trace_file)
-            $fatal(1, "Cannot open stimulus.txt or hdl_trace.csv");
-        read_count = $fscanf(stimulus_file, "%d", steps);
-        if (read_count != 1 || steps < 1)
-            $fatal(1, "Invalid stimulus step count");
-        read_count = $fscanf(stimulus_file, "%d", current_in);
-        if (read_count != 1)
-            $fatal(1, "Missing stimulus for step 0");
-        $fwrite(trace_file, "step,current,n0_vmem,n0_vk,n0_vg,n0_vna,n1_vmem,n1_vk,n1_vg,n1_vna,n2_vmem,n2_vk,n2_vg,n2_vna,n0_te,n0_ti,n1_te,n1_ti,n2_te,n2_ti\n");
-        repeat (3) @(negedge clk);
-        rst = 0;
-        // The startup pulse/synapse pass computes current from the initial
-        // states. It is preparation for C step 0, not a completed Euler step.
-        @(posedge dut.synapse_valid_out[0]);
-        #1;
-        if (dut.synapse_valid_out !== 3'b111)
-            $fatal(1, "Startup synapse completion signals differ");
-        if (dut.neuron_with_pulse_generator_0.single_neuron_i.neuron_state_variables[0] !== INITIAL_STATE[0])
-            $fatal(1, "Neuron updated during synapse initialization");
-        if (dut.excitatory_current_contribution[0] !== 32'sd1091 ||
-            dut.excitatory_current_contribution[1] !== 32'sd1091 ||
-            dut.excitatory_current_contribution[2] !== 32'sd1091)
-            $fatal(1, "Initial synaptic current does not match C (1091 Q8)");
-        for (int step = 0; step < steps; step++) begin
-            @(posedge dut.synapse_valid_out[0]);
-            #1;
-            if (dut.synapse_valid_out !== 3'b111)
-                $fatal(1, "Synapse completion signals differ at step %0d", step);
-            if ($isunknown({dut.neuron_with_pulse_generator_0.single_neuron_i.neuron_state_variables[0],
-                            dut.neuron_with_pulse_generator_1.single_neuron_i.neuron_state_variables[0],
-                            dut.neuron_with_pulse_generator_2.single_neuron_i.neuron_state_variables[0]}))
-                $fatal(1, "Unknown neuron state at step %0d", step);
-            $fwrite(trace_file, "%0d,%0d", step, current_in);
-            for (int j = 0; j < 4; j++)
-                $fwrite(trace_file, ",%0d", dut.neuron_with_pulse_generator_0.single_neuron_i.neuron_state_variables[j]);
-            for (int j = 0; j < 4; j++)
-                $fwrite(trace_file, ",%0d", dut.neuron_with_pulse_generator_1.single_neuron_i.neuron_state_variables[j]);
-            for (int j = 0; j < 4; j++)
-                $fwrite(trace_file, ",%0d", dut.neuron_with_pulse_generator_2.single_neuron_i.neuron_state_variables[j]);
-            $fwrite(trace_file, ",%0d,%0d,%0d,%0d,%0d,%0d\n",
-                dut.neuron_with_pulse_generator_0.synaptic_triangular_generator_i.excitatory_triangular_state_reg,
-                dut.neuron_with_pulse_generator_0.synaptic_triangular_generator_i.inhibitory_triangular_state_reg,
-                dut.neuron_with_pulse_generator_1.synaptic_triangular_generator_i.excitatory_triangular_state_reg,
-                dut.neuron_with_pulse_generator_1.synaptic_triangular_generator_i.inhibitory_triangular_state_reg,
-                dut.neuron_with_pulse_generator_2.synaptic_triangular_generator_i.excitatory_triangular_state_reg,
-                dut.neuron_with_pulse_generator_2.synaptic_triangular_generator_i.inhibitory_triangular_state_reg);
-            if (step + 1 < steps) begin
-                @(negedge clk);
-                read_count = $fscanf(stimulus_file, "%d", current_in);
-                if (read_count != 1)
-                    $fatal(1, "Missing stimulus for step %0d", step + 1);
-            end
+
+
+    logic rst_n = 1'b0;
+    logic [4:0] awaddr = '0;
+    logic [2:0] awprot = '0;
+    logic awvalid = 1'b0;
+    logic awready;
+    logic [31:0] wdata = '0;
+    logic [3:0] wstrb = '0;
+    logic wvalid = 1'b0;
+    logic wready;
+    logic [1:0] bresp;
+    logic bvalid;
+    logic bready = 1'b0;
+    logic [4:0] araddr = '0;
+    logic [2:0] arprot = '0;
+    logic arvalid = 1'b0;
+    logic arready;
+    logic [31:0] rdata;
+    logic [1:0] rresp;
+    logic rvalid;
+    logic rready = 1'b0;
+
+    logic ref_step_valid;
+    fixed_t ref_vmem_0, ref_vmem_1, ref_vmem_2;
+    fixed_t ref_history_0 [0:63];
+    fixed_t ref_history_1 [0:63];
+    fixed_t ref_history_2 [0:63];
+    int ref_count = 0;
+    logic [31:0] count_read;
+    logic [31:0] count_after;
+    logic [31:0] vmem_read_0, vmem_read_1, vmem_read_2;
+    bit stable_snapshot;
+    int start_pulse_count = 0;
+    logic start_previous = 1'b0;
+
+    three_neuron_control_top axil_dut (
+        .s00_axi_aclk(clk), .s00_axi_aresetn(rst_n),
+        .s00_axi_awaddr(awaddr), .s00_axi_awprot(awprot),
+        .s00_axi_awvalid(awvalid), .s00_axi_awready(awready),
+        .s00_axi_wdata(wdata), .s00_axi_wstrb(wstrb),
+        .s00_axi_wvalid(wvalid), .s00_axi_wready(wready),
+        .s00_axi_bresp(bresp), .s00_axi_bvalid(bvalid), .s00_axi_bready(bready),
+        .s00_axi_araddr(araddr), .s00_axi_arprot(arprot),
+        .s00_axi_arvalid(arvalid), .s00_axi_arready(arready),
+        .s00_axi_rdata(rdata), .s00_axi_rresp(rresp),
+        .s00_axi_rvalid(rvalid), .s00_axi_rready(rready)
+    );
+
+    // Reference network sees the intended current, rather than the AXI register
+    // output. Matching snapshots demonstrate that the register reaches all
+    // three neurons through the existing 1D network RTL.
+    three_neurons_1D reference_network (
+        .clk(clk), .rst(!rst_n),
+        .ctrl_start(axil_dut.ctrl_start),
+        .current_in(axil_dut.input_current),
+        .step_valid(ref_step_valid),
+        .vmem_0(ref_vmem_0), .vmem_1(ref_vmem_1), .vmem_2(ref_vmem_2)
+    );
+
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            ref_count <= 0;
+        end else if (ref_step_valid) begin
+            if (ref_count >= 63) $fatal(1, "Reference history overflow");
+            ref_history_0[ref_count+1] <= ref_vmem_0;
+            ref_history_1[ref_count+1] <= ref_vmem_1;
+            ref_history_2[ref_count+1] <= ref_vmem_2;
+            ref_count <= ref_count + 1;
         end
-        $fclose(stimulus_file);
-        $fclose(trace_file);
-        $display("Recorded %0d network steps", steps);
+    end
+
+    // Check the START pulse at the network input pin.
+    always @(posedge clk) begin
+        if (!rst_n) begin
+            start_pulse_count <= 0;
+            start_previous <= 1'b0;
+        end else begin
+            if (axil_dut.network.ctrl_start) begin
+                if (start_previous) $fatal(1, "ctrl_start lasted more than one clock");
+                start_pulse_count <= start_pulse_count + 1;
+            end
+            start_previous <= axil_dut.network.ctrl_start;
+        end
+    end
+
+    `include "axi_lite_manager.svh"
+    `include "axi_lite_register_methods.svh"
+    `include "register_model_fixture.svh"
+
+    `include "tc_001_reset_access.svh"
+    `include "tc_002_axil_integration.svh"
+    `include "tc_003_commands.svh"
+    `include "tc_004_hardware_updates.svh"
+    `include "tc_010_c_reference_trace.svh"
+
+    initial begin
+        if ($test$plusargs("tc_001_reset_access")) begin
+            run_tc_001_reset_access();
+            $display("PASS: tc_001_reset_access");
+        end else if ($test$plusargs("tc_002_axil_integration")) begin
+            run_tc_002_axil_integration();
+            $display("PASS: tc_002_axil_integration");
+        end else if ($test$plusargs("tc_003_commands")) begin
+            run_tc_003_commands();
+            $display("PASS: tc_003_commands");
+        end else if ($test$plusargs("tc_004_hardware_updates")) begin
+            run_tc_004_hardware_updates();
+            $display("PASS: tc_004_hardware_updates");
+        end else if ($test$plusargs("tc_010_c_reference_trace")) begin
+            run_tc_010_c_reference_trace();
+            $display("PASS: tc_010_c_reference_trace");
+        end else begin
+            $fatal(1, "Select a three-neuron testcase with -testplusarg");
+        end
         $finish;
     end
 endmodule

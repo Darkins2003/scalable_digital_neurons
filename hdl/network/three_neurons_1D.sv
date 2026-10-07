@@ -6,7 +6,9 @@ module three_neurons_1D (
     input logic clk,
     input logic rst,
 
+    input logic ctrl_start,
     input fixed_t current_in,
+
     output logic step_valid,
     output fixed_t vmem_0,
     output fixed_t vmem_1,
@@ -35,16 +37,17 @@ module three_neurons_1D (
     fixed_t inhibitory_current_contribution [0:2];
 
     logic valid_in;
-    logic start = 1;
-    logic startup_complete;
-    logic synapse_done_previous;
+    logic running;
+    logic startup_complete = 1'b0;
+    logic start_pulse = '0;
 
     fixed_t current_in_neuron_0_reg;
     fixed_t current_in_neuron_1_reg;
     fixed_t current_in_neuron_2_reg;
 
     assign valid_in = pipe[0].valid & !rst;
-    assign step_valid = (&synapse_valid_out) & !synapse_done_previous & startup_complete;
+
+    assign step_valid = pipe[0].valid & startup_complete; // Disregard first cycle
     assign vmem_0 = vmem_out[0];
     assign vmem_1 = vmem_out[1];
     assign vmem_2 = vmem_out[2];
@@ -55,7 +58,7 @@ module three_neurons_1D (
 
         .current_in(current_in_neuron[0] + current_in),
         .valid_in(valid_in),
-        .start(start),
+        .start_pulse(start_pulse),
 
         .valid_out(neuron_with_pulse_generator_valid_out[0]),
         .vmem_out(vmem_out[0]),
@@ -86,7 +89,7 @@ module three_neurons_1D (
 
         .current_in(current_in_neuron[1]),
         .valid_in(valid_in),
-        .start(start),
+        .start_pulse(start_pulse),
 
         .valid_out(neuron_with_pulse_generator_valid_out[1]),
         .vmem_out(vmem_out[1]),
@@ -117,7 +120,7 @@ module three_neurons_1D (
 
         .current_in(current_in_neuron[2]),
         .valid_in(valid_in),
-        .start(start),
+        .start_pulse(start_pulse),
 
         .valid_out(neuron_with_pulse_generator_valid_out[2]),
         .vmem_out(vmem_out[2]),
@@ -150,23 +153,29 @@ module three_neurons_1D (
 
             current_in_neuron <= '{default:'0};
 
-            start <= '1;
+            running <= '0;
+            start_pulse <= '0;
             startup_complete <= 1'b0;
-            synapse_done_previous <= 1'b0;
 
         end else begin
+            if (ctrl_start && !running) begin
+                running <= '1;
+                start_pulse <= '1;
+            end else begin
+                start_pulse <= '0;
+            end
+
             // ------------------------------STAGE 0-----------------------------
             pipe[0].valid <= &synapse_valid_out;
-            start <= '0;
-            synapse_done_previous <= &synapse_valid_out;
-            if (&synapse_valid_out)
-                startup_complete <= 1'b1;
 
             if (&synapse_valid_out) begin
+                startup_complete <= 1'b1; // Asserts to 1 on the first cycle at stays at 1 until reset. Used to disregard the first cycle
+
                 current_in_neuron[0] <= inhibitory_current_contribution[2] + excitatory_current_contribution[2];
                 current_in_neuron[1] <= inhibitory_current_contribution[0] + excitatory_current_contribution[0];
                 current_in_neuron[2] <= inhibitory_current_contribution[1] + excitatory_current_contribution[1];
             end 
+
         end
     end
     

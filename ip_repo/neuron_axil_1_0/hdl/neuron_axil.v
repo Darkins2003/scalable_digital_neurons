@@ -14,7 +14,7 @@
 		parameter integer C_S00_AXI_ADDR_WIDTH	= 4
 	)
 	(
-		// Decoded register bus, connected to hdl/control/three_neuron_registers.sv
+		// Decoded register bus, connected to hdl/control/three_neurons_1D/three_neuron_registers.sv
 		output wire reg_wr_en,
 		output wire [C_S00_AXI_ADDR_WIDTH-1:0] reg_wr_addr,
 		output wire [C_S00_AXI_DATA_WIDTH-1:0] reg_wr_data,

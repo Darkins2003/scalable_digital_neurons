@@ -8,6 +8,7 @@ module tb_base_two_exp;
     fixed_t exponent;
     logic valid_in;
     logic valid_out;
+    logic [5:0] valid_pipeline;
     fixed_t result;
 
     real interpreted_result;
@@ -21,16 +22,26 @@ module tb_base_two_exp;
     // Multiply by 2^24 to create 24 fractional bits
     assign exponent = fixed_t'($rtoi(interpreted_exponent * 16777216.0));
 
-    base_two_exponential_pipe base_two_exponential_pipe_i(
+    base_two_exponential_pipe_cubic base_two_exponential_pipe_i(
         .clk(clk),
         .rst(rst),
 
         .exponent(exponent),
-        .valid_in(valid_in),
-
-        .valid_out(valid_out),
         .result(result)
     );
+
+    assign valid_out = valid_pipeline[5];
+
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            valid_pipeline <= '0;
+        end else begin
+            valid_pipeline[0] <= valid_in;
+            for (int delay_index = 0; delay_index < 5; delay_index++) begin
+                valid_pipeline[delay_index+1] <= valid_pipeline[delay_index];
+            end
+        end
+    end
 
     initial begin
         clk = 1'b0;
@@ -39,72 +50,13 @@ module tb_base_two_exp;
         end 
     end
 
+    `include "tc_001_basic_exponents.svh"
+
     initial begin
-        valid_in = '0;
-        interpreted_exponent = '0;
-        rst = '0;
-
-        // ------------------------------RESET SEQUENCE------------------------------
-        for (int i = 0; i < 2; i++) begin
-            @(negedge clk);
-        end 
-
-        rst = '1;
-
-        for (int i = 0; i < 2; i++) begin
-            @(negedge clk);
-        end 
-
-        rst = '0;
-
-        // ------------------------------SEQUENCE 1------------------------------
-        @(negedge clk);
-        valid_in = '1;
-        interpreted_exponent = 2;
-
-        @(negedge clk);
-        valid_in = '0;
-
-        for (int i = 1; i < 6; i++) begin
-            @(negedge clk);
-            $display("iteration: %0d exponent: %0.6f valid_out: %0b result: %0.6f", i, interpreted_exponent, valid_out, interpreted_result);
-        end 
-
-        // ------------------------------SEQUENCE 2------------------------------
-        @(negedge clk);
-        valid_in = '1;
-        interpreted_exponent = -3.5;
-
-        @(negedge clk);
-        valid_in = '0;
-
-        for (int i = 1; i < 6; i++) begin
-            @(negedge clk);
-            $display("iteration: %0d exponent: %0.6f valid_out: %0b result: %0.6f", i, interpreted_exponent, valid_out, interpreted_result);
-        end 
-
-        // ------------------------------SEQUENCE 3------------------------------
-        @(negedge clk);
-        valid_in = '1;
-        interpreted_exponent = 1;
-        @(negedge clk);
-        interpreted_exponent = 2;
-        @(negedge clk);
-        interpreted_exponent = 3;
-        @(negedge clk);
-        interpreted_exponent = 4;
-        @(negedge clk);
-        interpreted_exponent = 5;
-
-        @(negedge clk);
-        valid_in = '0;
-
-        for (int i = 1; i < 6; i++) begin
-            @(negedge clk);
-            $display("iteration: %0d valid_out: %0b result: %0.6f", i, valid_out, interpreted_result);
-        end 
-
+        if (!$test$plusargs("tc_001_basic_exponents"))
+            $fatal(1, "Select a base-two testcase with -testplusarg");
+        run_tc_001_basic_exponents();
+        $display("PASS: tc_001_basic_exponents");
         $finish;
-    end 
-
+    end
 endmodule

@@ -4,7 +4,6 @@ from __future__ import annotations
 import argparse
 import csv
 import os
-import shutil
 import subprocess
 from itertools import zip_longest
 from pathlib import Path
@@ -19,21 +18,12 @@ FIELDS = ("step", "current", *(f"n{n}_{name}" for n in range(3)
 
 def run(command: list[str], directory: Path) -> None:
     print("Running:", " ".join(command), flush=True)
-    subprocess.run(command, cwd=directory, check=True)
-
-
-def simulator_tools(requested: Path | None) -> dict[str, str]:
-    names = ("xvlog", "xelab", "xsim")
-    candidates = [requested] if requested else [None]
-    if requested is None:
-        for base in (Path("C:/AMDDesignTools"), Path("C:/Xilinx"), Path("C:/AMD")):
-            candidates.extend(sorted(base.glob("*/Vivado/bin"), reverse=True))
-    for candidate in candidates:
-        found = {name: shutil.which(name, path=str(candidate)) if candidate
-                 else shutil.which(name) for name in names}
-        if all(found.values()):
-            return found  # type: ignore[return-value]
-    raise RuntimeError("Vivado xvlog, xelab and xsim are required; pass --vivado-bin")
+    result = subprocess.run(command, cwd=directory, capture_output=True, text=True)
+    if result.stdout:
+        print(result.stdout, end="")
+    if result.stderr:
+        print(result.stderr, end="")
+    result.check_returncode()
 
 
 def compare(expected: Path, actual: Path) -> bool:
@@ -118,14 +108,16 @@ def main() -> int:
     reference_width.add_argument("--native-reference", dest="wide_reference",
                                  action="store_false",
                                  help="Use native C long width (32-bit on Windows)")
-    parser.add_argument("--vivado-bin", type=Path)
-    parser.add_argument("--reference-only", action="store_true")
-    parser.add_argument("--compare-only", action="store_true")
+    phase = parser.add_mutually_exclusive_group(required=True)
+    phase.add_argument("--prepare-only", action="store_true",
+                       help="Generate stimulus and C reference for tc_010")
+    phase.add_argument("--compare-only", action="store_true",
+                       help="Compare the C and RTL traces recorded by tc_010")
+    parser.add_argument("--skip-compile", action="store_true",
+                        help="Use a C reference executable already built in --output-dir")
     parser.add_argument("--plot", action="store_true",
                         help="Save a C/HDL Vmem comparison PNG")
     args = parser.parse_args()
-    if args.reference_only and args.compare_only:
-        parser.error("--reference-only and --compare-only cannot be combined")
     directory = args.output_dir.resolve()
     directory.mkdir(parents=True, exist_ok=True)
     stimulus, reference, hdl = (directory / name for name in
@@ -145,26 +137,13 @@ def main() -> int:
             stimulus.write_text(f"{len(values)}\n" + "\n".join(map(str, values)) + "\n")
             executable = directory / ("three_neurons_reference.exe" if os.name == "nt"
                                       else "three_neurons_reference")
-            run([args.gcc, "-std=c11", "-O0", "-w", "-fwrapv",
-                 *(["-DWIDE_MUL"] if args.wide_reference else []),
-                 str(HERE / "three_neurons_reference.c"), "-lm", "-o", str(executable)], directory)
+            if not args.skip_compile:
+                run([args.gcc, "-std=c11", "-O0", "-w", "-fwrapv",
+                     *(["-DWIDE_MUL"] if args.wide_reference else []),
+                     str(HERE / "three_neurons_reference.c"), "-lm", "-o", str(executable)], directory)
             run([str(executable), str(stimulus), str(reference)], directory)
-            if args.reference_only:
-                print("C trace:", reference)
-                return 0
-            hdl.unlink(missing_ok=True)
-            tools = simulator_tools(args.vivado_bin)
-            source_names = ("packages/neuron_params_generated_pkg.sv", "packages/neuron_params_pkg.sv",
-                            "packages/fixed_point_package.sv", "math/base_two_exponential_pipe_linear.sv",
-                            "math/base_two_exponential_pipe_cubic.sv", "math/compute_current_vector.sv",
-                            "math/matrix_mul_and_euler_update.sv", "neuron/single_neuron.sv",
-                            "neuron/synaptic_triangular_generator.sv", "neuron/synaptic_pulse_generator.sv",
-                            "neuron/neuron_with_pulse_generator.sv", "network/synapse.sv", "network/three_neurons_1D.sv")
-            sources = [str(ROOT / "hdl" / name) for name in source_names]
-            sources.append(str(HERE.parent / "tb_three_neurons_1D.sv"))
-            run([tools["xvlog"], "-sv", "--relax", *sources], directory)
-            run([tools["xelab"], "tb_three_neurons_1D", "-s", "tb_three_neurons_1D_sim"], directory)
-            run([tools["xsim"], "tb_three_neurons_1D_sim", "-runall"], directory)
+            print("C trace:", reference)
+            return 0
         if not reference.is_file() or not hdl.is_file():
             raise FileNotFoundError("Both c_trace.csv and hdl_trace.csv are required")
         passed = compare(reference, hdl)

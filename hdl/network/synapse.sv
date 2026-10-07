@@ -29,10 +29,10 @@ module synapse #(
     localparam int PIPELINE_STAGES = 2;
     pipeline_t pipe [0:PIPELINE_STAGES-1];
 
-    fixed_t excitatory_pulse_reg [5:0];
-    fixed_t inhibitory_pulse_reg [5:0];
+    fixed_t excitatory_pulse_reg [2:0];
+    fixed_t inhibitory_pulse_reg [2:0];
 
-    logic base_two_exponential_pipe_valid_out;
+    logic [2:0] exponential_valid;
     fixed_t inhibitory_scale_neg;
 
     fixed_t excitatory_scale;
@@ -49,10 +49,9 @@ module synapse #(
     base_two_exponential_pipe_linear base_two_exponential_linear_i(
         .clk(clk),
         .rst(rst),
-        .exponent(rx_vmem + SYNAPSE_INHIBITORY_VMEM_OFFSET_Q24),
-        .valid_in(valid_in),
 
-        .valid_out(base_two_exponential_pipe_valid_out),
+        .exponent(rx_vmem + SYNAPSE_INHIBITORY_VMEM_OFFSET_Q24),
+        
         .result(inhibitory_scale_neg)
     );
 
@@ -70,21 +69,25 @@ module synapse #(
         inhibitory_current_contribution_reg <= '0;
         excitatory_pulse_reg <= '{default:'0};
         inhibitory_pulse_reg <= '{default:'0};
+        exponential_valid <= '0;
         valid_out <= '0;
 
         end else begin
             excitatory_pulse_reg[0] <= excitatory_pulse;
             inhibitory_pulse_reg[0] <= inhibitory_pulse;
 
-            for (int i = 0; i < 5; i ++) begin
+            exponential_valid[0] <= valid_in;
+
+            for (int i = 0; i < 2; i++) begin
                 excitatory_pulse_reg[i+1] <= excitatory_pulse_reg[i];
                 inhibitory_pulse_reg[i+1] <= inhibitory_pulse_reg[i];
+                exponential_valid[i+1] <= exponential_valid[i];
             end 
 
             // ------------------------------STAGE 0-----------------------------
-            pipe[0].valid <= base_two_exponential_pipe_valid_out;
-            pipe[0].excitatory_pulse_d <= excitatory_pulse_reg[5];
-            pipe[0].inhibitory_pulse_d <= inhibitory_pulse_reg[5];
+            pipe[0].valid <= exponential_valid[2];
+            pipe[0].excitatory_pulse_d <= excitatory_pulse_reg[2];
+            pipe[0].inhibitory_pulse_d <= inhibitory_pulse_reg[2];
 
             excitatory_scale <= SYNAPSE_EXCITATORY_SCALE_Q8;
             inhibitory_scale <= -inhibitory_scale_neg;
@@ -107,4 +110,4 @@ module synapse #(
         end 
 
     end 
-endmodule 
+endmodule
