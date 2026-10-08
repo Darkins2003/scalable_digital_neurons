@@ -7,11 +7,11 @@ module base_two_exponential_pipe_linear (
     input logic rst,
     input fixed_t exponent,
     input logic valid_in,
-    input logic [2:0] id_in,
+    input logic [2:0] independent_id_in,
 
     output fixed_t result,
     output logic valid_out,
-    output logic [2:0] id_out
+    output logic [2:0] independent_id_out
 );
 
     import neuron_params_generated_pkg::*;
@@ -24,7 +24,7 @@ module base_two_exponential_pipe_linear (
     fixed_t two_to_pwr_int_exponent;
 
     logic [1:0] valid_pipeline;
-    logic [2:0] id_pipe [0:1];
+    logic [2:0] independent_id_pipe [0:1];
 
     always_ff @(posedge clk) begin
         if (rst) begin
@@ -34,9 +34,9 @@ module base_two_exponential_pipe_linear (
             two_to_pwr_int_exponent <= '0;
 
             valid_pipeline <= '0;
-            id_pipe <= '{default:'0};
+            independent_id_pipe <= '{default:'0};
             valid_out <= '0;
-            id_out <= '0;
+            independent_id_out <= '0;
 
             result <= 0;
         end else begin
@@ -46,7 +46,7 @@ module base_two_exponential_pipe_linear (
             int_exponent  <= exponent[VALUE_WIDTH-1:STATE_FRAC_BITS];
 
             valid_pipeline[0] <= valid_in;
-            id_pipe[0] <= id_in;
+            independent_id_pipe[0] <= independent_id_in;
 
             // ------------------------------STAGE 1------------------------------
             // Drive the pipeline
@@ -65,13 +65,13 @@ module base_two_exponential_pipe_linear (
             frac_exponent_plus_one <= frac_exponent + ONE_Q24;
 
             valid_pipeline[1] <= valid_pipeline[0];
-            id_pipe[1] <= id_pipe[0];
+            independent_id_pipe[1] <= independent_id_pipe[0];
 
             // ------------------------------STAGE 2------------------------------
             // Drive the pipeline
             result <= mul_24_8_8(frac_exponent_plus_one, two_to_pwr_int_exponent);
             valid_out <= valid_pipeline[1];
-            id_out <= id_pipe[1];
+            independent_id_out <= independent_id_pipe[1];
             
         end 
     end

@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory = $true, Position = 0)]
-    [ValidateSet('base_two_exp', 'single_neuron', 'three_neurons_1D')]
+    [ValidateSet('base_two_exp', 'single_neuron', 'three_neurons_1D', 'compute_current_vector')]
     [string]$Mut,
 
     [string]$VivadoBin = 'C:/AMDDesignTools/2026.1/Vivado/bin'

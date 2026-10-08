@@ -5,7 +5,9 @@ param(
     [Parameter(Position = 1)]
     [string]$Testcase,
 
-    [string]$VivadoBin = 'C:/AMDDesignTools/2026.1/Vivado/bin'
+    [string]$VivadoBin = 'C:/AMDDesignTools/2026.1/Vivado/bin',
+
+    [string[]]$PlusArgs = @()
 )
 
 $ErrorActionPreference = 'Stop'
@@ -22,7 +24,7 @@ if ($Testcase) {
     $Mut = Split-Path -Leaf (Split-Path -Parent $caseDirectory)
     $Testcase = [IO.Path]::GetFileNameWithoutExtension($casePath)
 }
-if ($Mut -notin @('base_two_exp', 'single_neuron', 'three_neurons_1D')) {
+if ($Mut -notin @('base_two_exp', 'single_neuron', 'three_neurons_1D', 'compute_current_vector')) {
     throw "Unknown MUT: $Mut"
 }
 $mutDir = Join-Path $PSScriptRoot "mut/$Mut"
@@ -42,6 +44,13 @@ $commonSources = @(
 switch ($Mut) {
     'base_two_exp' {
         $sourceNames = $commonSources + @('sim/mut/base_two_exp/tb_base_two_exp.sv')
+    }
+    'compute_current_vector' {
+        $sourceNames = $commonSources + @(
+            'hdl/math/compute_current_vector.sv',
+            'sim/mut/compute_current_vector/reference/compute_current_vector_reference.sv',
+            'sim/mut/compute_current_vector/tb_compute_current_vector.sv'
+        )
     }
     'single_neuron' {
         $sourceNames = $commonSources + @(
@@ -104,7 +113,14 @@ try {
     & (Join-Path $VivadoBin 'xelab.bat') $top -s $snapshot
     if ($LASTEXITCODE -ne 0) { throw 'xelab failed' }
 
-    $simOutput = & (Join-Path $VivadoBin 'xsim.bat') $snapshot -runall -testplusarg $Testcase 2>&1
+    $simulationArguments = @($snapshot, '-runall', '-testplusarg', $Testcase)
+    foreach ($argument in $PlusArgs) {
+        if ($argument -notmatch '^[A-Za-z0-9_]+(?:=-?[0-9]+)?$') {
+            throw "Invalid simulation plusarg: $argument"
+        }
+        $simulationArguments += @('-testplusarg', ('"' + $argument + '"'))
+    }
+    $simOutput = & (Join-Path $VivadoBin 'xsim.bat') @simulationArguments 2>&1
     $simExitCode = $LASTEXITCODE
     $simOutput | Write-Output
     if ($simExitCode -ne 0 -or ($simOutput -join "`n") -notmatch [regex]::Escape("PASS: $Testcase")) {

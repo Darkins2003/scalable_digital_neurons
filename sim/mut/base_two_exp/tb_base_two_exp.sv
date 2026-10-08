@@ -8,7 +8,6 @@ module tb_base_two_exp;
     fixed_t exponent;
     logic valid_in;
     logic valid_out;
-    logic [5:0] valid_pipeline;
     fixed_t result;
 
     real interpreted_result;
@@ -27,21 +26,12 @@ module tb_base_two_exp;
         .rst(rst),
 
         .exponent(exponent),
-        .result(result)
+        .valid_in(valid_in),
+        .independent_id_in(1'b0),
+        .result(result),
+        .valid_out(valid_out),
+        .independent_id_out()
     );
-
-    assign valid_out = valid_pipeline[5];
-
-    always_ff @(posedge clk) begin
-        if (rst) begin
-            valid_pipeline <= '0;
-        end else begin
-            valid_pipeline[0] <= valid_in;
-            for (int delay_index = 0; delay_index < 5; delay_index++) begin
-                valid_pipeline[delay_index+1] <= valid_pipeline[delay_index];
-            end
-        end
-    end
 
     initial begin
         clk = 1'b0;
@@ -53,8 +43,9 @@ module tb_base_two_exp;
     `include "tc_001_basic_exponents.svh"
 
     initial begin
-        if (!$test$plusargs("tc_001_basic_exponents"))
+        if (!$test$plusargs("tc_001_basic_exponents")) begin
             $fatal(1, "Select a base-two testcase with -testplusarg");
+        end
         run_tc_001_basic_exponents();
         $display("PASS: tc_001_basic_exponents");
         $finish;

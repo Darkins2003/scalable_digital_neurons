@@ -7,8 +7,10 @@ module matrix_mul_and_euler_update(
     input logic rst,
 
     input logic valid_in,
+    input logic [1:0] id_in,
     input fixed_t current_vector [0:7],
 
+    output logic [1:0] id_out,
     output logic valid_out,
     output fixed_t mul_dy_dt_dt [0:3]
 );
@@ -21,6 +23,8 @@ module matrix_mul_and_euler_update(
 
     fixed_t dy_dt [0:3];
 
+    logic [1:0] id [0:3];
+
     always_ff @(posedge clk) begin
         if (rst) begin
             products <= '{default:'0};
@@ -29,11 +33,14 @@ module matrix_mul_and_euler_update(
             dy_dt <= '{default:'0};
             mul_dy_dt_dt <= '{default:'0};
             valid <= '{default:'0};
+            id <= '{default:'0};
+            id_out <= '0;
             valid_out <= '0;
 
         end else begin
             // ------------------------------STAGE 0-----------------------------
             valid[0] <= valid_in;
+            id[0] <= id_in;
 
             for (int i = 0; i < 4; i++) begin
                 for (int j = 0; j < 8; j++) begin
@@ -43,6 +50,7 @@ module matrix_mul_and_euler_update(
 
             // ------------------------------STAGE 1-----------------------------
             valid[1] <= valid[0];
+            id[1] <= id[0];
 
             for (int i = 0; i < 4; i++) begin
                 for (int j = 0; j < 4; j++) begin
@@ -52,6 +60,7 @@ module matrix_mul_and_euler_update(
 
             // ------------------------------STAGE 2-----------------------------
             valid[2] <= valid[1];
+            id[2] <= id[1];
 
             for (int i = 0; i < 4; i++) begin
                 for (int j = 0; j < 2; j++) begin
@@ -61,6 +70,7 @@ module matrix_mul_and_euler_update(
 
             // ------------------------------STAGE 3-----------------------------
             valid[3] <= valid[2];
+            id[3] <= id[2];
 
             for (int i = 0; i < 4; i++) begin
                 dy_dt[i] <= layer_two_sums[i][0] + layer_two_sums[i][1];
@@ -68,6 +78,7 @@ module matrix_mul_and_euler_update(
 
             // ------------------------------STAGE 4 (Euler update)-----------------------------
             valid_out <= valid[3];
+            id_out <= id[3];
 
             for (int i = 0; i < 4; i++) begin
                 mul_dy_dt_dt[i] <= mul_24_8_24(DT, dy_dt[i]);

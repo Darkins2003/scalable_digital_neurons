@@ -7,7 +7,7 @@
 #define long int64_t
 #endif
 #define main original_synfire_main
-#include "../../../../../EfficientAnalogNeuron-SNNsims/C_fixedpoint/1D_Synfire/Synfire_1D_3neur_fixed.c"
+#include "../../../../../../EfficientAnalogNeuron-SNNsims/C_fixedpoint/1D_Synfire/Synfire_1D_3neur_fixed.c"
 #undef main
 
 int main(int argc, char **argv) {

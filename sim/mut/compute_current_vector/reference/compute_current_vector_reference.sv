@@ -1,33 +1,20 @@
+// Original scalar implementation retained only as a simulation reference.
 import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module compute_current_vector(
+module compute_current_vector_reference(
     input logic clk,
     input logic rst,
 
     input logic valid_in,
-    input logic [1:0] id_in,
     input fixed_t current_in,
     input fixed_t neuron_state_variables [0:3],
 
-    output logic ready,
-    output logic [1:0] id_out,
     output logic valid_out,
     output fixed_t current_vector [0:7] 
 );
-    // STAGE 1 PIPE
-    typedef struct packed {
-        fixed_t current_input;
-        fixed_t [0:3] neuron_state_reg;
-        logic valid;
-        logic [1:0] id;
-    } phase_1_pipeline_t;
 
-    localparam int PHASE_1_PIPELINE_STAGES = 12;
-    phase_1_pipeline_t phase_1_pipe [0:PHASE_1_PIPELINE_STAGES-1];
-
-    // STAGE 2 PIPE
     typedef struct packed {
         fixed_t current_vector_1_data;
         fixed_t current_vector_2_data;
@@ -38,11 +25,17 @@ module compute_current_vector(
         fixed_t current_vector_7_data;
         fixed_t phase_2_current_in_d;
         logic valid;
-        logic [1:0] id;
     } phase_2_pipeline_t;
 
     localparam int PHASE_2_PIPELINE_STAGES = 2;
     phase_2_pipeline_t phase_2_pipe [0:PHASE_2_PIPELINE_STAGES-1];
+
+    typedef struct packed {
+        fixed_t current_input;
+    } phase_1_pipeline_t;
+
+    localparam int PHASE_1_PIPELINE_STAGES = 13;
+    phase_1_pipeline_t phase_1_pipe [0:PHASE_1_PIPELINE_STAGES-1];
 
     // Exponential results
     fixed_t result_base_two_exponential_cubic_vmem;
@@ -60,6 +53,10 @@ module compute_current_vector(
     fixed_t result_base_two_exponential_kp_vk_plus_vmem_d1;
     fixed_t result_base_two_exponential_kp_vna_d1;
     fixed_t result_base_two_exponential_kp_vna_d2;
+
+    // Phase 1
+    logic [1:0] phase_1_valid_in_d;
+    fixed_t neuron_state_snapshot [0:3];
 
     // Phase 1 linear exponential
     fixed_t linear_exponent;
@@ -81,10 +78,6 @@ module compute_current_vector(
     fixed_t mul_kp_vk;
     fixed_t cubic_result_base_two_exponential;
     logic cubic_exponent_done;
-
-    logic ready_reg = '1;
-
-    assign ready = ready_reg;
 
     base_two_exponential_pipe_linear base_two_exponential_linear_vg(
         .clk(clk),
@@ -123,9 +116,10 @@ module compute_current_vector(
             end
 
             current_vector <= '{default:'0};
-            ready_reg <= '1;
-            id_out <= '0;
             valid_out <= '0;
+
+            phase_1_valid_in_d <= '0;
+            neuron_state_snapshot <= '{default:'0};
 
             linear_exponent <= '0;
             linear_exponent_valid <= '0;
@@ -155,19 +149,8 @@ module compute_current_vector(
             result_base_two_exponential_kp_vna_d2 <= '0;
         end else begin
             // ------------------------------PHASE 1 DRIVE AND SELECT-----------------------------
-            // Drive the pipeline for neuron states
-            for (int i = 0; i < 6; i++) begin
-                phase_1_pipe[i+1].neuron_state_reg <= phase_1_pipe[i].neuron_state_reg;
-            end 
-            
-            // Drive the pipeline for current
             for (int i = 1; i < PHASE_1_PIPELINE_STAGES; i++) begin
                 phase_1_pipe[i].current_input <= phase_1_pipe[i-1].current_input;
-            end
-
-            // Drive the pipeline for id
-            for (int i = 1; i < PHASE_1_PIPELINE_STAGES; i++) begin
-                phase_1_pipe[i].id <= phase_1_pipe[i-1].id;
             end
 
             // Drive the linear_exponent_valid pipeline
@@ -179,31 +162,31 @@ module compute_current_vector(
             cubic_exponent_valid[1] <= cubic_exponent_valid[0];
 
             // Select linear_exponent from the captured neuron state
-            if (valid_in || (|linear_exponent_valid && linear_exponent_independent_id_in != 3'd7)) begin
+            if (phase_1_valid_in_d[0] || (|linear_exponent_valid && linear_exponent_independent_id_in != 3'd7)) begin
                 case (next_linear_exponent_independent_id_in)
                     3'd0: begin
-                        linear_exponent_tmp = neuron_state_variables[0]; // Occurs on first clk cycle so use neuron_state_variables
+                        linear_exponent_tmp = neuron_state_snapshot[0];
                     end
                     3'd1: begin
-                        linear_exponent_tmp = phase_1_pipe[0].neuron_state_reg[3];
+                        linear_exponent_tmp = neuron_state_snapshot[3];
                     end
                     3'd2: begin
-                        linear_exponent_tmp = phase_1_pipe[1].neuron_state_reg[2];
+                        linear_exponent_tmp = neuron_state_snapshot[2];
                     end
                     3'd3: begin
-                        linear_exponent_tmp = -phase_1_pipe[2].neuron_state_reg[3] - VNA_OFFSET_Q24;
+                        linear_exponent_tmp = -neuron_state_snapshot[3] - VNA_OFFSET_Q24;
                     end
                     3'd4: begin
-                        linear_exponent_tmp = phase_1_pipe[3].neuron_state_reg[1];
+                        linear_exponent_tmp = neuron_state_snapshot[1];
                     end
                     3'd5: begin
-                        linear_exponent_tmp = phase_1_pipe[4].neuron_state_reg[1];
+                        linear_exponent_tmp = neuron_state_snapshot[1];
                     end
                     3'd6: begin
-                        linear_exponent_tmp = phase_1_pipe[5].neuron_state_reg[3];
+                        linear_exponent_tmp = neuron_state_snapshot[3];
                     end
                     3'd7: begin
-                        linear_exponent_tmp = phase_1_pipe[6].neuron_state_reg[2];
+                        linear_exponent_tmp = neuron_state_snapshot[2];
                     end
                 endcase
 
@@ -215,7 +198,7 @@ module compute_current_vector(
             end
 
             // Assign linear_exponent_independent_id_in and next_linear_exponent_independent_id_in
-            if (valid_in) begin
+            if (phase_1_valid_in_d[0]) begin
                 linear_exponent_independent_id_in <= 3'd0;
                 next_linear_exponent_independent_id_in <= 3'd1;
             end else if (|linear_exponent_valid && linear_exponent_independent_id_in != 3'd7) begin
@@ -224,44 +207,36 @@ module compute_current_vector(
             end  
 
             // Select cubic_exponent and cubic_exponent_independent_id_in
-            if (valid_in) begin
-                cubic_exponent <= neuron_state_variables[0];
+            if (phase_1_valid_in_d[1]) begin
+                cubic_exponent <= neuron_state_snapshot[0];
                 cubic_exponent_independent_id_in <= '0;
             end else if (cubic_exponent_valid[0]) begin
-                cubic_exponent <= mul_kp_vk + phase_1_pipe[0].neuron_state_reg[0];
+                cubic_exponent <= mul_kp_vk + neuron_state_snapshot[0];
                 cubic_exponent_independent_id_in <= '1;
             end
 
-            // linear exponent pipeline is the bottleneck
-            if (next_linear_exponent_independent_id_in == 3'd7) begin
-                ready_reg <= '1;
-            end 
-
             // ------------------------------PHASE 1 STAGE 0-----------------------------
-            phase_1_pipe[0].valid <= valid_in;
+            phase_1_valid_in_d[0] <= valid_in;
             phase_1_pipe[0].current_input <= current_in;
-            phase_1_pipe[0].id <= id_in;
 
             if (valid_in) begin
-                ready_reg <= '0;
+                neuron_state_snapshot <= neuron_state_variables;
             end 
 
-            for (int i = 0; i < 4; i++) begin
-                phase_1_pipe[0].neuron_state_reg[i] <= neuron_state_variables[i];
-            end
+            // ------------------------------PHASE 1 STAGE 1-----------------------------
+            phase_1_valid_in_d[1] <= phase_1_valid_in_d[0];
+
+            mul_kp_vk <= mul_24_24_24(KP, neuron_state_snapshot[1]);
 
             // Feed the linear_exponent_valid pipeline
-            linear_exponent_valid[0] <= valid_in;
+            linear_exponent_valid[0] <= phase_1_valid_in_d[0];
 
+            // ------------------------------PHASE 1 STAGE 2-----------------------------
             // Feed the cubic_exponent_valid pipeline
-            cubic_exponent_valid[0] <= valid_in;
-
-            mul_kp_vk <= mul_24_24_24(KP, neuron_state_variables[1]);
-
-            // ------------------------------PHASE 1 STAGE 1-----------------------------
-            phase_1_pipe[1].valid <= phase_1_pipe[0].valid;
+            cubic_exponent_valid[0] <= phase_1_valid_in_d[1];
 
             // ------------------------------PHASE 1 RESULTS-----------------------------
+
             if (linear_exponent_valid_out) begin
                 case (linear_exponent_independent_id_out)
                     3'd0: begin
@@ -320,8 +295,6 @@ module compute_current_vector(
                 phase_2_pipe[0].valid <= '0;
             end 
 
-            phase_2_pipe[0].id <= phase_1_pipe[PHASE_1_PIPELINE_STAGES-1].id;
-
             // current_vector[0]
             phase_2_pipe[0].phase_2_current_in_d <= phase_1_pipe[PHASE_1_PIPELINE_STAGES-1].current_input;
 
@@ -349,7 +322,6 @@ module compute_current_vector(
             phase_2_pipe[0].current_vector_7_data <= result_base_two_exponential_vg - result_base_two_exponential_vna;
             // ------------------------------PHASE 2 STAGE 1-----------------------------
             phase_2_pipe[1].valid <= phase_2_pipe[0].valid;
-            phase_2_pipe[1].id <= phase_2_pipe[0].id;
 
             // current_vector[0]
             phase_2_pipe[1].phase_2_current_in_d <= phase_2_pipe[0].phase_2_current_in_d;
@@ -378,7 +350,6 @@ module compute_current_vector(
 
             // ------------------------------PHASE 2 OUTPUT-----------------------------
             valid_out <= phase_2_pipe[1].valid;
-            id_out <= phase_2_pipe[1].id;
 
             // current_vector[0]
             current_vector[0] <= phase_2_pipe[1].phase_2_current_in_d;

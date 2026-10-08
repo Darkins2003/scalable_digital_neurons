@@ -8,26 +8,54 @@ module tb_three_neurons_1D;
     logic rst = 1;
     logic ctrl_start = 0;
     fixed_t current_in = 0;
-    integer stimulus_file_handle, trace_file_handle, items_read, total_steps, elapsed_cycles = 0;
+    integer stimulus_file_handle, trace_file_handle, items_read;
+    integer total_steps = 0;
+    integer elapsed_cycles = 0;
+    logic network_step_valid;
+    logic [2:0] completed_synapse_ids = '0;
+    logic startup_observed = 1'b0;
+    logic previous_step_valid = 1'b0;
 
 
     three_neurons_1D dut (
         .clk(clk), .rst(rst),
         .ctrl_start(ctrl_start),
         .current_in(current_in),
-        .step_valid(),
+        .step_valid(network_step_valid),
         .vmem_0(), .vmem_1(), .vmem_2()
     );
 
-    always @(posedge clk) begin
-        if (!rst) begin
-            elapsed_cycles <= elapsed_cycles + 1;
-            if (elapsed_cycles > (total_steps + 1) * 100)
-                $fatal(1, "Timed out waiting for network step completion");
+    always @(negedge clk) begin
+        if (rst) begin
+            elapsed_cycles = 0;
+            completed_synapse_ids = '0;
+            startup_observed = 1'b0;
+            previous_step_valid = 1'b0;
+        end else if (dut.running) begin
+            elapsed_cycles++;
+            if (elapsed_cycles > 512) begin
+                $fatal(1, "Network made no progress for 512 clocks");
+            end
+            if (dut.synapse_valid_out) begin
+                if ($isunknown(dut.id_out) || dut.id_out > 2 || completed_synapse_ids[dut.id_out]) begin
+                    $fatal(1, "Invalid or duplicate synapse result ID %0d", dut.id_out);
+                end
+                completed_synapse_ids[dut.id_out] = 1'b1;
+            end
+            if ((!startup_observed && dut.startup_complete) || network_step_valid) begin
+                if (completed_synapse_ids !== 3'b111) begin
+                    $fatal(1, "Network completed without results for all three synapses");
+                end
+                completed_synapse_ids = '0;
+                elapsed_cycles = 0;
+            end
+            if (network_step_valid && previous_step_valid) begin
+                $fatal(1, "step_valid lasted more than one clock");
+            end
+            startup_observed = dut.startup_complete;
+            previous_step_valid = network_step_valid;
         end
     end
-
-
 
     logic rst_n = 1'b0;
     logic [4:0] awaddr = '0;
@@ -76,9 +104,6 @@ module tb_three_neurons_1D;
         .s00_axi_rvalid(rvalid), .s00_axi_rready(rready)
     );
 
-    // Reference network sees the intended current, rather than the AXI register
-    // output. Matching snapshots demonstrate that the register reaches all
-    // three neurons through the existing 1D network RTL.
     three_neurons_1D reference_network (
         .clk(clk), .rst(!rst_n),
         .ctrl_start(axil_dut.ctrl_start),
@@ -91,7 +116,9 @@ module tb_three_neurons_1D;
         if (!rst_n) begin
             ref_count <= 0;
         end else if (ref_step_valid) begin
-            if (ref_count >= 63) $fatal(1, "Reference history overflow");
+            if (ref_count >= 63) begin
+                $fatal(1, "Reference history overflow");
+            end
             ref_history_0[ref_count+1] <= ref_vmem_0;
             ref_history_1[ref_count+1] <= ref_vmem_1;
             ref_history_2[ref_count+1] <= ref_vmem_2;
@@ -99,14 +126,15 @@ module tb_three_neurons_1D;
         end
     end
 
-    // Check the START pulse at the network input pin.
     always @(posedge clk) begin
         if (!rst_n) begin
             start_pulse_count <= 0;
             start_previous <= 1'b0;
         end else begin
             if (axil_dut.network.ctrl_start) begin
-                if (start_previous) $fatal(1, "ctrl_start lasted more than one clock");
+                if (start_previous) begin
+                    $fatal(1, "ctrl_start lasted more than one clock");
+                end
                 start_pulse_count <= start_pulse_count + 1;
             end
             start_previous <= axil_dut.network.ctrl_start;
