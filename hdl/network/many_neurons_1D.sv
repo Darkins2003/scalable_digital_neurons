@@ -18,10 +18,12 @@ module many_neurons_1D (
     pipeline_t pipe [0:PIPELINE_STAGES-1];
 
     logic neuron_with_pulse_generator_valid_out[0:2];
+    logic [1:0] neuron_with_pulse_generator_id_out [0:2];
     fixed_t excitatory_pulse [0:2];
     fixed_t inhibitory_pulse [0:2];
 
     logic [2:0] synapse_valid_out;
+    logic [1:0] synapse_id_out [0:2];
 
     fixed_t vmem_out [2:0];
 
@@ -45,9 +47,11 @@ module many_neurons_1D (
 
         .current_in(current_in_neuron[0] + current_in),
         .valid_in(valid_in),
+        .id_in(2'd0),
         .start(start),
 
         .valid_out(neuron_with_pulse_generator_valid_out[0]),
+        .id_out(neuron_with_pulse_generator_id_out[0]),
         .vmem_out(vmem_out[0]),
         .excitatory_pulse(excitatory_pulse[0]),
         .inhibitory_pulse(inhibitory_pulse[0])
@@ -61,13 +65,15 @@ module many_neurons_1D (
         .rst(rst),
 
         .valid_in(neuron_with_pulse_generator_valid_out[0]),
+        .id_in(neuron_with_pulse_generator_id_out[0]),
         .rx_vmem(vmem_out[1]),
         .excitatory_pulse(excitatory_pulse[0]),
         .inhibitory_pulse(inhibitory_pulse[0]),
 
         .excitatory_current_contribution(excitatory_current_contribution[0]),
         .inhibitory_current_contribution(inhibitory_current_contribution[0]),
-        .valid_out(synapse_valid_out[0])
+        .valid_out(synapse_valid_out[0]),
+        .id_out(synapse_id_out[0])
     );
 
     neuron_with_pulse_generator neuron_with_pulse_generator_1 (
@@ -76,9 +82,11 @@ module many_neurons_1D (
 
         .current_in(current_in_neuron[1]),
         .valid_in(valid_in),
+        .id_in(2'd1),
         .start(start),
 
         .valid_out(neuron_with_pulse_generator_valid_out[1]),
+        .id_out(neuron_with_pulse_generator_id_out[1]),
         .vmem_out(vmem_out[1]),
         .excitatory_pulse(excitatory_pulse[1]),
         .inhibitory_pulse(inhibitory_pulse[1])
@@ -92,13 +100,15 @@ module many_neurons_1D (
         .rst(rst),
 
         .valid_in(neuron_with_pulse_generator_valid_out[1]),
+        .id_in(neuron_with_pulse_generator_id_out[1]),
         .rx_vmem(vmem_out[2]),
         .excitatory_pulse(excitatory_pulse[1]),
         .inhibitory_pulse(inhibitory_pulse[1]),
 
         .excitatory_current_contribution(excitatory_current_contribution[1]),
         .inhibitory_current_contribution(inhibitory_current_contribution[1]),
-        .valid_out(synapse_valid_out[1])
+        .valid_out(synapse_valid_out[1]),
+        .id_out(synapse_id_out[1])
     );
 
     neuron_with_pulse_generator neuron_with_pulse_generator_2 (
@@ -107,9 +117,11 @@ module many_neurons_1D (
 
         .current_in(current_in_neuron[2]),
         .valid_in(valid_in),
+        .id_in(2'd2),
         .start(start),
 
         .valid_out(neuron_with_pulse_generator_valid_out[2]),
+        .id_out(neuron_with_pulse_generator_id_out[2]),
         .vmem_out(vmem_out[2]),
         .excitatory_pulse(excitatory_pulse[2]),
         .inhibitory_pulse(inhibitory_pulse[2])
@@ -123,13 +135,15 @@ module many_neurons_1D (
         .rst(rst),
 
         .valid_in(neuron_with_pulse_generator_valid_out[2]),
+        .id_in(neuron_with_pulse_generator_id_out[2]),
         .rx_vmem(vmem_out[0]),
         .excitatory_pulse(excitatory_pulse[2]),
         .inhibitory_pulse(inhibitory_pulse[2]),
 
         .excitatory_current_contribution(excitatory_current_contribution[2]),
         .inhibitory_current_contribution(inhibitory_current_contribution[2]),
-        .valid_out(synapse_valid_out[2])
+        .valid_out(synapse_valid_out[2]),
+        .id_out(synapse_id_out[2])
     );
 
     always @(posedge clk) begin

@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="72" Path="C:/Users/Decla/Desktop/Year 4 project/scalable_digital_neurons/build/build.xpr">
+<Project Product="Vivado" Version="7" Minor="72" Path="C:/Users/Decla/Desktop/Year 4 project/ip/scalable_digital_neurons/build/build.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="db3dbe37f2df4a2582cb6cf8b4bf9910"/>

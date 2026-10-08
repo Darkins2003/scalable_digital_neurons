@@ -7,11 +7,11 @@ module base_two_exponential_pipe_cubic (
     input logic rst,
     input fixed_t exponent,
     input logic valid_in,
-    input logic id_in,
+    input logic independent_id_in,
 
     output fixed_t result,
     output logic valid_out,
-    output logic id_out
+    output logic independent_id_out
 );
 
     import neuron_params_generated_pkg::*;
@@ -20,7 +20,7 @@ module base_two_exponential_pipe_cubic (
 
     typedef struct packed {
         logic valid;
-        logic id;
+        logic [1:0] independent_id;
         fixed_t frac_exponent;
         logic signed [VALUE_WIDTH-STATE_FRAC_BITS-1:0] int_exponent;
         fixed_t two_to_pwr_int_exponent;
@@ -49,7 +49,7 @@ module base_two_exponential_pipe_cubic (
             mult_term <= 0; 
             result <= 0; 
             valid_out <= '0;
-            id_out <= '0;
+            independent_id_out <= '0;
 
         end else begin
             // ------------------------------STAGE 0------------------------------
@@ -58,14 +58,14 @@ module base_two_exponential_pipe_cubic (
             pipe[0].int_exponent  <= exponent[VALUE_WIDTH-1:STATE_FRAC_BITS];
 
             pipe[0].valid <= valid_in;
-            pipe[0].id <= id_in;
+            pipe[0].independent_id <= independent_id_in;
 
             // ------------------------------STAGE 1------------------------------
             // Drive the pipeline
             pipe[1].frac_exponent <= pipe[0].frac_exponent;
 
             pipe[1].valid <= pipe[0].valid;
-            pipe[1].id <= pipe[0].id;
+            pipe[1].independent_id <= pipe[0].independent_id;
 
             // 2 ^ N(int)
             if (pipe[0].int_exponent < -8'sd6) begin
@@ -88,7 +88,7 @@ module base_two_exponential_pipe_cubic (
             pipe[2].frac_exponent_plus_one <= pipe[1].frac_exponent_plus_one;
 
             pipe[2].valid <= pipe[1].valid;
-            pipe[2].id <= pipe[1].id;
+            pipe[2].independent_id <= pipe[1].independent_id;
 
             frac_exponent_squared_minus_frac_exponent_div_four <= (frac_exponent_squared - pipe[1].frac_exponent) >>> 2;
 
@@ -98,7 +98,7 @@ module base_two_exponential_pipe_cubic (
             pipe[3].frac_exponent_plus_one <= pipe[2].frac_exponent_plus_one;
 
             pipe[3].valid <= pipe[2].valid;
-            pipe[3].id <= pipe[2].id;
+            pipe[3].independent_id <= pipe[2].independent_id;
 
             frac_exponent_squared_minus_frac_exponent_div_four_plus_one <= frac_exponent_squared_minus_frac_exponent_div_four + ONE_Q24;
 
@@ -109,14 +109,14 @@ module base_two_exponential_pipe_cubic (
             mult_term <= mul_24_8_8(pipe[3].frac_exponent_plus_one, pipe[3].two_to_pwr_int_exponent);
 
             pipe[4].valid <= pipe[3].valid;
-            pipe[4].id <= pipe[3].id;
+            pipe[4].independent_id <= pipe[3].independent_id;
 
             // ------------------------------STAGE 5------------------------------
             // Drive the pipeline
 
             result <= mul_24_8_8(mult_term, frac_exponent_squared_minus_frac_exponent_div_four_plus_one_d1);
             valid_out <= pipe[4].valid;
-            id_out <= pipe[4].id;
+            independent_id_out <= pipe[4].independent_id;
         end 
     end
 

@@ -11,7 +11,7 @@ reference. The longer, configurable regression below remains available.
 
 These scripts validate the single-neuron RTL against the fixed-point C reference. Run commands below from the `scalable_digital_neurons` project root.
 
-`sim/mut/single_neuron/scripts/validate_single_neuron.py` creates a step-indexed input file, compiles `single_neuron_reference.c`, runs the testbench with Vivado's `xvlog`, `xelab`, and `xsim`, and compares the four updated state integers after every `valid_out` completion. The testbench pulses `valid_in` once per step and checks `vmem_out_previous` against the prior step. GCC must be on `PATH`. The script searches for Vivado tools on `PATH` and in common Windows install locations. Pass `--vivado-bin` if Vivado is installed elsewhere.
+`sim/mut/single_neuron/scripts/validate_single_neuron.py` creates a step-indexed input file, compiles `single_neuron_reference.c`, runs the testbench with Vivado's `xvlog`, `xelab`, and `xsim`, and compares the four updated state integers after every `valid_out` completion. The testbench waits for `ready`, pulses `valid_in` once per step with ID 0, and checks `vmem_out_previous` against the prior step. It verifies reset values for all three stored neurons and checks that updating neuron 0 leaves neurons 1 and 2 unchanged. GCC must be on `PATH`. The script searches for Vivado tools on `PATH` and in common Windows install locations. Pass `--vivado-bin` if Vivado is installed elsewhere.
 
 Run the original C model's 100,000-step input pulse:
 
