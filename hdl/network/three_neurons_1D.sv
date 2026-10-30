@@ -14,10 +14,17 @@ module three_neurons_1D (
     output fixed_t vmem_1,
     output fixed_t vmem_2
 );
+    typedef struct packed {
+        logic valid;
+        logic [1:0] id;
+    } pipeline_t;
+
+    localparam int PIPELINE_STAGES = 3;
+    pipeline_t pipe [0:PIPELINE_STAGES-1];
+
     // Shared engine infrastructure
     logic [1:0] id_in = 2'd0;
     logic [1:0] id_out;
-    logic [1:0] id_out_d [0:1];
     logic [1:0] neuron_with_pulse_generator_id_out;
     logic [1:0] neuron_with_pulse_generator_1_id_out;
     logic [1:0] neuron_with_pulse_generator_2_id_out;
@@ -44,7 +51,6 @@ module three_neurons_1D (
     logic synapse_valid_in;
     logic [1:0] synapse_id_in;
     logic synapse_valid_out;
-    logic [2:0] synapse_valid_out_d;
 
     fixed_t vmem_out_reg [2:0] = '{default:INITIAL_STATE[0]};
     fixed_t vmem_out;
@@ -109,21 +115,23 @@ module three_neurons_1D (
         .id_out(id_out)
     );
 
-    always @(posedge clk) begin
+    always_ff @(posedge clk) begin
         if (rst) begin
+            for (int i = 0; i < PIPELINE_STAGES; i++) begin
+                pipe[i] <= '0;
+            end
+
             current_in_neuron <= '{default:'0};
             vmem_out_reg <= '{default:INITIAL_STATE[0]};
 
             id_in <= 2'd0;
             valid_in <= 1'b0;
-            synapse_valid_out_d <= 1'b0;
             cycle_count <= 2'd0;
 
             running <= '0;
             start_pulse <= '0;
             startup_complete <= 1'b0;
 
-            id_out_d <= '{default:2'd0};
             excitatory_current_contribution_reg <= '{default:'0};
             inhibitory_current_contribution_reg <= '{default:'0};
 
@@ -145,6 +153,7 @@ module three_neurons_1D (
             cycle_done_pulse <= '0;
 
         end else begin
+            // ------------------------------TOTAL STAGES = VARIABLE------------------------------
             // ------------------------------SEQUENCE-----------------------------
             // Leave one idle clock between inputs so each neuron's excitatory and inhibitory calculations have a 1 clk cycle gap in synaptic_pulse_generator
             if (ctrl_start && !running) begin
@@ -198,9 +207,15 @@ module three_neurons_1D (
 
                 // Check to see if the previous neuron's vmem has been caluclated next to see if we can move onto synapse calculations
                 case (neuron_with_pulse_generator_id_out)
-                    2'd0: neuron_ready[0] <= '1; // Latch high until new cycle starts
-                    2'd1: neuron_ready[1] <= '1; // Latch high until new cycle starts
-                    2'd2: neuron_ready[2] <= '1; // Latch high until new cycle starts
+                    2'd0: begin
+                        neuron_ready[0] <= '1; // Latch high until new cycle starts
+                    end
+                    2'd1: begin
+                        neuron_ready[1] <= '1; // Latch high until new cycle starts
+                    end
+                    2'd2: begin
+                        neuron_ready[2] <= '1; // Latch high until new cycle starts
+                    end
                 endcase
             end 
 
@@ -240,8 +255,8 @@ module three_neurons_1D (
             end 
 
             // ------------------------------POST SYNAPSE STAGE 0-----------------------------
-            synapse_valid_out_d[0] <= synapse_valid_out;
-            id_out_d[0] <= id_out;
+            pipe[0].valid <= synapse_valid_out;
+            pipe[0].id <= id_out;
 
             if (synapse_valid_out) begin
                 inhibitory_current_contribution_reg[id_out] <= inhibitory_current_contribution;
@@ -249,11 +264,11 @@ module three_neurons_1D (
             end 
 
             // ------------------------------POST SYNAPSE STAGE 1-----------------------------
-            synapse_valid_out_d[1] <= synapse_valid_out_d[0];
-            id_out_d[1] <= id_out_d[0];
+            pipe[1].valid <= pipe[0].valid;
+            pipe[1].id <= pipe[0].id;
 
-            if (synapse_valid_out_d[0]) begin
-                case (id_out_d[0])
+            if (pipe[0].valid) begin
+                case (pipe[0].id)
                     2'd0: begin
                         current_in_neuron[1] <= inhibitory_current_contribution_reg[0] + excitatory_current_contribution_reg[0];
                     end
@@ -267,15 +282,15 @@ module three_neurons_1D (
             end
 
             // ------------------------------POST SYNAPSE STAGE 2-----------------------------
-            synapse_valid_out_d[2] <= synapse_valid_out_d[1];
+            pipe[2].valid <= pipe[1].valid;
 
-            if (synapse_valid_out_d[1] && id_out_d[1] == 2'd2) begin
+            if (pipe[1].valid && pipe[1].id == 2'd2) begin
                 current_in_neuron[0] <= current_in_neuron[0] + current_in;
             end  
             // ------------------------------POST SYNAPSE STAGE 3-----------------------------
             cycle_done_pulse <= '0;
             
-            if (synapse_valid_out_d[2]) begin
+            if (pipe[2].valid) begin
                 if (cycle_count == 2'd2) begin
                     if (startup_complete) begin
                         cycle_done_pulse <= '1;

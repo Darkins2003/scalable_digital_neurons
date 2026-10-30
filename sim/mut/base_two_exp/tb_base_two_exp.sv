@@ -3,6 +3,7 @@
 import neuron_params_generated_pkg::*;
 
 module tb_base_two_exp;
+    // ------------------------------TOTAL STAGES = N/A------------------------------
     logic clk;
     logic rst;
     fixed_t exponent;

@@ -37,6 +37,7 @@ $commonSources = @(
     'hdl/packages/neuron_params_generated_pkg.sv',
     'hdl/packages/neuron_params_pkg.sv',
     'hdl/packages/fixed_point_package.sv',
+    'hdl/math/signed_32_32_multiplication.sv',
     'hdl/math/base_two_exponential_pipe_linear.sv',
     'hdl/math/base_two_exponential_pipe_cubic.sv'
 )
@@ -81,7 +82,15 @@ switch ($Mut) {
     }
 }
 
+$clockConverterTest = $Mut -eq 'three_neurons_1D' -and $Testcase -eq 'tc_006_clock_domain_crossing'
+if ($clockConverterTest) {
+    $sourceNames = @('build/build.gen/sources_1/bd/design_1/ip/design_1_axi_clock_converter_0_0/sim/design_1_axi_clock_converter_0_0.v') + $sourceNames
+}
+
 $sources = $sourceNames | ForEach-Object { Join-Path $repoRoot $_ }
+if ($clockConverterTest) {
+    $sources += Join-Path (Split-Path -Parent $VivadoBin) 'data/verilog/src/glbl.v'
+}
 $simDir = Join-Path $repoRoot "build/sim/$Mut/$Testcase"
 New-Item -ItemType Directory -Path $simDir -Force | Out-Null
 $top = "tb_$Mut"
@@ -105,12 +114,20 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'C reference compilation failed' }
     }
 
+    & (Join-Path $VivadoBin 'xvhdl.bat') (Join-Path $repoRoot 'build/build.gen/sources_1/ip/signed_multiplier/sim/signed_multiplier.vhd')
+    if ($LASTEXITCODE -ne 0) { throw 'Multiplier IP compilation failed' }
+
     & (Join-Path $VivadoBin 'xvlog.bat') -sv --relax `
         -i (Join-Path $repoRoot 'sim/common') `
         -i (Join-Path $mutDir 'testcases') @sources
     if ($LASTEXITCODE -ne 0) { throw 'xvlog failed' }
 
-    & (Join-Path $VivadoBin 'xelab.bat') $top -s $snapshot
+    $elaborationArguments = @('-L', 'mult_gen_v12_0_25', $top, '-s', $snapshot)
+    if ($clockConverterTest) {
+        $elaborationArguments += 'glbl'
+        $elaborationArguments = @('-L', 'axi_clock_converter_v2_1_36', '-L', 'axi_infrastructure_v1_1_0', '-L', 'xpm', '-generic_top', '"CLOCK_CONVERTER_ENABLED=1"') + $elaborationArguments
+    }
+    & (Join-Path $VivadoBin 'xelab.bat') @elaborationArguments
     if ($LASTEXITCODE -ne 0) { throw 'xelab failed' }
 
     $simulationArguments = @($snapshot, '-runall', '-testplusarg', $Testcase)

@@ -3,6 +3,7 @@
 import neuron_params_generated_pkg::*;
 
 module tb_single_neuron;
+    // ------------------------------TOTAL STAGES = N/A------------------------------
     logic clk = 1'b0;
     logic rst = 1'b1;
     logic valid_in = 1'b0;

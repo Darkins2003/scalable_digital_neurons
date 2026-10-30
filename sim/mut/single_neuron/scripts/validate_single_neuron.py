@@ -90,7 +90,7 @@ def generate_reference(directory: Path, gcc: str, stimulus: Path,
 
 def run_simulator(directory: Path, vivado_bin: Path | None) -> None:
     tools = {name: simulator_tool(name, vivado_bin)
-             for name in ("xvlog", "xelab", "xsim")}
+             for name in ("xvhdl", "xvlog", "xelab", "xsim")}
     missing = [name for name, path in tools.items() if path is None]
     if missing:
         raise RuntimeError(
@@ -103,6 +103,7 @@ def run_simulator(directory: Path, vivado_bin: Path | None) -> None:
         "packages/neuron_params_generated_pkg.sv",
         "packages/neuron_params_pkg.sv",
         "packages/fixed_point_package.sv",
+        "math/signed_32_32_multiplication.sv",
         "math/base_two_exponential_pipe_linear.sv",
         "math/base_two_exponential_pipe_cubic.sv",
         "math/compute_current_vector.sv",
@@ -112,9 +113,11 @@ def run_simulator(directory: Path, vivado_bin: Path | None) -> None:
     sources = [str(ROOT / "hdl" / name) for name in source_names]
     sources.append(str(ROOT / "sim" / "mut" / "single_neuron" / "tb_single_neuron.sv"))
 
+    run([tools["xvhdl"], str(ROOT / "build" / "build.gen" / "sources_1" / "ip" /
+                           "signed_multiplier" / "sim" / "signed_multiplier.vhd")], directory)
     run([tools["xvlog"], "-sv", "--relax", "-i",
          str(ROOT / "sim" / "mut" / "single_neuron" / "testcases"), *sources], directory)
-    run([tools["xelab"], "tb_single_neuron", "-s", "tb_single_neuron_sim"], directory)
+    run([tools["xelab"], "-L", "mult_gen_v12_0_25", "tb_single_neuron", "-s", "tb_single_neuron_sim"], directory)
     run([tools["xsim"], "tb_single_neuron_sim", "-runall",
          "-testplusarg", "tc_001_c_reference_trace",
          "-testplusarg", "external_reference"], directory)

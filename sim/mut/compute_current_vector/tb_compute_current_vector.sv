@@ -3,6 +3,7 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 
 module tb_compute_current_vector;
+    // ------------------------------TOTAL STAGES = N/A------------------------------
     localparam int TEST_REQUEST_COUNT = 96;
     logic clk = 1'b0;
     always #4 clk = ~clk;

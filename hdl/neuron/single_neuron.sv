@@ -38,6 +38,7 @@ module single_neuron (
     assign vmem_out = neuron_state_variables[0][id_out];
     assign vmem_out_previous = vmem_out_previous_reg[id_out];
 
+    // ------------------------------STAGE 0 to STAGE 0 (+41)------------------------------
     compute_current_vector compute_current_vector_i(
         .clk(clk),
         .rst(rst),
@@ -53,6 +54,7 @@ module single_neuron (
         .current_vector(current_vector)
     );
 
+    // ------------------------------STAGE 1 to STAGE 1 (+16)------------------------------
     matrix_mul_and_euler_update matrix_mul_and_euler_update_i(
         .clk(clk),
         .rst(rst),
@@ -80,7 +82,8 @@ module single_neuron (
             valid_out <= '0;
 
         end else begin
-            // ------------------------------EULER UPDATE-----------------------------
+            // ------------------------------TOTAL STAGES = 60------------------------------
+            // ------------------------------STAGE 2 (EULER UPDATE)------------------------------
             valid_out <= matrix_mul_and_euler_update_valid_out;
             id_out <= matrix_mul_and_euler_update_id_out;
 

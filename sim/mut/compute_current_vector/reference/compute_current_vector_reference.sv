@@ -34,7 +34,7 @@ module compute_current_vector_reference(
         fixed_t current_input;
     } phase_1_pipeline_t;
 
-    localparam int PHASE_1_PIPELINE_STAGES = 13;
+    localparam int PHASE_1_PIPELINE_STAGES = 23;
     phase_1_pipeline_t phase_1_pipe [0:PHASE_1_PIPELINE_STAGES-1];
 
     // Exponential results
@@ -148,6 +148,7 @@ module compute_current_vector_reference(
             result_base_two_exponential_kp_vna_d1 <= '0;
             result_base_two_exponential_kp_vna_d2 <= '0;
         end else begin
+            // ------------------------------TOTAL STAGES = 26------------------------------
             // ------------------------------PHASE 1 DRIVE AND SELECT-----------------------------
             for (int i = 1; i < PHASE_1_PIPELINE_STAGES; i++) begin
                 phase_1_pipe[i].current_input <= phase_1_pipe[i-1].current_input;
