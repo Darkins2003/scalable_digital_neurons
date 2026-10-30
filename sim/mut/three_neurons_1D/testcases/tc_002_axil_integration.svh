@@ -24,7 +24,7 @@ task automatic run_tc_002_axil_integration;
         end
 
         count_read = 0;
-        for (int poll_index = 0; poll_index < 100 && count_read < 3; poll_index++) begin
+        for (int poll_index = 0; poll_index < 300 && count_read < 3; poll_index++) begin
             axi_read(REG_STEP_COUNT.offset, count_read);
         end
         if (count_read < 3) begin

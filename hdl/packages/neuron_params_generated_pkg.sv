@@ -51,6 +51,11 @@ package neuron_params_generated_pkg;
         '{-32'sd17829738, 32'sd228674}
     };
 
+    localparam fixed_t TRIANGLE_DT_SLOPE_MATRIX_Q16 [0:1][0:2] = '{
+        '{-32'sd4669, 32'sd882, 32'sd0},
+        '{-32'sd17830, 32'sd228, 32'sd0}
+    };
+
     // Per-source synapse signals. Channel 0 is excitatory; 1 is inhibitory.
     localparam fixed_t SYNAPSE_TRIANGLE_SCALE_Q24 = 32'sd838860;
     localparam fixed_t SYNAPSE_GATE_OFFSET_Q16 [0:1] = '{32'sd8509364, 32'sd945487};
@@ -73,11 +78,11 @@ package neuron_params_generated_pkg;
         '{32'sd14728164, 32'sd0, 32'sd0, 32'sd0, 32'sd0, 32'sd0},
         '{32'sd0, 32'sd0, 32'sd14728164, 32'sd0, 32'sd0, 32'sd0}
     };
-    //                          Source neuron
-    //                Neuron 0        Neuron 1        Neuron 2
-    //                E      I        E      I        E      I
-    // Target 0      [0,     0,       0,     0,       C,     0]
-    // Target 1      [C,     0,       0,     0,       0,     0]
-    // Target 2      [0,     0,       C,     0,       0,     0]
+
+    localparam fixed_t SYNFIRE_1D_3_SCALED_EXCITATORY_COEFFICIENT_Q24 [0:2][0:2] = '{
+        '{32'sd0, 32'sd0, 32'sd5062806},
+        '{32'sd5062806, 32'sd0, 32'sd0},
+        '{32'sd0, 32'sd5062806, 32'sd0}
+    };
 
 endpackage

@@ -24,6 +24,7 @@ Available cases:
 | `three_neurons_1D` | `tc_002_axil_integration` | AXI and network integration |
 | `three_neurons_1D` | `tc_003_commands` | START pulse, ignored writes, and status |
 | `three_neurons_1D` | `tc_004_hardware_updates` | Step count, voltage snapshots, and reset |
+| `three_neurons_1D` | `tc_005_timing` | Startup spacing, neuron and synapse completion, and measured clocks per step |
 | `three_neurons_1D` | `tc_010_c_reference_trace` | Three-neuron RTL against C |
 | `single_neuron` | `tc_001_c_reference_trace` | Single-neuron RTL against C |
 | `compute_current_vector` | `tc_001_consecutive_requests` | Ready-paced requests, neuron IDs, bit-exact vectors, input capture and reset |
@@ -70,3 +71,11 @@ Run a short network comparison with pulse transitions:
 
 Without overrides the full 190,000-step reference trace remains the default.
 All C comparisons remain bit exact.
+
+`tc_005_timing` reports sample counts and minimum, mean and maximum cycles,
+plus mean nanoseconds using the measured testbench clock period, over 128 updates.
+Neuron latency runs from request acceptance to `single_neuron_valid_out`.
+Network update latency runs from the first neuron request of an update to
+`step_valid`; update interval measures successive `step_valid` pulses.
+Startup timings run from sampling `ctrl_start` to the first `step_valid` and
+to `startup_complete`, respectively.

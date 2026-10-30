@@ -23,6 +23,7 @@ module neuron_with_pulse_generator (
     output fixed_t excitatory_pulse,
     output fixed_t inhibitory_pulse
 );
+    // ------------------------------TOTAL STAGES = 87 (NEURON UPDATE), 22 (START PULSE)------------------------------
     fixed_t vmem_out_reg;
 
     logic synaptic_triangular_generator_valid_out;
@@ -35,6 +36,7 @@ module neuron_with_pulse_generator (
 
     assign vmem_out = vmem_out_reg;
 
+    // ------------------------------STAGE 0 to STAGE 0 (+59)------------------------------
     single_neuron single_neuron_i (
         .clk(clk),
         .rst(rst),
@@ -50,6 +52,7 @@ module neuron_with_pulse_generator (
         .vmem_out_previous(vmem_out_reg_previous)
     );
 
+    // ------------------------------STAGE 1 to STAGE 1 (+4)------------------------------
     synaptic_triangular_generator synaptic_triangular_generator_i (
         .clk(clk),
         .rst(rst),
@@ -64,6 +67,8 @@ module neuron_with_pulse_generator (
         .inhibitory_triangular_state(inhibitory_triangular_state) 
     );
 
+    // ------------------------------STAGE 2 to STAGE 2 (+21)------------------------------
+    // ------------------------------START PULSE STAGE 0 to STAGE 0 (+21)------------------------------
     synaptic_pulse_generator synaptic_pulse_generator_i(
         .clk(clk),
         .rst(rst),

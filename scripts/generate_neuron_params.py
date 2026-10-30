@@ -164,6 +164,15 @@ def c_expression_to_fixed(value: float, fractional_bits: int) -> int:
     return int(value * (1 << fractional_bits))
 
 
+def fixed_point_product(first_term: int, second_term: int, fractional_bits: int) -> int:
+    modulus = 1 << VALUE_WIDTH
+    signed_limit = modulus >> 1
+    first_term = (first_term + signed_limit) % modulus - signed_limit
+    second_term = (second_term + signed_limit) % modulus - signed_limit
+    product = (first_term * second_term) >> fractional_bits
+    return (product + signed_limit) % modulus - signed_limit
+
+
 def synapse_coefficient(weight: float) -> int:
     """Reproduce compute_synapse_mat and float_synarray_to_fix in the C model."""
 
@@ -214,9 +223,17 @@ def generate_package() -> str:
         [to_fixed(value, TRIANGLE_FRAC_BITS) for value in row]
         for row in TRIANGLE_SLOPE_MATRIX
     ]
+    triangle_dt_slopes = [
+        [fixed_point_product(fixed_constants["DT"], slope, STATE_FRAC_BITS) for slope in row] + [0]
+        for row in triangle_slopes
+    ]
     synapse_coefficients = [
         [synapse_coefficient(weight) for weight in row]
         for row in SYNFIRE_1D_3_WEIGHTS
+    ]
+    scaled_excitatory_coefficients = [
+        [fixed_point_product(coefficient, SYNAPSE_EXCITATORY_SCALE_Q8, CURRENT_FRAC_BITS) for coefficient in row[::2]]
+        for row in synapse_coefficients
     ]
     synapse_exp_biases = [
         SYNAPSE_EXCITATORY_EXP_BIAS_Q24,
@@ -291,6 +308,12 @@ def generate_package() -> str:
         comma = "," if row_index < len(triangle_slopes) - 1 else ""
         lines.append(format_array(row) + comma)
 
+    lines.extend(["    };", "", "    localparam fixed_t TRIANGLE_DT_SLOPE_MATRIX_Q16 [0:1][0:2] = '{"])
+
+    for row_index, row in enumerate(triangle_dt_slopes):
+        comma = "," if row_index < len(triangle_dt_slopes) - 1 else ""
+        lines.append(format_array(row) + comma)
+
     lines.extend(
         [
             "    };",
@@ -320,6 +343,16 @@ def generate_package() -> str:
 
     for row_index, row in enumerate(synapse_coefficients):
         comma = "," if row_index < len(synapse_coefficients) - 1 else ""
+        lines.append(format_array(row) + comma)
+
+    lines.extend([
+        "    };",
+        "",
+        f"    localparam fixed_t SYNFIRE_1D_3_SCALED_EXCITATORY_COEFFICIENT_Q24 [0:{len(scaled_excitatory_coefficients)-1}][0:{len(scaled_excitatory_coefficients[0])-1}] = '{{",
+    ])
+
+    for row_index, row in enumerate(scaled_excitatory_coefficients):
+        comma = "," if row_index < len(scaled_excitatory_coefficients) - 1 else ""
         lines.append(format_array(row) + comma)
 
     lines.extend(["    };", "", "endpackage", ""])

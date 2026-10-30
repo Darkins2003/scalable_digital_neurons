@@ -20,8 +20,12 @@ module three_neuron_control_top (
     output logic [31:0] s00_axi_rdata,
     output logic [1:0]  s00_axi_rresp,
     output logic        s00_axi_rvalid,
-    input  logic        s00_axi_rready
+    input  logic        s00_axi_rready,
+
+    input  logic        neuron_clk, 
+    input  logic        neuron_aresetn
 );
+    // ------------------------------TOTAL STAGES = VARIABLE------------------------------
     import neuron_params_generated_pkg::*;
 
     logic        reg_wr_en;
@@ -57,8 +61,8 @@ module three_neuron_control_top (
     );
 
     three_neurons_1D network (
-        .clk(s00_axi_aclk),
-        .rst(!s00_axi_aresetn),
+        .clk(neuron_clk),
+        .rst(!neuron_aresetn),
         .ctrl_start(ctrl_start),
         .current_in(input_current),
         .step_valid(network_step_valid),

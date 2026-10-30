@@ -57,13 +57,14 @@ module neuron_axil_slave_lite_v1_0_S00_AXI #(
         if (!S_AXI_ARESETN) begin
             aw_pending  <= 1'b0;
             w_pending   <= 1'b0;
-            aw_addr     <= '0;
-            w_data      <= '0;
-            w_strb      <= '0;
+            aw_addr     <= {C_S_AXI_ADDR_WIDTH{1'b0}};
+            w_data      <= {C_S_AXI_DATA_WIDTH{1'b0}};
+            w_strb      <= {(C_S_AXI_DATA_WIDTH/8){1'b0}};
             S_AXI_BVALID <= 1'b0;
             S_AXI_RVALID <= 1'b0;
-            S_AXI_RDATA  <= '0;
+            S_AXI_RDATA  <= {C_S_AXI_DATA_WIDTH{1'b0}};
         end else begin
+            // ------------------------------TOTAL STAGES = VARIABLE------------------------------
             if (S_AXI_AWVALID && S_AXI_AWREADY) begin
                 aw_addr    <= S_AXI_AWADDR;
                 aw_pending <= 1'b1;

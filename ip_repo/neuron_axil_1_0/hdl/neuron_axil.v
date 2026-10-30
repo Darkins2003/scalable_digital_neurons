@@ -49,6 +49,7 @@
 		output wire  s00_axi_rvalid,
 		input wire  s00_axi_rready
 	);
+    // ------------------------------TOTAL STAGES = VARIABLE------------------------------
 // Instantiation of Axi Bus Interface S00_AXI
 	neuron_axil_slave_lite_v1_0_S00_AXI # ( 
 		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
