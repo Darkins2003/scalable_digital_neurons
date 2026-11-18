@@ -2,7 +2,10 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module synapse (
+module synapse #(
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1,
+    parameter bit USE_BRAM_EXPONENTIAL = 1'b1
+)(
     input logic clk,
     input logic rst,
 
@@ -31,14 +34,14 @@ module synapse (
         logic [1:0] target_neuron_idx_d;
     } pipeline_t;
 
-    localparam int PIPELINE_STAGES = 20;
+    localparam int PIPELINE_STAGES = 19;
     pipeline_t pipe [0:PIPELINE_STAGES-1];
 
-    fixed_t linear_exponent = '0;
+    fixed_t exponent = '0;
     fixed_t inhibitory_scale_neg;
     fixed_t inhibitory_scale = '0;
-    logic linear_exponent_valid_out_d = '0;
-    logic linear_exponent_valid_out;
+    logic exponent_valid_out_d = '0;
+    logic exponent_valid_out;
 
     fixed_t inhibitory_scaled_coefficient;
     logic inhibitory_scaled_coefficient_valid_out;
@@ -51,6 +54,7 @@ module synapse (
 
     // ------------------------------STAGE 3 to STAGE 3 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd24),
         .TERM_2_FRACTIONAL_BITS(6'd8),
         .RESULT_FRACTIONAL_BITS(6'd24)
@@ -58,9 +62,9 @@ module synapse (
         .clk(clk),
         .rst(rst),
 
-        .term_1(SYNFIRE_1D_3_SYNAPSE_COEFFICIENT_Q24[pipe[5].target_neuron_idx_d][2*pipe[5].source_neuron_idx_d + 1]),
+        .term_1(SYNFIRE_1D_3_SYNAPSE_COEFFICIENT_Q24[pipe[4].target_neuron_idx_d][2*pipe[4].source_neuron_idx_d + 1]),
         .term_2(inhibitory_scale),
-        .valid_in(linear_exponent_valid_out_d),
+        .valid_in(exponent_valid_out_d),
 
         .result(inhibitory_scaled_coefficient),
         .valid_out(inhibitory_scaled_coefficient_valid_out)
@@ -68,6 +72,7 @@ module synapse (
 
     // ------------------------------STAGE 4 to STAGE 4 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd24),
         .TERM_2_FRACTIONAL_BITS(6'd8),
         .RESULT_FRACTIONAL_BITS(6'd8)
@@ -75,8 +80,8 @@ module synapse (
         .clk(clk),
         .rst(rst),
 
-        .term_1(pipe[12].excitatory_scaled_coefficient),
-        .term_2(pipe[12].excitatory_pulse_d),
+        .term_1(pipe[11].excitatory_scaled_coefficient),
+        .term_2(pipe[11].excitatory_pulse_d),
         .valid_in(inhibitory_scaled_coefficient_valid_out),
 
         .result(excitatory_current_contribution_reg),
@@ -85,6 +90,7 @@ module synapse (
 
     // ------------------------------STAGE 4 to STAGE 4 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd24),
         .TERM_2_FRACTIONAL_BITS(6'd8),
         .RESULT_FRACTIONAL_BITS(6'd8)
@@ -93,23 +99,25 @@ module synapse (
         .rst(rst),
 
         .term_1(inhibitory_scaled_coefficient),
-        .term_2(pipe[12].inhibitory_pulse_d),
+        .term_2(pipe[11].inhibitory_pulse_d),
         .valid_in(inhibitory_scaled_coefficient_valid_out),
 
         .result(inhibitory_current_contribution_reg),
         .valid_out()
     );
 
-    // ------------------------------STAGE 1 to STAGE 1 (+3)------------------------------
-    base_two_exponential_pipe_linear base_two_exponential_linear_i(
+    // ------------------------------STAGE 1 to STAGE 1 (+2)------------------------------
+    base_two_exponential #(
+        .USE_BRAM_EXPONENTIAL(USE_BRAM_EXPONENTIAL)
+    ) base_two_exponential_i(
         .clk(clk),
         .rst(rst),
 
-        .exponent(linear_exponent),
+        .exponent(exponent),
         .valid_in(pipe[0].valid),
         .independent_id_in(3'd0),
         
-        .valid_out(linear_exponent_valid_out),
+        .valid_out(exponent_valid_out),
         .independent_id_out(),
         .result(inhibitory_scale_neg)
     );
@@ -121,12 +129,12 @@ module synapse (
             end  
 
             id_out <= '0;
-            linear_exponent <= '0;
+            exponent <= '0;
             inhibitory_scale <= '0;
-            linear_exponent_valid_out_d <= '0;
+            exponent_valid_out_d <= '0;
 
         end else begin
-            // ------------------------------TOTAL STAGES = 20------------------------------
+            // ------------------------------TOTAL STAGES = 19------------------------------
             // ------------------------------STAGE 0-----------------------------
             pipe[0].valid <= valid_in;
             pipe[0].id <= id_in;
@@ -135,10 +143,10 @@ module synapse (
             pipe[0].source_neuron_idx_d <= source_neuron_idx;
             pipe[0].target_neuron_idx_d <= target_neuron_idx;
 
-            linear_exponent <= rx_vmem + SYNAPSE_INHIBITORY_VMEM_OFFSET_Q24;
+            exponent <= rx_vmem + SYNAPSE_INHIBITORY_VMEM_OFFSET_Q24;
 
-            // ------------------------------STAGE 1 to STAGE 1 (+3) (WAIT FOR base_two_exponential_linear_i)------------------------------
-            for (int i = 1; i < 5; i++) begin
+            // ------------------------------STAGE 1 to STAGE 1 (+2) (WAIT FOR base_two_exponential_i)------------------------------
+            for (int i = 1; i < 4; i++) begin
                 pipe[i].id <= pipe[i-1].id;
                 pipe[i].excitatory_pulse_d <= pipe[i-1].excitatory_pulse_d;
                 pipe[i].inhibitory_pulse_d <= pipe[i-1].inhibitory_pulse_d;
@@ -147,27 +155,27 @@ module synapse (
             end
 
             // ------------------------------STAGE 2------------------------------
+            pipe[4].id <= pipe[3].id;
+            pipe[4].excitatory_pulse_d <= pipe[3].excitatory_pulse_d;
+            pipe[4].inhibitory_pulse_d <= pipe[3].inhibitory_pulse_d;
+
+            pipe[4].source_neuron_idx_d <= pipe[3].source_neuron_idx_d;
+            pipe[4].target_neuron_idx_d <= pipe[3].target_neuron_idx_d;
+
+            inhibitory_scale <= -inhibitory_scale_neg;
+            exponent_valid_out_d <= exponent_valid_out;
+
+            // ------------------------------STAGE 3 (FEED signed_32_32_multiplication_i3)------------------------------
             pipe[5].id <= pipe[4].id;
             pipe[5].excitatory_pulse_d <= pipe[4].excitatory_pulse_d;
             pipe[5].inhibitory_pulse_d <= pipe[4].inhibitory_pulse_d;
 
-            pipe[5].source_neuron_idx_d <= pipe[4].source_neuron_idx_d;
-            pipe[5].target_neuron_idx_d <= pipe[4].target_neuron_idx_d;
-
-            inhibitory_scale <= -inhibitory_scale_neg;
-            linear_exponent_valid_out_d <= linear_exponent_valid_out;
-
-            // ------------------------------STAGE 3 (FEED signed_32_32_multiplication_i3)------------------------------
-            pipe[6].id <= pipe[5].id;
-            pipe[6].excitatory_pulse_d <= pipe[5].excitatory_pulse_d;
-            pipe[6].inhibitory_pulse_d <= pipe[5].inhibitory_pulse_d;
-
             // inhibitory_scaled_coefficient is not a multiplication by 2 constants, therefore feed signed_32_32_multiplication_i3
             // excitatory_scaled_coefficient is multiplication by 2 constants, therefore use precomputed products
-            pipe[6].excitatory_scaled_coefficient <= SYNFIRE_1D_3_SCALED_EXCITATORY_COEFFICIENT_Q24[pipe[5].target_neuron_idx_d][pipe[5].source_neuron_idx_d];
+            pipe[5].excitatory_scaled_coefficient <= SYNFIRE_1D_3_SCALED_EXCITATORY_COEFFICIENT_Q24[pipe[4].target_neuron_idx_d][pipe[4].source_neuron_idx_d];
 
             // ------------------------------STAGE 3 (+1) to STAGE 3 (+6) (WAIT FOR signed_32_32_multiplication_i3)------------------------------
-            for (int i = 7; i < 13; i++) begin
+            for (int i = 6; i < 12; i++) begin
                 pipe[i].id <= pipe[i-1].id;
                 pipe[i].excitatory_pulse_d <= pipe[i-1].excitatory_pulse_d;
                 pipe[i].inhibitory_pulse_d <= pipe[i-1].inhibitory_pulse_d;
@@ -175,10 +183,10 @@ module synapse (
             end
 
             // ------------------------------STAGE 4 (FEED signed_32_32_multiplication_i AND signed_32_32_multiplication_i2)------------------------------
-            pipe[13].id <= pipe[12].id;
+            pipe[12].id <= pipe[11].id;
 
             // ------------------------------STAGE 4 (+1) to STAGE 4 (+6) (WAIT FOR signed_32_32_multiplication_i AND signed_32_32_multiplication_i2)------------------------------
-            for (int i = 14; i < PIPELINE_STAGES-1; i++) begin
+            for (int i = 13; i < PIPELINE_STAGES-1; i++) begin
                 pipe[i].id <= pipe[i-1].id;
             end
 

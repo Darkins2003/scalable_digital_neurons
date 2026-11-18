@@ -1,0 +1,102 @@
+{
+  "source_sha256": {
+    "research\\input_current_sweep\\run_current_sweep.py": "8a2712a6849488d22fe58582df92798ca93ab6c95278e830d6c1c560026f1470",
+    "research\\input_current_sweep\\instrument_model.py": "148f74bff6f1f8c2faeeb6ed7a6326a2f02d9bec02b0aaba450dc62b085874c8",
+    "research\\input_current_sweep\\sweep_analysis.py": "92db5877723dbbf0fa86a3ce0beac55ee6cf8768fff4b52256ff95a93d9b1837",
+    "research\\fixed_point_precision\\precision_model.c": "e7e997f3fade38a6d5bd0777e85b77b8a28fa0a74422cfff1a865aa1bc183787",
+    "EfficientAnalogNeuron-SNNsims\\C_fixedpoint_modified\\1D_Synfire\\Synfire_1D_3neur_fixed.c": "13fcb959855f1e4f4cacb93cb1cc2c07e0d9b4773c0fae0e323134cae9882b93",
+    "EfficientAnalogNeuron-SNNsims\\C_fixedpoint_modified\\base_two_exponential.h": "6345425a67fea0cf8448f6b2649c047c7ff333f4def63f4c19724e2cac2ee4c9",
+    "ip\\scalable_digital_neurons\\sim\\mut\\three_neurons_1D\\scripts\\three_neurons_reference.c": "f04416d3a4b007f15e2bf6a4aa5c66c99dd7f60ba9c61191d4171d9fc56079d6",
+    "research\\fixed_point_precision\\run_study.py": "569b929bd6646c1c6cba85808a3b340f74bb954881f13898fcca0cf238690fde"
+  },
+  "current_raw_q8": [
+    3200000,
+    3840000,
+    4480000,
+    5120000,
+    5760000,
+    6400000,
+    7040000,
+    7680000,
+    8320000,
+    8960000,
+    9600000,
+    10240000,
+    10880000,
+    11520000,
+    12160000,
+    12800000,
+    13440000,
+    14080000,
+    14720000,
+    15360000,
+    16000000,
+    16640000,
+    17280000,
+    17920000,
+    18560000,
+    19200000,
+    19840000,
+    20480000,
+    21120000,
+    21760000,
+    22400000,
+    23040000,
+    23680000,
+    24320000,
+    24960000,
+    25600000
+  ],
+  "steps": 190000,
+  "timestep_ms": 0.001,
+  "pulse_start": 60000,
+  "pulse_end": 140000,
+  "headroom_bits": 1,
+  "spike_threshold": 1.4542,
+  "baseline_formats": {
+    "state": [
+      32,
+      24
+    ],
+    "matrix": [
+      32,
+      23
+    ],
+    "current": [
+      32,
+      8
+    ],
+    "triangle": [
+      32,
+      16
+    ],
+    "constant": [
+      32,
+      24
+    ],
+    "timestep": [
+      32,
+      24
+    ]
+  },
+  "compiler": "gcc (Rev5, Built by MSYS2 project) 16.1.0",
+  "profile_compiler_flags": [
+    "-std=c11",
+    "-O2",
+    "-fwrapv"
+  ],
+  "reference_compiler_flags": [
+    "-std=c11",
+    "-O0",
+    "-fwrapv",
+    "-DWIDE_MUL"
+  ],
+  "measured_network": "Three-neuron excitatory ring, weight 0.26, original initial conditions",
+  "intended_range_pa": [
+    0,
+    150
+  ],
+  "diagnostic_stop": "Stop at end of first step with detected overflow; exclude invalid runs from range recommendations",
+  "analysis_scope": "Observed fixed-point C behaviour, not mathematical accuracy or a new RTL verification",
+  "fingerprint": "5673abaad94a526bd8b755c5938d6b7c49d0cfe2233949e2dcf550dd3f7ba2b5"
+}

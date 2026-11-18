@@ -1,0 +1,733 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Nov 15 23:33:36 2026
+| Host         : Declan running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file C:/Users/Decla/Desktop/year_four_project/research/fpga_synthesis_results/results/250MHz/reports/research_cubic_dsp/critical_paths.rpt
+| Design       : research_cubic_dsp
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.827ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[27]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.033ns  (logic 2.061ns (67.945%)  route 0.972ns (32.055%))
+  Logic Levels:           9  (CARRY4=8 LUT2=1)
+  Clock Path Skew:        -0.066ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.234 r  design_instance/divided_difference1_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     4.234    design_instance/divided_difference1_carry__4_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.348 r  design_instance/divided_difference1_carry__5/CO[3]
+                         net (fo=1, routed)           0.000     4.348    design_instance/divided_difference1_carry__5_n_0
+    SLICE_X35Y70         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.682 r  design_instance/divided_difference1_carry__6/O[1]
+                         net (fo=1, routed)           0.000     4.682    design_instance/divided_difference1_carry__6_n_6
+    SLICE_X35Y70         FDRE                                         r  design_instance/divided_difference_reg[27]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y70         FDRE                                         r  design_instance/divided_difference_reg[27]/C
+                         clock pessimism              0.115     5.583    <hidden>
+                         clock uncertainty           -0.135     5.448    <hidden>
+    SLICE_X35Y70         FDRE (Setup_fdre_C_D)        0.062     5.510    design_instance/divided_difference_reg[27]
+  -------------------------------------------------------------------
+                         required time                          5.510    <hidden>
+                         arrival time                          -4.682    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.827    <hidden>
+
+Slack (MET) :             0.848ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.012ns  (logic 2.040ns (67.722%)  route 0.972ns (32.278%))
+  Logic Levels:           9  (CARRY4=8 LUT2=1)
+  Clock Path Skew:        -0.066ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.234 r  design_instance/divided_difference1_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     4.234    design_instance/divided_difference1_carry__4_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.348 r  design_instance/divided_difference1_carry__5/CO[3]
+                         net (fo=1, routed)           0.000     4.348    design_instance/divided_difference1_carry__5_n_0
+    SLICE_X35Y70         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     4.661 r  design_instance/divided_difference1_carry__6/O[3]
+                         net (fo=1, routed)           0.000     4.661    design_instance/p_0_in0
+    SLICE_X35Y70         FDRE                                         r  design_instance/divided_difference_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y70         FDRE                                         r  design_instance/divided_difference_reg[29]/C
+                         clock pessimism              0.115     5.583    <hidden>
+                         clock uncertainty           -0.135     5.448    <hidden>
+    SLICE_X35Y70         FDRE (Setup_fdre_C_D)        0.062     5.510    design_instance/divided_difference_reg[29]
+  -------------------------------------------------------------------
+                         required time                          5.510    <hidden>
+                         arrival time                          -4.661    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.848    <hidden>
+
+Slack (MET) :             0.922ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[28]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.938ns  (logic 1.966ns (66.909%)  route 0.972ns (33.091%))
+  Logic Levels:           9  (CARRY4=8 LUT2=1)
+  Clock Path Skew:        -0.066ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.234 r  design_instance/divided_difference1_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     4.234    design_instance/divided_difference1_carry__4_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.348 r  design_instance/divided_difference1_carry__5/CO[3]
+                         net (fo=1, routed)           0.000     4.348    design_instance/divided_difference1_carry__5_n_0
+    SLICE_X35Y70         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     4.587 r  design_instance/divided_difference1_carry__6/O[2]
+                         net (fo=1, routed)           0.000     4.587    design_instance/divided_difference1_carry__6_n_5
+    SLICE_X35Y70         FDRE                                         r  design_instance/divided_difference_reg[28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y70         FDRE                                         r  design_instance/divided_difference_reg[28]/C
+                         clock pessimism              0.115     5.583    <hidden>
+                         clock uncertainty           -0.135     5.448    <hidden>
+    SLICE_X35Y70         FDRE (Setup_fdre_C_D)        0.062     5.510    design_instance/divided_difference_reg[28]
+  -------------------------------------------------------------------
+                         required time                          5.510    <hidden>
+                         arrival time                          -4.587    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.922    <hidden>
+
+Slack (MET) :             0.938ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[26]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.922ns  (logic 1.950ns (66.728%)  route 0.972ns (33.273%))
+  Logic Levels:           9  (CARRY4=8 LUT2=1)
+  Clock Path Skew:        -0.066ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.234 r  design_instance/divided_difference1_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     4.234    design_instance/divided_difference1_carry__4_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.348 r  design_instance/divided_difference1_carry__5/CO[3]
+                         net (fo=1, routed)           0.000     4.348    design_instance/divided_difference1_carry__5_n_0
+    SLICE_X35Y70         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223     4.571 r  design_instance/divided_difference1_carry__6/O[0]
+                         net (fo=1, routed)           0.000     4.571    design_instance/divided_difference1_carry__6_n_7
+    SLICE_X35Y70         FDRE                                         r  design_instance/divided_difference_reg[26]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y70         FDRE                                         r  design_instance/divided_difference_reg[26]/C
+                         clock pessimism              0.115     5.583    <hidden>
+                         clock uncertainty           -0.135     5.448    <hidden>
+    SLICE_X35Y70         FDRE (Setup_fdre_C_D)        0.062     5.510    design_instance/divided_difference_reg[26]
+  -------------------------------------------------------------------
+                         required time                          5.510    <hidden>
+                         arrival time                          -4.571    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.938    <hidden>
+
+Slack (MET) :             0.941ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[23]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.919ns  (logic 1.947ns (66.693%)  route 0.972ns (33.307%))
+  Logic Levels:           8  (CARRY4=7 LUT2=1)
+  Clock Path Skew:        -0.066ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.234 r  design_instance/divided_difference1_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     4.234    design_instance/divided_difference1_carry__4_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.568 r  design_instance/divided_difference1_carry__5/O[1]
+                         net (fo=1, routed)           0.000     4.568    design_instance/divided_difference1_carry__5_n_6
+    SLICE_X35Y69         FDRE                                         r  design_instance/divided_difference_reg[23]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y69         FDRE                                         r  design_instance/divided_difference_reg[23]/C
+                         clock pessimism              0.115     5.583    <hidden>
+                         clock uncertainty           -0.135     5.448    <hidden>
+    SLICE_X35Y69         FDRE (Setup_fdre_C_D)        0.062     5.510    design_instance/divided_difference_reg[23]
+  -------------------------------------------------------------------
+                         required time                          5.510    <hidden>
+                         arrival time                          -4.568    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.941    <hidden>
+
+Slack (MET) :             0.962ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[25]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.898ns  (logic 1.926ns (66.452%)  route 0.972ns (33.548%))
+  Logic Levels:           8  (CARRY4=7 LUT2=1)
+  Clock Path Skew:        -0.066ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.234 r  design_instance/divided_difference1_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     4.234    design_instance/divided_difference1_carry__4_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     4.547 r  design_instance/divided_difference1_carry__5/O[3]
+                         net (fo=1, routed)           0.000     4.547    design_instance/divided_difference1_carry__5_n_4
+    SLICE_X35Y69         FDRE                                         r  design_instance/divided_difference_reg[25]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y69         FDRE                                         r  design_instance/divided_difference_reg[25]/C
+                         clock pessimism              0.115     5.583    <hidden>
+                         clock uncertainty           -0.135     5.448    <hidden>
+    SLICE_X35Y69         FDRE (Setup_fdre_C_D)        0.062     5.510    design_instance/divided_difference_reg[25]
+  -------------------------------------------------------------------
+                         required time                          5.510    <hidden>
+                         arrival time                          -4.547    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.962    <hidden>
+
+Slack (MET) :             1.036ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[24]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.824ns  (logic 1.852ns (65.573%)  route 0.972ns (34.427%))
+  Logic Levels:           8  (CARRY4=7 LUT2=1)
+  Clock Path Skew:        -0.066ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.234 r  design_instance/divided_difference1_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     4.234    design_instance/divided_difference1_carry__4_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     4.473 r  design_instance/divided_difference1_carry__5/O[2]
+                         net (fo=1, routed)           0.000     4.473    design_instance/divided_difference1_carry__5_n_5
+    SLICE_X35Y69         FDRE                                         r  design_instance/divided_difference_reg[24]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y69         FDRE                                         r  design_instance/divided_difference_reg[24]/C
+                         clock pessimism              0.115     5.583    <hidden>
+                         clock uncertainty           -0.135     5.448    <hidden>
+    SLICE_X35Y69         FDRE (Setup_fdre_C_D)        0.062     5.510    design_instance/divided_difference_reg[24]
+  -------------------------------------------------------------------
+                         required time                          5.510    <hidden>
+                         arrival time                          -4.473    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.036    <hidden>
+
+Slack (MET) :             1.052ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[22]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.808ns  (logic 1.836ns (65.377%)  route 0.972ns (34.623%))
+  Logic Levels:           8  (CARRY4=7 LUT2=1)
+  Clock Path Skew:        -0.066ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.234 r  design_instance/divided_difference1_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     4.234    design_instance/divided_difference1_carry__4_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223     4.457 r  design_instance/divided_difference1_carry__5/O[0]
+                         net (fo=1, routed)           0.000     4.457    design_instance/divided_difference1_carry__5_n_7
+    SLICE_X35Y69         FDRE                                         r  design_instance/divided_difference_reg[22]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y69         FDRE                                         r  design_instance/divided_difference_reg[22]/C
+                         clock pessimism              0.115     5.583    <hidden>
+                         clock uncertainty           -0.135     5.448    <hidden>
+    SLICE_X35Y69         FDRE (Setup_fdre_C_D)        0.062     5.510    design_instance/divided_difference_reg[22]
+  -------------------------------------------------------------------
+                         required time                          5.510    <hidden>
+                         arrival time                          -4.457    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.052    <hidden>
+
+Slack (MET) :             1.056ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[19]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.805ns  (logic 1.833ns (65.340%)  route 0.972ns (34.660%))
+  Logic Levels:           7  (CARRY4=6 LUT2=1)
+  Clock Path Skew:        -0.065ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.469ns = ( 5.469 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.454 r  design_instance/divided_difference1_carry__4/O[1]
+                         net (fo=1, routed)           0.000     4.454    design_instance/divided_difference1_carry__4_n_6
+    SLICE_X35Y68         FDRE                                         r  design_instance/divided_difference_reg[19]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.469     5.469    design_instance/clock
+    SLICE_X35Y68         FDRE                                         r  design_instance/divided_difference_reg[19]/C
+                         clock pessimism              0.115     5.584    <hidden>
+                         clock uncertainty           -0.135     5.449    <hidden>
+    SLICE_X35Y68         FDRE (Setup_fdre_C_D)        0.062     5.511    design_instance/divided_difference_reg[19]
+  -------------------------------------------------------------------
+                         required time                          5.511    <hidden>
+                         arrival time                          -4.454    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.056    <hidden>
+
+Slack (MET) :             1.077ns  (required time - arrival time)
+  Source:                 design_instance/square_multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/divided_difference_reg[21]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.784ns  (logic 1.812ns (65.078%)  route 0.972ns (34.922%))
+  Logic Levels:           7  (CARRY4=6 LUT2=1)
+  Clock Path Skew:        -0.065ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.469ns = ( 5.469 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=416, unset)          1.649     1.649    design_instance/square_multiplication/clock
+    SLICE_X32Y61         FDRE                                         r  design_instance/square_multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y61         FDRE (Prop_fdre_C_Q)         0.518     2.167 r  design_instance/square_multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           0.972     3.139    design_instance/square_multiplication/result_reg[30]_0[3]
+    SLICE_X35Y63         LUT2 (Prop_lut2_I0_O)        0.124     3.263 r  design_instance/square_multiplication/divided_difference1_carry_i_1/O
+                         net (fo=1, routed)           0.000     3.263    design_instance/square_multiplication_n_2
+    SLICE_X35Y63         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.401     3.664 r  design_instance/divided_difference1_carry/CO[3]
+                         net (fo=1, routed)           0.000     3.664    design_instance/divided_difference1_carry_n_0
+    SLICE_X35Y64         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.778 r  design_instance/divided_difference1_carry__0/CO[3]
+                         net (fo=1, routed)           0.000     3.778    design_instance/divided_difference1_carry__0_n_0
+    SLICE_X35Y65         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.892 r  design_instance/divided_difference1_carry__1/CO[3]
+                         net (fo=1, routed)           0.000     3.892    design_instance/divided_difference1_carry__1_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.006 r  design_instance/divided_difference1_carry__2/CO[3]
+                         net (fo=1, routed)           0.000     4.006    design_instance/divided_difference1_carry__2_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.120 r  design_instance/divided_difference1_carry__3/CO[3]
+                         net (fo=1, routed)           0.000     4.120    design_instance/divided_difference1_carry__3_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     4.433 r  design_instance/divided_difference1_carry__4/O[3]
+                         net (fo=1, routed)           0.000     4.433    design_instance/divided_difference1_carry__4_n_4
+    SLICE_X35Y68         FDRE                                         r  design_instance/divided_difference_reg[21]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=416, unset)          1.469     5.469    design_instance/clock
+    SLICE_X35Y68         FDRE                                         r  design_instance/divided_difference_reg[21]/C
+                         clock pessimism              0.115     5.584    <hidden>
+                         clock uncertainty           -0.135     5.449    <hidden>
+    SLICE_X35Y68         FDRE (Setup_fdre_C_D)        0.062     5.511    design_instance/divided_difference_reg[21]
+  -------------------------------------------------------------------
+                         required time                          5.511    <hidden>
+                         arrival time                          -4.433    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.077    <hidden>
+
+
+
+

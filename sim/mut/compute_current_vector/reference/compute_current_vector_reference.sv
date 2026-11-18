@@ -34,7 +34,7 @@ module compute_current_vector_reference(
         fixed_t current_input;
     } phase_1_pipeline_t;
 
-    localparam int PHASE_1_PIPELINE_STAGES = 23;
+    localparam int PHASE_1_PIPELINE_STAGES = 13;
     phase_1_pipeline_t phase_1_pipe [0:PHASE_1_PIPELINE_STAGES-1];
 
     // Exponential results
@@ -79,7 +79,7 @@ module compute_current_vector_reference(
     fixed_t cubic_result_base_two_exponential;
     logic cubic_exponent_done;
 
-    base_two_exponential_pipe_linear base_two_exponential_linear_vg(
+    base_two_exponential base_two_exponential_linear_vg(
         .clk(clk),
         .rst(rst),
 
@@ -92,7 +92,7 @@ module compute_current_vector_reference(
         .result(linear_result_base_two_exponential)
     );
 
-    base_two_exponential_pipe_cubic base_two_exponential_cubic_kp_vk_plus_vmem(
+    base_two_exponential base_two_exponential_cubic_kp_vk_plus_vmem(
         .clk(clk),
         .rst(rst),
 

@@ -1,0 +1,102 @@
+previous_current_pa,current_pa,pulse_count_changes,values_with_integer_bit_changes,changed_values,numeric_status_changed
+0.0,1.0,,1,external_current_neuron0,False
+1.0,2.0,,3,n0.current_vector[1]; external_current_neuron0; raw_product.n0.current_product.constant_x_current,False
+3.0,4.0,,5,n0.derivative_vna; n0.current_vector[0]; n0.total_current; n0.matrix_partial_sum[3;7]; external_current_neuron0,False
+4.0,5.0,,1,n0.matrix_product[3;7],False
+5.0,6.0,,1,n0.matrix_partial_sum[3;4],False
+6.0,7.0,,3,n0.current_vector[2]; n0.exponential_output.exponential; raw_product.n0.current_product.current_x_current,False
+7.0,8.0,,4,n0.current_vector[1]; n0.matrix_partial_sum[3;5]; n0.matrix_partial_sum[3;6]; external_current_neuron0,False
+8.0,9.0,,6,n0.vna; n0.derivative_vna; n0.current_vector[2]; n0.matrix_partial_sum[3;7]; n0.exponential_output.exponential; raw_product.n0.current_product.current_x_current,False
+9.0,10.0,,8,n0.kappa_potassium; n0.matrix_product[3;7]; n0.matrix_partial_sum[0;2]; n0.matrix_partial_sum[0;4]; n0.matrix_partial_sum[1;2]; n0.matrix_partial_sum[1;4]; n0.matrix_partial_sum[2;2]; n0.matrix_partial_sum[2;4],False
+10.0,11.0,,18,n0.current_vector[2]; n0.matrix_product[0;0]; n0.matrix_product[0;5]; n0.matrix_product[1;0]; n0.matrix_product[1;5]; n0.matrix_product[2;0]; n0.matrix_product[2;5]; n0.matrix_product[3;5]; n0.matrix_partial_sum[0;0]; n0.matrix_partial_sum[0;1]; n0.matrix_partial_sum[1;0]; n0.matrix_partial_sum[1;1]; n0.matrix_partial_sum[2;0]; n0.matrix_partial_sum[2;1]; n0.matrix_partial_sum[3;2]; n0.exponential_output.exponential; raw_product.n0.current_product.current_x_current; raw_product.n0.current_product.constant_x_current,False
+11.0,12.0,n0: 0 to 8; n1: 0 to 8; n2: 0 to 8,264,n0.vmem; n0.vk; n0.vna; n1.vmem; n1.vk; n1.vna; n2.vmem; n2.vk; n2.vna; n0.derivative_te; n0.derivative_ti; n1.derivative_te; n1.derivative_ti; n2.derivative_te; n2.derivative_ti; n0.derivative_vmem; n0.derivative_vk; n0.derivative_vg; n0.derivative_vna; n1.derivative_vmem; n1.derivative_vk; n1.derivative_vg; n1.derivative_vna; n2.derivative_vmem; n2.derivative_vk; n2.derivative_vg; n2.derivative_vna; n0.triangle_exponential_excitatory; n0.triangle_exponential_inhibitory; n1.triangle_exponential_excitatory; n1.triangle_exponential_inhibitory; n2.triangle_exponential_excitatory; n2.triangle_exponential_inhibitory; n0.triangle_exponent_excitatory; n0.triangle_exponent_inhibitory; n1.triangle_exponent_excitatory; n1.triangle_exponent_inhibitory; n2.triangle_exponent_excitatory; n2.triangle_exponent_inhibitory; n0.current_vector[0]; n0.current_vector[1]; n0.current_vector[2]; n0.current_vector[5]; n0.current_vector[6]; n0.current_vector[7]; n1.current_vector[0]; n1.current_vector[1]; n1.current_vector[2]; n1.current_vector[5]; n1.current_vector[6]; n1.current_vector[7]; n2.current_vector[0]; n2.current_vector[1]; n2.current_vector[2]; n2.current_vector[5]; n2.current_vector[6]; n2.current_vector[7]; n0.kappa_sodium; n1.kappa_sodium; n2.kappa_sodium; n0.kappa_potassium; n1.kappa_potassium; n2.kappa_potassium; n0.synapse_product[4]; n1.synapse_product[0]; n2.synapse_product[2]; n0.synapse_partial_sum[4]; n0.synapse_partial_sum[5]; n1.synapse_partial_sum[0]; n1.synapse_partial_sum[1]; n1.synapse_partial_sum[2]; n1.synapse_partial_sum[3]; n1.synapse_partial_sum[4]; n1.synapse_partial_sum[5]; n2.synapse_partial_sum[2]; n2.synapse_partial_sum[3]; n2.synapse_partial_sum[4]; n2.synapse_partial_sum[5]; n0.total_current; n1.total_current; n2.total_current; n0.matrix_product[0;0]; n0.matrix_product[0;1]; n0.matrix_product[0;2]; n0.matrix_product[0;5]; n0.matrix_product[0;6]; n0.matrix_product[1;0]; n0.matrix_product[1;1]; n0.matrix_product[1;2]; n0.matrix_product[1;5]; n0.matrix_product[1;6]; n0.matrix_product[2;0]; n0.matrix_product[2;1]; n0.matrix_product[2;2]; n0.matrix_product[2;5]; n0.matrix_product[2;6]; n0.matrix_product[3;0]; n0.matrix_product[3;1]; n0.matrix_product[3;2]; n0.matrix_product[3;3]; n0.matrix_product[3;5]; n0.matrix_product[3;6]; n0.matrix_product[3;7]; n1.matrix_product[0;0]; n1.matrix_product[0;1]; n1.matrix_product[0;2]; n1.matrix_product[0;5]; n1.matrix_product[0;6]; n1.matrix_product[1;0]; n1.matrix_product[1;1]; n1.matrix_product[1;2]; n1.matrix_product[1;5]; n1.matrix_product[1;6]; n1.matrix_product[2;0]; n1.matrix_product[2;1]; n1.matrix_product[2;2]; n1.matrix_product[2;5]; n1.matrix_product[2;6]; n1.matrix_product[3;0]; n1.matrix_product[3;1]; n1.matrix_product[3;2]; n1.matrix_product[3;3]; n1.matrix_product[3;5]; n1.matrix_product[3;6]; n1.matrix_product[3;7]; n2.matrix_product[0;0]; n2.matrix_product[0;1]; n2.matrix_product[0;2]; n2.matrix_product[0;5]; n2.matrix_product[0;6]; n2.matrix_product[1;0]; n2.matrix_product[1;1]; n2.matrix_product[1;2]; n2.matrix_product[1;5]; n2.matrix_product[1;6]; n2.matrix_product[2;0]; n2.matrix_product[2;1]; n2.matrix_product[2;2]; n2.matrix_product[2;5]; n2.matrix_product[2;6]; n2.matrix_product[3;0]; n2.matrix_product[3;1]; n2.matrix_product[3;2]; n2.matrix_product[3;3]; n2.matrix_product[3;5]; n2.matrix_product[3;6]; n2.matrix_product[3;7]; n0.matrix_partial_sum[0;0]; n0.matrix_partial_sum[0;1]; n0.matrix_partial_sum[0;2]; n0.matrix_partial_sum[0;3]; n0.matrix_partial_sum[0;4]; n0.matrix_partial_sum[0;5]; n0.matrix_partial_sum[0;6]; n0.matrix_partial_sum[0;7]; n0.matrix_partial_sum[1;0]; n0.matrix_partial_sum[1;1]; n0.matrix_partial_sum[1;2]; n0.matrix_partial_sum[1;3]; n0.matrix_partial_sum[1;4]; n0.matrix_partial_sum[1;5]; n0.matrix_partial_sum[1;6]; n0.matrix_partial_sum[1;7]; n0.matrix_partial_sum[2;0]; n0.matrix_partial_sum[2;1]; n0.matrix_partial_sum[2;2]; n0.matrix_partial_sum[2;4]; n0.matrix_partial_sum[2;5]; n0.matrix_partial_sum[2;6]; n0.matrix_partial_sum[2;7]; n0.matrix_partial_sum[3;0]; n0.matrix_partial_sum[3;1]; n0.matrix_partial_sum[3;2]; n0.matrix_partial_sum[3;3]; n0.matrix_partial_sum[3;4]; n0.matrix_partial_sum[3;5]; n0.matrix_partial_sum[3;6]; n0.matrix_partial_sum[3;7]; n1.matrix_partial_sum[0;0]; n1.matrix_partial_sum[0;1]; n1.matrix_partial_sum[0;2]; n1.matrix_partial_sum[0;3]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[0;5]; n1.matrix_partial_sum[0;6]; n1.matrix_partial_sum[0;7]; n1.matrix_partial_sum[1;0]; n1.matrix_partial_sum[1;1]; n1.matrix_partial_sum[1;2]; n1.matrix_partial_sum[1;3]; n1.matrix_partial_sum[1;4]; n1.matrix_partial_sum[1;5]; n1.matrix_partial_sum[1;6]; n1.matrix_partial_sum[1;7]; n1.matrix_partial_sum[2;0]; n1.matrix_partial_sum[2;1]; n1.matrix_partial_sum[2;2]; n1.matrix_partial_sum[2;4]; n1.matrix_partial_sum[2;5]; n1.matrix_partial_sum[2;6]; n1.matrix_partial_sum[2;7]; n1.matrix_partial_sum[3;0]; n1.matrix_partial_sum[3;1]; n1.matrix_partial_sum[3;2]; n1.matrix_partial_sum[3;3]; n1.matrix_partial_sum[3;4]; n1.matrix_partial_sum[3;5]; n1.matrix_partial_sum[3;6]; n1.matrix_partial_sum[3;7]; n2.matrix_partial_sum[0;0]; n2.matrix_partial_sum[0;1]; n2.matrix_partial_sum[0;2]; n2.matrix_partial_sum[0;3]; n2.matrix_partial_sum[0;4]; n2.matrix_partial_sum[0;5]; n2.matrix_partial_sum[0;6]; n2.matrix_partial_sum[0;7]; n2.matrix_partial_sum[1;0]; n2.matrix_partial_sum[1;1]; n2.matrix_partial_sum[1;2]; n2.matrix_partial_sum[1;3]; n2.matrix_partial_sum[1;4]; n2.matrix_partial_sum[1;5]; n2.matrix_partial_sum[1;6]; n2.matrix_partial_sum[1;7]; n2.matrix_partial_sum[2;0]; n2.matrix_partial_sum[2;1]; n2.matrix_partial_sum[2;2]; n2.matrix_partial_sum[2;4]; n2.matrix_partial_sum[2;5]; n2.matrix_partial_sum[2;6]; n2.matrix_partial_sum[2;7]; n2.matrix_partial_sum[3;0]; n2.matrix_partial_sum[3;1]; n2.matrix_partial_sum[3;2]; n2.matrix_partial_sum[3;3]; n2.matrix_partial_sum[3;4]; n2.matrix_partial_sum[3;5]; n2.matrix_partial_sum[3;6]; n2.matrix_partial_sum[3;7]; n0.exponential_input.synapse_exponential; n1.exponential_input.synapse_exponential; n2.exponential_input.synapse_exponential; n0.exponential_output.synapse_exponential; n0.exponential_output.exponential; n1.exponential_output.synapse_exponential; n1.exponential_output.exponential; n2.exponential_output.synapse_exponential; n2.exponential_output.exponential; raw_product.n0.synapse_product.constant_x_current; raw_product.n0.state_product.constant_x_state; raw_product.n0.current_product.current_x_current; raw_product.n0.current_product.constant_x_current; raw_product.n0.matrix_product.matrix_x_current; raw_product.n1.synapse_product.constant_x_current; raw_product.n1.state_product.constant_x_state; raw_product.n1.current_product.current_x_current; raw_product.n1.current_product.constant_x_current; raw_product.n1.matrix_product.matrix_x_current; raw_product.n2.synapse_product.constant_x_current; raw_product.n2.state_product.constant_x_state; raw_product.n2.current_product.current_x_current; raw_product.n2.current_product.constant_x_current; raw_product.n2.matrix_product.matrix_x_current,False
+12.0,13.0,,1,n0.matrix_product[0;6],False
+13.0,14.0,,1,n0.matrix_product[2;6],False
+14.0,15.0,n1: 8 to 7; n2: 8 to 7,2,n0.current_vector[6]; n0.matrix_product[3;6],False
+15.0,16.0,n0: 8 to 5; n1: 7 to 4; n2: 7 to 4,1,external_current_neuron0,False
+17.0,18.0,n0: 5 to 4; n1: 4 to 3; n2: 4 to 3,0,,False
+24.0,25.0,n0: 4 to 7; n1: 3 to 6; n2: 3 to 6,1,n0.matrix_product[2;2],False
+25.0,26.0,n0: 7 to 3; n1: 6 to 2; n2: 6 to 2,0,,False
+30.0,31.0,,4,n0.matrix_product[0;0]; n0.matrix_product[1;0]; n0.matrix_partial_sum[0;0]; n0.matrix_partial_sum[1;0],False
+31.0,32.0,,3,n0.matrix_partial_sum[0;1]; n0.matrix_partial_sum[1;1]; external_current_neuron0,False
+32.0,33.0,,3,n0.matrix_product[2;0]; n0.matrix_partial_sum[2;0]; n0.matrix_partial_sum[2;1],False
+33.0,34.0,n0: 3 to 6; n1: 2 to 4; n2: 2 to 4,0,,False
+34.0,35.0,n0: 6 to 7,2,n0.matrix_product[2;2]; n0.matrix_product[3;7],False
+35.0,36.0,n1: 4 to 5,1,n0.matrix_partial_sum[3;4],False
+36.0,37.0,n1: 5 to 4,1,n0.matrix_partial_sum[3;4],False
+37.0,38.0,n1: 4 to 5,1,n0.matrix_partial_sum[3;4],False
+39.0,40.0,n2: 4 to 5,4,n0.matrix_product[3;0]; n0.matrix_product[3;7]; n0.matrix_partial_sum[3;0]; n0.matrix_partial_sum[3;4],False
+40.0,41.0,,1,n0.matrix_partial_sum[3;1],False
+41.0,42.0,,2,n0.matrix_product[2;2]; n1.matrix_product[2;2],False
+42.0,43.0,,2,n0.matrix_product[2;2]; n1.matrix_product[2;2],False
+43.0,44.0,,4,n0.matrix_product[1;6]; n0.matrix_product[2;2]; n1.matrix_product[2;2]; raw_product.n0.current_product.constant_x_current,False
+44.0,45.0,n0: 7 to 8,0,,False
+45.0,46.0,,2,n0.current_vector[0]; n0.total_current,False
+46.0,47.0,n0: 8 to 7; n1: 5 to 4; n2: 5 to 4,1,n0.current_vector[1],False
+60.0,61.0,,1,n0.matrix_product[3;5],False
+62.0,63.0,n0: 7 to 8,3,n0.matrix_product[2;2]; n0.matrix_product[3;7]; n1.matrix_product[2;2],False
+63.0,64.0,,1,external_current_neuron0,False
+69.0,70.0,,1,n0.matrix_partial_sum[3;4],False
+72.0,73.0,n1: 4 to 5,2,n0.matrix_product[0;3]; n0.matrix_product[1;3],False
+76.0,77.0,,3,n0.matrix_product[0;3]; n0.matrix_product[1;3]; n0.matrix_partial_sum[3;4],False
+78.0,79.0,,1,n0.matrix_product[3;7],False
+82.0,83.0,n2: 4 to 5,0,,False
+86.0,87.0,,1,n0.matrix_partial_sum[2;3],False
+87.0,88.0,,5,n0.current_vector[7]; n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n1.matrix_product[2;2],False
+88.0,89.0,,5,n0.current_vector[7]; n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n1.matrix_product[2;2],False
+90.0,91.0,n1: 5 to 4; n2: 5 to 4,12,n0.current_vector[7]; n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n0.matrix_product[3;3]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; n0.matrix_partial_sum[2;3]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4]; raw_product.n0.matrix_product.matrix_x_current,False
+97.0,98.0,,1,n0.matrix_partial_sum[2;3],False
+110.0,111.0,n0: 8 to 9,0,,False
+112.0,113.0,,12,n0.current_vector[7]; n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n0.matrix_product[3;3]; n0.matrix_product[3;7]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4]; raw_product.n0.matrix_product.matrix_x_current,False
+116.0,117.0,,1,n0.matrix_partial_sum[3;4],False
+120.0,121.0,n1: 4 to 5,2,n0.matrix_product[0;3]; n0.matrix_product[1;3],False
+127.0,128.0,,3,n0.matrix_partial_sum[0;5]; n0.matrix_partial_sum[1;5]; external_current_neuron0,False
+128.0,129.0,,8,n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4],False
+130.0,131.0,n2: 4 to 5,12,n0.matrix_product[0;2]; n0.matrix_product[0;3]; n0.matrix_product[1;2]; n0.matrix_product[1;3]; n0.matrix_product[2;2]; n0.matrix_product[3;7]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; n0.matrix_partial_sum[3;4]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4],False
+131.0,132.0,,10,n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n0.matrix_product[3;3]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4]; raw_product.n0.matrix_product.matrix_x_current,False
+132.0,133.0,n0: 9 to 8,4,n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4],False
+135.0,136.0,,2,n0.matrix_product[3;3]; raw_product.n0.matrix_product.matrix_x_current,False
+136.0,137.0,,1,n0.matrix_partial_sum[3;4],False
+137.0,138.0,n0: 8 to 7,7,n0.matrix_product[3;3]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n0.matrix_partial_sum[3;4]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4]; raw_product.n0.matrix_product.matrix_x_current,False
+138.0,139.0,,4,n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4],False
+143.0,144.0,,4,n0.matrix_product[0;0]; n0.matrix_product[1;0]; n0.matrix_partial_sum[0;0]; n0.matrix_partial_sum[1;0],False
+145.0,146.0,,4,n1.matrix_product[0;2]; n1.matrix_product[1;2]; n0.matrix_partial_sum[0;1]; n0.matrix_partial_sum[1;1],False
+147.0,148.0,n0: 7 to 8,2,n0.matrix_product[2;0]; n0.matrix_partial_sum[2;0],False
+148.0,149.0,,8,n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n0.matrix_product[3;3]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; raw_product.n0.matrix_product.matrix_x_current,False
+149.0,150.0,,1,n0.matrix_partial_sum[2;1],False
+150.0,151.0,n1: 5 to 6,0,,False
+154.0,155.0,n0: 8 to 4; n2: 5 to 6,10,n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n0.matrix_product[3;3]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4]; raw_product.n0.matrix_product.matrix_x_current,False
+156.0,157.0,,1,n0.matrix_product[3;7],False
+158.0,159.0,n0: 4 to 7,0,,False
+162.0,163.0,,2,n0.matrix_product[3;0]; n0.matrix_partial_sum[3;0],False
+164.0,165.0,n0: 7 to 6,0,,False
+165.0,166.0,,1,n0.matrix_partial_sum[3;1],False
+166.0,167.0,n0: 6 to 5,0,,False
+171.0,172.0,n0: 5 to 4,0,,False
+173.0,174.0,,3,n0.current_vector[0]; n0.current_vector[5]; n0.total_current,False
+176.0,177.0,,10,n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n0.matrix_product[3;3]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4]; raw_product.n0.matrix_product.matrix_x_current,False
+188.0,189.0,n0: 4 to 3,0,,False
+189.0,190.0,n1: 6 to 7,0,,False
+190.0,191.0,,1,n0.matrix_partial_sum[0;6],False
+191.0,192.0,,1,n0.matrix_partial_sum[0;6],False
+192.0,193.0,,1,n0.matrix_partial_sum[0;6],False
+193.0,194.0,,2,n0.derivative_vmem; n0.matrix_partial_sum[0;7],False
+195.0,196.0,,2,n0.derivative_vmem; n0.matrix_partial_sum[0;7],False
+196.0,197.0,,2,n0.derivative_vmem; n0.matrix_partial_sum[0;7],False
+228.0,229.0,,8,n0.matrix_product[0;2]; n0.matrix_product[1;2]; n0.matrix_product[2;2]; n1.matrix_product[0;2]; n1.matrix_product[1;2]; n1.matrix_product[2;2]; n1.matrix_partial_sum[0;4]; n1.matrix_partial_sum[1;4],False
+243.0,244.0,,1,n0.current_vector[7],False
+246.0,247.0,n2: 6 to 7,0,,False
+247.0,248.0,,1,n0.matrix_partial_sum[3;4],False
+249.0,250.0,,1,n0.matrix_partial_sum[2;5],False
+251.0,252.0,n0: 3 to 2,0,,False
+255.0,256.0,,1,external_current_neuron0,False
+256.0,257.0,,1,n0.matrix_partial_sum[3;6],False
+259.0,260.0,,1,n0.matrix_partial_sum[3;5],False
+267.0,268.0,,2,n0.derivative_vna; n0.matrix_partial_sum[3;7],False
+268.0,269.0,n2: 7 to 6,0,,False
+269.0,270.0,n0: 2 to 1; n2: 6 to 7,0,,False
+270.0,271.0,n0: 1 to 2,0,,False
+272.0,273.0,n0: 2 to 1,0,,False
+274.0,275.0,,2,n0.matrix_product[0;3]; n0.matrix_product[1;3],False
+291.0,292.0,,1,n0.matrix_product[2;7],False
+298.0,299.0,,1,n0.vk,False

@@ -1,0 +1,5 @@
+create_clock -name comparison_clock -period 4.0 [get_ports clock]
+set_property HD.CLK_SRC BUFGCTRL_X0Y0 [get_ports clock]
+set_false_path -from [get_ports {reset input_valid fractional_exponent[*]}]
+set_false_path -to [all_outputs]
+set_clock_uncertainty 0.100 [get_clocks comparison_clock]

@@ -38,8 +38,7 @@ $commonSources = @(
     'hdl/packages/neuron_params_pkg.sv',
     'hdl/packages/fixed_point_package.sv',
     'hdl/math/signed_32_32_multiplication.sv',
-    'hdl/math/base_two_exponential_pipe_linear.sv',
-    'hdl/math/base_two_exponential_pipe_cubic.sv'
+    'hdl/math/base_two_exponential.sv'
 )
 
 switch ($Mut) {
@@ -83,6 +82,17 @@ switch ($Mut) {
 }
 
 $clockConverterTest = $Mut -eq 'three_neurons_1D' -and $Testcase -eq 'tc_006_clock_domain_crossing'
+$goldenReferenceTest = $Mut -eq 'three_neurons_1D' -and $Testcase -eq 'tc_011_golden_reference_trace'
+$functionalMultiplierTest = $Mut -eq 'three_neurons_1D' -and ($Testcase -eq 'tc_010_c_reference_trace' -or $goldenReferenceTest)
+if ($goldenReferenceTest) {
+    $comparisonPython = (& python -c 'import sys; print(sys.executable)').Trim()
+    if ($LASTEXITCODE -ne 0 -or -not $comparisonPython) { throw 'Could not resolve the golden-reference Python interpreter' }
+    & $comparisonPython (Join-Path $mutDir 'scripts/compare_golden_reference.py') --check-golden
+    if ($LASTEXITCODE -ne 0) { throw 'MATLAB golden reference is missing or invalid' }
+}
+if ($functionalMultiplierTest) {
+    $sourceNames = @('sim/common/signed_multiplier_functional.sv') + $sourceNames
+}
 if ($clockConverterTest) {
     $sourceNames = @('build/build.gen/sources_1/bd/design_1/ip/design_1_axi_clock_converter_0_0/sim/design_1_axi_clock_converter_0_0.v') + $sourceNames
 }
@@ -96,9 +106,11 @@ New-Item -ItemType Directory -Path $simDir -Force | Out-Null
 $top = "tb_$Mut"
 $snapshot = "${top}_sim"
 
+Copy-Item -LiteralPath (Join-Path $repoRoot 'hdl/math/memory/fractional_exponent_estimation_table.mem') -Destination $simDir -Force
+
 Push-Location $simDir
 try {
-    if ($Testcase -like '*c_reference_trace') {
+    if ($Testcase -like '*c_reference_trace' -or $goldenReferenceTest) {
         switch ($Mut) {
             'single_neuron' {
                 & gcc -std=c11 -O2 -Wall -Wextra -fwrapv -DWIDE_MUL=1 `
@@ -114,8 +126,12 @@ try {
         if ($LASTEXITCODE -ne 0) { throw 'C reference compilation failed' }
     }
 
-    & (Join-Path $VivadoBin 'xvhdl.bat') (Join-Path $repoRoot 'build/build.gen/sources_1/ip/signed_multiplier/sim/signed_multiplier.vhd')
-    if ($LASTEXITCODE -ne 0) { throw 'Multiplier IP compilation failed' }
+    if ($functionalMultiplierTest) {
+        Write-Output 'Using the six-cycle functional multiplier model for the C reference trace.'
+    } else {
+        & (Join-Path $VivadoBin 'xvhdl.bat') (Join-Path $repoRoot 'build/build.gen/sources_1/ip/signed_multiplier/sim/signed_multiplier.vhd')
+        if ($LASTEXITCODE -ne 0) { throw 'Multiplier IP compilation failed' }
+    }
 
     & (Join-Path $VivadoBin 'xvlog.bat') -sv --relax `
         -i (Join-Path $repoRoot 'sim/common') `
@@ -137,11 +153,18 @@ try {
         }
         $simulationArguments += @('-testplusarg', ('"' + $argument + '"'))
     }
-    $simOutput = & (Join-Path $VivadoBin 'xsim.bat') @simulationArguments 2>&1
+    $simOutput = & (Join-Path $VivadoBin 'xsim.bat') @simulationArguments 2>&1 | ForEach-Object {
+        Write-Host $_
+        $_
+    }
     $simExitCode = $LASTEXITCODE
-    $simOutput | Write-Output
     if ($simExitCode -ne 0 -or ($simOutput -join "`n") -notmatch [regex]::Escape("PASS: $Testcase")) {
         throw "Testcase failed: $Mut/$Testcase"
+    }
+    if ($goldenReferenceTest) {
+        & $comparisonPython (Join-Path $mutDir 'scripts/compare_golden_reference.py') --fixed (Join-Path $simDir 'hdl_trace.csv') --output-dir $simDir --allow-prefix
+        if ($LASTEXITCODE -ne 0) { throw 'MATLAB golden-reference comparison failed' }
+        Write-Output "PASS: golden-reference comparison for $Testcase"
     }
 } finally {
     Pop-Location

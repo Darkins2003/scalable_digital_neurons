@@ -7,7 +7,7 @@
 #define long int64_t
 #endif
 #define main original_synfire_main
-#include "../../../../../../EfficientAnalogNeuron-SNNsims/C_fixedpoint/1D_Synfire/Synfire_1D_3neur_fixed.c"
+#include "../../../../../../EfficientAnalogNeuron-SNNsims/C_fixedpoint_modified/1D_Synfire/Synfire_1D_3neur_fixed.c"
 #undef main
 
 int main(int argc, char **argv) {
@@ -37,6 +37,23 @@ int main(int argc, char **argv) {
     for (int j = 0; j < 18; ++j)
         state[j] = j < 6 ? fi(initial[j], 16) : fi(initial[j], 24);
     update_Vmem(state, vmem);
+
+    int top_indices[6], bottom_indices[6], scaled_triangles[6];
+    int scaling_matrix[3][6], startup_currents[3], zero_currents[3] = {0};
+    intialize_top_bot_idx(top_indices, bottom_indices);
+    for (int index = 0; index < 6; ++index) {
+        scaled_triangles[index] = mul_16_24_16(state[index], TriScaling) + (top_indices[index] & Tri_Top_Off) + (bottom_indices[index] & Tri_Bot_Off);
+        for (int neuron_index = 0; neuron_index < 3; ++neuron_index) {
+            scaling_matrix[neuron_index][index] = top_indices[index] ? 0x58 : -two_power_of(vmem[neuron_index] + fi(13.2053-OFF,24));
+        }
+    }
+    InputCurrent_compute(fixed_synapse_matrix, scaling_matrix, scaled_triangles, top_indices, bottom_indices, zero_currents, startup_currents);
+    FILE *startup = fopen("startup_currents.txt", "w");
+    if (!startup) { perror("startup_currents.txt"); return 2; }
+    for (int neuron_index = 0; neuron_index < 3; ++neuron_index) {
+        fprintf(startup, "%d\n", startup_currents[neuron_index]);
+    }
+    fclose(startup);
 
     float slopes[2][2] = {{-71.2378f, 13.4597f}, {-272.0602f, 3.4893f}};
     int fixed_slopes[2][2];

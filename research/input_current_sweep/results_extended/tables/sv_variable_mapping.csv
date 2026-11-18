@@ -1,0 +1,487 @@
+report_name,sv_module,sv_signal_or_equivalent,mapping_note,q_format,width,fractional_bits,available_integer_bits
+n0.te,synaptic_triangular_generator,excitatory_triangular_state_reg[0],Stored state,Q16.16,32,16,16
+n0.ti,synaptic_triangular_generator,inhibitory_triangular_state_reg[0],Stored state,Q16.16,32,16,16
+n0.vg,single_neuron,neuron_state_variables[2][0],Stored state,Q8.24,32,24,8
+n0.vk,single_neuron,neuron_state_variables[1][0],Stored state,Q8.24,32,24,8
+n0.vmem,single_neuron,neuron_state_variables[0][0],Stored state,Q8.24,32,24,8
+n0.vna,single_neuron,neuron_state_variables[3][0],Stored state,Q8.24,32,24,8
+n1.te,synaptic_triangular_generator,excitatory_triangular_state_reg[1],Stored state,Q16.16,32,16,16
+n1.ti,synaptic_triangular_generator,inhibitory_triangular_state_reg[1],Stored state,Q16.16,32,16,16
+n1.vg,single_neuron,neuron_state_variables[2][1],Stored state,Q8.24,32,24,8
+n1.vk,single_neuron,neuron_state_variables[1][1],Stored state,Q8.24,32,24,8
+n1.vmem,single_neuron,neuron_state_variables[0][1],Stored state,Q8.24,32,24,8
+n1.vna,single_neuron,neuron_state_variables[3][1],Stored state,Q8.24,32,24,8
+n2.te,synaptic_triangular_generator,excitatory_triangular_state_reg[2],Stored state,Q16.16,32,16,16
+n2.ti,synaptic_triangular_generator,inhibitory_triangular_state_reg[2],Stored state,Q16.16,32,16,16
+n2.vg,single_neuron,neuron_state_variables[2][2],Stored state,Q8.24,32,24,8
+n2.vk,single_neuron,neuron_state_variables[1][2],Stored state,Q8.24,32,24,8
+n2.vmem,single_neuron,neuron_state_variables[0][2],Stored state,Q8.24,32,24,8
+n2.vna,single_neuron,neuron_state_variables[3][2],Stored state,Q8.24,32,24,8
+n0.current_vector[0],compute_current_vector,current_vector[0],Output for neuron 0,Q24.8,32,8,24
+n0.current_vector[1],compute_current_vector,current_vector[1],Output for neuron 0,Q24.8,32,8,24
+n0.current_vector[2],compute_current_vector,current_vector[2],Output for neuron 0,Q24.8,32,8,24
+n0.current_vector[3],compute_current_vector,current_vector[3],Output for neuron 0,Q24.8,32,8,24
+n0.current_vector[4],compute_current_vector,current_vector[4],Output for neuron 0,Q24.8,32,8,24
+n0.current_vector[5],compute_current_vector,current_vector[5],Output for neuron 0,Q24.8,32,8,24
+n0.current_vector[6],compute_current_vector,current_vector[6],Output for neuron 0,Q24.8,32,8,24
+n0.current_vector[7],compute_current_vector,current_vector[7],Output for neuron 0,Q24.8,32,8,24
+n1.current_vector[0],compute_current_vector,current_vector[0],Output for neuron 1,Q24.8,32,8,24
+n1.current_vector[1],compute_current_vector,current_vector[1],Output for neuron 1,Q24.8,32,8,24
+n1.current_vector[2],compute_current_vector,current_vector[2],Output for neuron 1,Q24.8,32,8,24
+n1.current_vector[3],compute_current_vector,current_vector[3],Output for neuron 1,Q24.8,32,8,24
+n1.current_vector[4],compute_current_vector,current_vector[4],Output for neuron 1,Q24.8,32,8,24
+n1.current_vector[5],compute_current_vector,current_vector[5],Output for neuron 1,Q24.8,32,8,24
+n1.current_vector[6],compute_current_vector,current_vector[6],Output for neuron 1,Q24.8,32,8,24
+n1.current_vector[7],compute_current_vector,current_vector[7],Output for neuron 1,Q24.8,32,8,24
+n2.current_vector[0],compute_current_vector,current_vector[0],Output for neuron 2,Q24.8,32,8,24
+n2.current_vector[1],compute_current_vector,current_vector[1],Output for neuron 2,Q24.8,32,8,24
+n2.current_vector[2],compute_current_vector,current_vector[2],Output for neuron 2,Q24.8,32,8,24
+n2.current_vector[3],compute_current_vector,current_vector[3],Output for neuron 2,Q24.8,32,8,24
+n2.current_vector[4],compute_current_vector,current_vector[4],Output for neuron 2,Q24.8,32,8,24
+n2.current_vector[5],compute_current_vector,current_vector[5],Output for neuron 2,Q24.8,32,8,24
+n2.current_vector[6],compute_current_vector,current_vector[6],Output for neuron 2,Q24.8,32,8,24
+n2.current_vector[7],compute_current_vector,current_vector[7],Output for neuron 2,Q24.8,32,8,24
+n0.total_current,three_neurons_1D,current_in_neuron[0],Arithmetic equivalent; network summation order differs,Q24.8,32,8,24
+n1.total_current,three_neurons_1D,current_in_neuron[1],Arithmetic equivalent; network summation order differs,Q24.8,32,8,24
+n2.total_current,three_neurons_1D,current_in_neuron[2],Arithmetic equivalent; network summation order differs,Q24.8,32,8,24
+external_current_neuron0,three_neurons_1D,current_in,External stimulus port,Q24.8,32,8,24
+n0.derivative_te,synaptic_triangular_generator,TRIANGLE_SLOPE_MATRIX_Q16[0][selected slope],C derivative; RTL uses precomputed timestep-times-slope increments,Q16.16,32,16,16
+n0.derivative_ti,synaptic_triangular_generator,TRIANGLE_SLOPE_MATRIX_Q16[1][selected slope],C derivative; RTL uses precomputed timestep-times-slope increments,Q16.16,32,16,16
+n0.derivative_vg,matrix_mul_and_euler_update,dy_dt[2],Arithmetic equivalent for neuron 0,Q24.8,32,8,24
+n0.derivative_vk,matrix_mul_and_euler_update,dy_dt[1],Arithmetic equivalent for neuron 0,Q24.8,32,8,24
+n0.derivative_vmem,matrix_mul_and_euler_update,dy_dt[0],Arithmetic equivalent for neuron 0,Q24.8,32,8,24
+n0.derivative_vna,matrix_mul_and_euler_update,dy_dt[3],Arithmetic equivalent for neuron 0,Q24.8,32,8,24
+n1.derivative_te,synaptic_triangular_generator,TRIANGLE_SLOPE_MATRIX_Q16[0][selected slope],C derivative; RTL uses precomputed timestep-times-slope increments,Q16.16,32,16,16
+n1.derivative_ti,synaptic_triangular_generator,TRIANGLE_SLOPE_MATRIX_Q16[1][selected slope],C derivative; RTL uses precomputed timestep-times-slope increments,Q16.16,32,16,16
+n1.derivative_vg,matrix_mul_and_euler_update,dy_dt[2],Arithmetic equivalent for neuron 1,Q24.8,32,8,24
+n1.derivative_vk,matrix_mul_and_euler_update,dy_dt[1],Arithmetic equivalent for neuron 1,Q24.8,32,8,24
+n1.derivative_vmem,matrix_mul_and_euler_update,dy_dt[0],Arithmetic equivalent for neuron 1,Q24.8,32,8,24
+n1.derivative_vna,matrix_mul_and_euler_update,dy_dt[3],Arithmetic equivalent for neuron 1,Q24.8,32,8,24
+n2.derivative_te,synaptic_triangular_generator,TRIANGLE_SLOPE_MATRIX_Q16[0][selected slope],C derivative; RTL uses precomputed timestep-times-slope increments,Q16.16,32,16,16
+n2.derivative_ti,synaptic_triangular_generator,TRIANGLE_SLOPE_MATRIX_Q16[1][selected slope],C derivative; RTL uses precomputed timestep-times-slope increments,Q16.16,32,16,16
+n2.derivative_vg,matrix_mul_and_euler_update,dy_dt[2],Arithmetic equivalent for neuron 2,Q24.8,32,8,24
+n2.derivative_vk,matrix_mul_and_euler_update,dy_dt[1],Arithmetic equivalent for neuron 2,Q24.8,32,8,24
+n2.derivative_vmem,matrix_mul_and_euler_update,dy_dt[0],Arithmetic equivalent for neuron 2,Q24.8,32,8,24
+n2.derivative_vna,matrix_mul_and_euler_update,dy_dt[3],Arithmetic equivalent for neuron 2,Q24.8,32,8,24
+n0.update_te,synaptic_triangular_generator,mul_excitatory_dt_slope,Equivalent precomputed Euler increment for neuron 0,Q16.16,32,16,16
+n0.update_ti,synaptic_triangular_generator,mul_inhibitory_dt_slope,Equivalent precomputed Euler increment for neuron 0,Q16.16,32,16,16
+n0.update_vg,matrix_mul_and_euler_update,mul_dy_dt_dt[2],Arithmetic equivalent for neuron 0,Q8.24,32,24,8
+n0.update_vk,matrix_mul_and_euler_update,mul_dy_dt_dt[1],Arithmetic equivalent for neuron 0,Q8.24,32,24,8
+n0.update_vmem,matrix_mul_and_euler_update,mul_dy_dt_dt[0],Arithmetic equivalent for neuron 0,Q8.24,32,24,8
+n0.update_vna,matrix_mul_and_euler_update,mul_dy_dt_dt[3],Arithmetic equivalent for neuron 0,Q8.24,32,24,8
+n1.update_te,synaptic_triangular_generator,mul_excitatory_dt_slope,Equivalent precomputed Euler increment for neuron 1,Q16.16,32,16,16
+n1.update_ti,synaptic_triangular_generator,mul_inhibitory_dt_slope,Equivalent precomputed Euler increment for neuron 1,Q16.16,32,16,16
+n1.update_vg,matrix_mul_and_euler_update,mul_dy_dt_dt[2],Arithmetic equivalent for neuron 1,Q8.24,32,24,8
+n1.update_vk,matrix_mul_and_euler_update,mul_dy_dt_dt[1],Arithmetic equivalent for neuron 1,Q8.24,32,24,8
+n1.update_vmem,matrix_mul_and_euler_update,mul_dy_dt_dt[0],Arithmetic equivalent for neuron 1,Q8.24,32,24,8
+n1.update_vna,matrix_mul_and_euler_update,mul_dy_dt_dt[3],Arithmetic equivalent for neuron 1,Q8.24,32,24,8
+n2.update_te,synaptic_triangular_generator,mul_excitatory_dt_slope,Equivalent precomputed Euler increment for neuron 2,Q16.16,32,16,16
+n2.update_ti,synaptic_triangular_generator,mul_inhibitory_dt_slope,Equivalent precomputed Euler increment for neuron 2,Q16.16,32,16,16
+n2.update_vg,matrix_mul_and_euler_update,mul_dy_dt_dt[2],Arithmetic equivalent for neuron 2,Q8.24,32,24,8
+n2.update_vk,matrix_mul_and_euler_update,mul_dy_dt_dt[1],Arithmetic equivalent for neuron 2,Q8.24,32,24,8
+n2.update_vmem,matrix_mul_and_euler_update,mul_dy_dt_dt[0],Arithmetic equivalent for neuron 2,Q8.24,32,24,8
+n2.update_vna,matrix_mul_and_euler_update,mul_dy_dt_dt[3],Arithmetic equivalent for neuron 2,Q8.24,32,24,8
+n0.coupled_triangle_excitatory,synaptic_pulse_generator,excitatory_exponent_argument,Coupled value before bias; neuron 0,Q8.24,32,24,8
+n0.coupled_triangle_inhibitory,synaptic_pulse_generator,inhibitory_exponent_argument,Coupled value before bias; neuron 0,Q8.24,32,24,8
+n0.scaled_triangle_excitatory,synaptic_pulse_generator,pipe[7].scaled_excitatory_triangular_state,Scaled triangle plus gate offset; neuron 0,Q16.16,32,16,16
+n0.scaled_triangle_inhibitory,synaptic_pulse_generator,pipe[7].scaled_inhibitory_triangular_state,Scaled triangle plus gate offset; neuron 0,Q16.16,32,16,16
+n1.coupled_triangle_excitatory,synaptic_pulse_generator,excitatory_exponent_argument,Coupled value before bias; neuron 1,Q8.24,32,24,8
+n1.coupled_triangle_inhibitory,synaptic_pulse_generator,inhibitory_exponent_argument,Coupled value before bias; neuron 1,Q8.24,32,24,8
+n1.scaled_triangle_excitatory,synaptic_pulse_generator,pipe[7].scaled_excitatory_triangular_state,Scaled triangle plus gate offset; neuron 1,Q16.16,32,16,16
+n1.scaled_triangle_inhibitory,synaptic_pulse_generator,pipe[7].scaled_inhibitory_triangular_state,Scaled triangle plus gate offset; neuron 1,Q16.16,32,16,16
+n2.coupled_triangle_excitatory,synaptic_pulse_generator,excitatory_exponent_argument,Coupled value before bias; neuron 2,Q8.24,32,24,8
+n2.coupled_triangle_inhibitory,synaptic_pulse_generator,inhibitory_exponent_argument,Coupled value before bias; neuron 2,Q8.24,32,24,8
+n2.scaled_triangle_excitatory,synaptic_pulse_generator,pipe[7].scaled_excitatory_triangular_state,Scaled triangle plus gate offset; neuron 2,Q16.16,32,16,16
+n2.scaled_triangle_inhibitory,synaptic_pulse_generator,pipe[7].scaled_inhibitory_triangular_state,Scaled triangle plus gate offset; neuron 2,Q16.16,32,16,16
+n0.exponential_input.exponential,compute_current_vector,selected_exponent,Shared calculation / operand equivalent; neuron 0,Q8.24,32,24,8
+n0.exponential_input.synapse_exponential,synaptic_pulse_generator,exponent,Shared exponent input; neuron 0,Q8.24,32,24,8
+n0.inhibitory_exponent,synapse,exponent,Inhibitory synapse exponent; neuron 0,Q8.24,32,24,8
+n0.kappa_gate,compute_current_vector,exponent,Shared calculation / operand equivalent; neuron 0,Q8.24,32,24,8
+n0.kappa_potassium,compute_current_vector,mul_kp_vk,Shared calculation / operand equivalent; neuron 0,Q8.24,32,24,8
+n0.kappa_sodium,compute_current_vector,exponent,Shared calculation / operand equivalent; neuron 0,Q8.24,32,24,8
+n0.potassium_exponent,compute_current_vector,combined_exponent,Shared calculation / operand equivalent; neuron 0,Q8.24,32,24,8
+n0.sodium_exponent,compute_current_vector,phase_1_pipe[0].term_i3,Shared calculation / operand equivalent; neuron 0,Q8.24,32,24,8
+n0.triangle_exponent_excitatory,synaptic_pulse_generator,exponent,Shared exponent input; neuron 0,Q8.24,32,24,8
+n0.triangle_exponent_inhibitory,synaptic_pulse_generator,exponent,Shared exponent input; neuron 0,Q8.24,32,24,8
+n1.exponential_input.exponential,compute_current_vector,selected_exponent,Shared calculation / operand equivalent; neuron 1,Q8.24,32,24,8
+n1.exponential_input.synapse_exponential,synaptic_pulse_generator,exponent,Shared exponent input; neuron 1,Q8.24,32,24,8
+n1.inhibitory_exponent,synapse,exponent,Inhibitory synapse exponent; neuron 1,Q8.24,32,24,8
+n1.kappa_gate,compute_current_vector,exponent,Shared calculation / operand equivalent; neuron 1,Q8.24,32,24,8
+n1.kappa_potassium,compute_current_vector,mul_kp_vk,Shared calculation / operand equivalent; neuron 1,Q8.24,32,24,8
+n1.kappa_sodium,compute_current_vector,exponent,Shared calculation / operand equivalent; neuron 1,Q8.24,32,24,8
+n1.potassium_exponent,compute_current_vector,combined_exponent,Shared calculation / operand equivalent; neuron 1,Q8.24,32,24,8
+n1.sodium_exponent,compute_current_vector,phase_1_pipe[0].term_i3,Shared calculation / operand equivalent; neuron 1,Q8.24,32,24,8
+n1.triangle_exponent_excitatory,synaptic_pulse_generator,exponent,Shared exponent input; neuron 1,Q8.24,32,24,8
+n1.triangle_exponent_inhibitory,synaptic_pulse_generator,exponent,Shared exponent input; neuron 1,Q8.24,32,24,8
+n2.exponential_input.exponential,compute_current_vector,selected_exponent,Shared calculation / operand equivalent; neuron 2,Q8.24,32,24,8
+n2.exponential_input.synapse_exponential,synaptic_pulse_generator,exponent,Shared exponent input; neuron 2,Q8.24,32,24,8
+n2.inhibitory_exponent,synapse,exponent,Inhibitory synapse exponent; neuron 2,Q8.24,32,24,8
+n2.kappa_gate,compute_current_vector,exponent,Shared calculation / operand equivalent; neuron 2,Q8.24,32,24,8
+n2.kappa_potassium,compute_current_vector,mul_kp_vk,Shared calculation / operand equivalent; neuron 2,Q8.24,32,24,8
+n2.kappa_sodium,compute_current_vector,exponent,Shared calculation / operand equivalent; neuron 2,Q8.24,32,24,8
+n2.potassium_exponent,compute_current_vector,combined_exponent,Shared calculation / operand equivalent; neuron 2,Q8.24,32,24,8
+n2.sodium_exponent,compute_current_vector,phase_1_pipe[0].term_i3,Shared calculation / operand equivalent; neuron 2,Q8.24,32,24,8
+n2.triangle_exponent_excitatory,synaptic_pulse_generator,exponent,Shared exponent input; neuron 2,Q8.24,32,24,8
+n2.triangle_exponent_inhibitory,synaptic_pulse_generator,exponent,Shared exponent input; neuron 2,Q8.24,32,24,8
+n0.exponential_output.exponential,compute_current_vector / synapse,result_base_two_exponential / inhibitory_scale,"Exponentiation result, possibly shared between operations; neuron 0",Q24.8,32,8,24
+n0.exponential_output.synapse_exponential,synaptic_pulse_generator,result_base_two_exponential / inhibitory_scale,"Exponentiation result, possibly shared between operations; neuron 0",Q24.8,32,8,24
+n0.triangle_exponential_excitatory,synaptic_pulse_generator,excitatory_pulse,"Exponentiation result, possibly shared between operations; neuron 0",Q24.8,32,8,24
+n0.triangle_exponential_inhibitory,synaptic_pulse_generator,inhibitory_pulse,"Exponentiation result, possibly shared between operations; neuron 0",Q24.8,32,8,24
+n1.exponential_output.exponential,compute_current_vector / synapse,result_base_two_exponential / inhibitory_scale,"Exponentiation result, possibly shared between operations; neuron 1",Q24.8,32,8,24
+n1.exponential_output.synapse_exponential,synaptic_pulse_generator,result_base_two_exponential / inhibitory_scale,"Exponentiation result, possibly shared between operations; neuron 1",Q24.8,32,8,24
+n1.triangle_exponential_excitatory,synaptic_pulse_generator,excitatory_pulse,"Exponentiation result, possibly shared between operations; neuron 1",Q24.8,32,8,24
+n1.triangle_exponential_inhibitory,synaptic_pulse_generator,inhibitory_pulse,"Exponentiation result, possibly shared between operations; neuron 1",Q24.8,32,8,24
+n2.exponential_output.exponential,compute_current_vector / synapse,result_base_two_exponential / inhibitory_scale,"Exponentiation result, possibly shared between operations; neuron 2",Q24.8,32,8,24
+n2.exponential_output.synapse_exponential,synaptic_pulse_generator,result_base_two_exponential / inhibitory_scale,"Exponentiation result, possibly shared between operations; neuron 2",Q24.8,32,8,24
+n2.triangle_exponential_excitatory,synaptic_pulse_generator,excitatory_pulse,"Exponentiation result, possibly shared between operations; neuron 2",Q24.8,32,8,24
+n2.triangle_exponential_inhibitory,synaptic_pulse_generator,inhibitory_pulse,"Exponentiation result, possibly shared between operations; neuron 2",Q24.8,32,8,24
+n0.scaled_weight[0],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 0, C channel [0]",Q8.24,32,24,8
+n0.scaled_weight[1],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 0, C channel [1]",Q8.24,32,24,8
+n0.scaled_weight[2],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 0, C channel [2]",Q8.24,32,24,8
+n0.scaled_weight[3],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 0, C channel [3]",Q8.24,32,24,8
+n0.scaled_weight[4],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 0, C channel [4]",Q8.24,32,24,8
+n0.scaled_weight[5],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 0, C channel [5]",Q8.24,32,24,8
+n0.synapse_partial_sum[0],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n0.synapse_partial_sum[1],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n0.synapse_partial_sum[2],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n0.synapse_partial_sum[3],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n0.synapse_partial_sum[4],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n0.synapse_partial_sum[5],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n0.synapse_product[0],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 0,Q24.8,32,8,24
+n0.synapse_product[1],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 0,Q24.8,32,8,24
+n0.synapse_product[2],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 0,Q24.8,32,8,24
+n0.synapse_product[3],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 0,Q24.8,32,8,24
+n0.synapse_product[4],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 0,Q24.8,32,8,24
+n0.synapse_product[5],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 0,Q24.8,32,8,24
+n0.synapse_scale[0],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 0,Q24.8,32,8,24
+n0.synapse_scale[1],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 0,Q24.8,32,8,24
+n0.synapse_scale[2],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 0,Q24.8,32,8,24
+n0.synapse_scale[3],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 0,Q24.8,32,8,24
+n0.synapse_scale[4],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 0,Q24.8,32,8,24
+n0.synapse_scale[5],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 0,Q24.8,32,8,24
+n1.scaled_weight[0],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 1, C channel [0]",Q8.24,32,24,8
+n1.scaled_weight[1],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 1, C channel [1]",Q8.24,32,24,8
+n1.scaled_weight[2],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 1, C channel [2]",Q8.24,32,24,8
+n1.scaled_weight[3],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 1, C channel [3]",Q8.24,32,24,8
+n1.scaled_weight[4],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 1, C channel [4]",Q8.24,32,24,8
+n1.scaled_weight[5],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 1, C channel [5]",Q8.24,32,24,8
+n1.synapse_partial_sum[0],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n1.synapse_partial_sum[1],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n1.synapse_partial_sum[2],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n1.synapse_partial_sum[3],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n1.synapse_partial_sum[4],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n1.synapse_partial_sum[5],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n1.synapse_product[0],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 1,Q24.8,32,8,24
+n1.synapse_product[1],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 1,Q24.8,32,8,24
+n1.synapse_product[2],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 1,Q24.8,32,8,24
+n1.synapse_product[3],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 1,Q24.8,32,8,24
+n1.synapse_product[4],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 1,Q24.8,32,8,24
+n1.synapse_product[5],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 1,Q24.8,32,8,24
+n1.synapse_scale[0],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 1,Q24.8,32,8,24
+n1.synapse_scale[1],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 1,Q24.8,32,8,24
+n1.synapse_scale[2],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 1,Q24.8,32,8,24
+n1.synapse_scale[3],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 1,Q24.8,32,8,24
+n1.synapse_scale[4],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 1,Q24.8,32,8,24
+n1.synapse_scale[5],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 1,Q24.8,32,8,24
+n2.scaled_weight[0],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 2, C channel [0]",Q8.24,32,24,8
+n2.scaled_weight[1],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 2, C channel [1]",Q8.24,32,24,8
+n2.scaled_weight[2],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 2, C channel [2]",Q8.24,32,24,8
+n2.scaled_weight[3],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 2, C channel [3]",Q8.24,32,24,8
+n2.scaled_weight[4],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 2, C channel [4]",Q8.24,32,24,8
+n2.scaled_weight[5],synapse,excitatory_scaled_coefficient / inhibitory_scaled_coefficient,"Coefficient arithmetic equivalent; neuron 2, C channel [5]",Q8.24,32,24,8
+n2.synapse_partial_sum[0],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n2.synapse_partial_sum[1],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n2.synapse_partial_sum[2],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n2.synapse_partial_sum[3],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n2.synapse_partial_sum[4],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n2.synapse_partial_sum[5],three_neurons_1D,current_in_neuron,C sequential synapse prefix sum; no one-to-one RTL register,Q24.8,32,8,24
+n2.synapse_product[0],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 2,Q24.8,32,8,24
+n2.synapse_product[1],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 2,Q24.8,32,8,24
+n2.synapse_product[2],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 2,Q24.8,32,8,24
+n2.synapse_product[3],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 2,Q24.8,32,8,24
+n2.synapse_product[4],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 2,Q24.8,32,8,24
+n2.synapse_product[5],synapse,excitatory_current_contribution / inhibitory_current_contribution,Channel contribution; neuron 2,Q24.8,32,8,24
+n2.synapse_scale[0],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 2,Q24.8,32,8,24
+n2.synapse_scale[1],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 2,Q24.8,32,8,24
+n2.synapse_scale[2],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 2,Q24.8,32,8,24
+n2.synapse_scale[3],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 2,Q24.8,32,8,24
+n2.synapse_scale[4],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 2,Q24.8,32,8,24
+n2.synapse_scale[5],synapse,SYNAPSE_EXCITATORY_SCALE_Q8 / inhibitory_scale,Channel-dependent scale; neuron 2,Q24.8,32,8,24
+n0.matrix_product[0;0],matrix_mul_and_euler_update,products[0][0],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[0;1],matrix_mul_and_euler_update,products[0][1],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[0;2],matrix_mul_and_euler_update,products[0][2],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[0;3],matrix_mul_and_euler_update,products[0][3],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[0;4],matrix_mul_and_euler_update,products[0][4],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[0;5],matrix_mul_and_euler_update,products[0][5],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[0;6],matrix_mul_and_euler_update,products[0][6],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[0;7],matrix_mul_and_euler_update,products[0][7],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[1;0],matrix_mul_and_euler_update,products[1][0],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[1;1],matrix_mul_and_euler_update,products[1][1],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[1;2],matrix_mul_and_euler_update,products[1][2],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[1;3],matrix_mul_and_euler_update,products[1][3],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[1;4],matrix_mul_and_euler_update,products[1][4],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[1;5],matrix_mul_and_euler_update,products[1][5],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[1;6],matrix_mul_and_euler_update,products[1][6],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[1;7],matrix_mul_and_euler_update,products[1][7],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[2;0],matrix_mul_and_euler_update,products[2][0],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[2;1],matrix_mul_and_euler_update,products[2][1],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[2;2],matrix_mul_and_euler_update,products[2][2],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[2;3],matrix_mul_and_euler_update,products[2][3],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[2;4],matrix_mul_and_euler_update,products[2][4],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[2;5],matrix_mul_and_euler_update,products[2][5],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[2;6],matrix_mul_and_euler_update,products[2][6],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[2;7],matrix_mul_and_euler_update,products[2][7],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[3;0],matrix_mul_and_euler_update,products[3][0],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[3;1],matrix_mul_and_euler_update,products[3][1],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[3;2],matrix_mul_and_euler_update,products[3][2],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[3;3],matrix_mul_and_euler_update,products[3][3],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[3;4],matrix_mul_and_euler_update,products[3][4],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[3;5],matrix_mul_and_euler_update,products[3][5],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[3;6],matrix_mul_and_euler_update,products[3][6],Rescaled product for neuron 0,Q24.8,32,8,24
+n0.matrix_product[3;7],matrix_mul_and_euler_update,products[3][7],Rescaled product for neuron 0,Q24.8,32,8,24
+n1.matrix_product[0;0],matrix_mul_and_euler_update,products[0][0],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[0;1],matrix_mul_and_euler_update,products[0][1],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[0;2],matrix_mul_and_euler_update,products[0][2],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[0;3],matrix_mul_and_euler_update,products[0][3],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[0;4],matrix_mul_and_euler_update,products[0][4],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[0;5],matrix_mul_and_euler_update,products[0][5],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[0;6],matrix_mul_and_euler_update,products[0][6],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[0;7],matrix_mul_and_euler_update,products[0][7],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[1;0],matrix_mul_and_euler_update,products[1][0],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[1;1],matrix_mul_and_euler_update,products[1][1],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[1;2],matrix_mul_and_euler_update,products[1][2],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[1;3],matrix_mul_and_euler_update,products[1][3],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[1;4],matrix_mul_and_euler_update,products[1][4],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[1;5],matrix_mul_and_euler_update,products[1][5],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[1;6],matrix_mul_and_euler_update,products[1][6],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[1;7],matrix_mul_and_euler_update,products[1][7],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[2;0],matrix_mul_and_euler_update,products[2][0],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[2;1],matrix_mul_and_euler_update,products[2][1],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[2;2],matrix_mul_and_euler_update,products[2][2],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[2;3],matrix_mul_and_euler_update,products[2][3],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[2;4],matrix_mul_and_euler_update,products[2][4],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[2;5],matrix_mul_and_euler_update,products[2][5],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[2;6],matrix_mul_and_euler_update,products[2][6],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[2;7],matrix_mul_and_euler_update,products[2][7],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[3;0],matrix_mul_and_euler_update,products[3][0],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[3;1],matrix_mul_and_euler_update,products[3][1],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[3;2],matrix_mul_and_euler_update,products[3][2],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[3;3],matrix_mul_and_euler_update,products[3][3],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[3;4],matrix_mul_and_euler_update,products[3][4],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[3;5],matrix_mul_and_euler_update,products[3][5],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[3;6],matrix_mul_and_euler_update,products[3][6],Rescaled product for neuron 1,Q24.8,32,8,24
+n1.matrix_product[3;7],matrix_mul_and_euler_update,products[3][7],Rescaled product for neuron 1,Q24.8,32,8,24
+n2.matrix_product[0;0],matrix_mul_and_euler_update,products[0][0],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[0;1],matrix_mul_and_euler_update,products[0][1],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[0;2],matrix_mul_and_euler_update,products[0][2],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[0;3],matrix_mul_and_euler_update,products[0][3],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[0;4],matrix_mul_and_euler_update,products[0][4],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[0;5],matrix_mul_and_euler_update,products[0][5],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[0;6],matrix_mul_and_euler_update,products[0][6],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[0;7],matrix_mul_and_euler_update,products[0][7],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[1;0],matrix_mul_and_euler_update,products[1][0],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[1;1],matrix_mul_and_euler_update,products[1][1],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[1;2],matrix_mul_and_euler_update,products[1][2],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[1;3],matrix_mul_and_euler_update,products[1][3],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[1;4],matrix_mul_and_euler_update,products[1][4],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[1;5],matrix_mul_and_euler_update,products[1][5],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[1;6],matrix_mul_and_euler_update,products[1][6],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[1;7],matrix_mul_and_euler_update,products[1][7],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[2;0],matrix_mul_and_euler_update,products[2][0],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[2;1],matrix_mul_and_euler_update,products[2][1],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[2;2],matrix_mul_and_euler_update,products[2][2],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[2;3],matrix_mul_and_euler_update,products[2][3],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[2;4],matrix_mul_and_euler_update,products[2][4],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[2;5],matrix_mul_and_euler_update,products[2][5],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[2;6],matrix_mul_and_euler_update,products[2][6],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[2;7],matrix_mul_and_euler_update,products[2][7],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[3;0],matrix_mul_and_euler_update,products[3][0],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[3;1],matrix_mul_and_euler_update,products[3][1],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[3;2],matrix_mul_and_euler_update,products[3][2],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[3;3],matrix_mul_and_euler_update,products[3][3],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[3;4],matrix_mul_and_euler_update,products[3][4],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[3;5],matrix_mul_and_euler_update,products[3][5],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[3;6],matrix_mul_and_euler_update,products[3][6],Rescaled product for neuron 2,Q24.8,32,8,24
+n2.matrix_product[3;7],matrix_mul_and_euler_update,products[3][7],Rescaled product for neuron 2,Q24.8,32,8,24
+n0.matrix_partial_sum[0;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[0;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[0;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[0;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[0;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[0;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[0;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[0;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[1;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[1;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[1;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[1;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[1;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[1;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[1;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[1;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[2;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[2;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[2;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[2;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[2;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[2;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[2;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[2;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[3;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[3;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[3;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[3;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[3;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[3;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[3;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n0.matrix_partial_sum[3;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[0;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[0;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[0;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[0;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[0;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[0;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[0;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[0;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[1;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[1;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[1;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[1;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[1;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[1;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[1;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[1;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[2;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[2;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[2;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[2;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[2;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[2;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[2;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[2;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[3;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[3;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[3;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[3;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[3;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[3;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[3;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n1.matrix_partial_sum[3;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[0;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[0;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[0;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[0;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[0;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[0;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[0;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[0;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[1;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[1;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[1;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[1;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[1;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[1;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[1;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[1;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[2;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[2;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[2;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[2;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[2;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[2;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[2;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[2;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[3;0],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[3;1],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[3;2],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[3;3],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[3;4],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[3;5],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[3;6],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+n2.matrix_partial_sum[3;7],matrix_mul_and_euler_update,layer_one_sums / layer_two_sums / dy_dt,C sequential prefix sum; no one-to-one RTL register because RTL uses a tree,Q24.8,32,8,24
+coupling,neuron_params_generated_pkg / neuron_params_pkg,SYNAPSE_EFFECTIVE_COUPLING_Q24,Constant or equivalent RTL expression,Q8.24,32,24,8
+current_one,neuron_params_generated_pkg / neuron_params_pkg,ONE_Q8,Constant or equivalent RTL expression,Q24.8,32,8,24
+excitatory_scale,neuron_params_generated_pkg / neuron_params_pkg,SYNAPSE_EXCITATORY_SCALE_Q8,Constant or equivalent RTL expression,Q24.8,32,8,24
+expek,neuron_params_generated_pkg / neuron_params_pkg,EXPEK,Constant or equivalent RTL expression,Q8.24,32,24,8
+expmel,neuron_params_generated_pkg / neuron_params_pkg,EXPMEL,Constant or equivalent RTL expression,Q8.24,32,24,8
+expmvgk,neuron_params_generated_pkg / neuron_params_pkg,EXPMVGK,Constant or equivalent RTL expression,Q8.24,32,24,8
+expvna,neuron_params_generated_pkg / neuron_params_pkg,EXPVNA,Constant or equivalent RTL expression,Q8.24,32,24,8
+expvsat,neuron_params_generated_pkg / neuron_params_pkg,EXPVSAT,Constant or equivalent RTL expression,Q8.24,32,24,8
+inhibitory_membrane_offset,neuron_params_generated_pkg / neuron_params_pkg,SYNAPSE_INHIBITORY_VMEM_OFFSET_Q24,Constant or equivalent RTL expression,Q8.24,32,24,8
+kappa,neuron_params_generated_pkg / neuron_params_pkg,KP,Constant or equivalent RTL expression,Q8.24,32,24,8
+negative_spike_threshold,neuron_params_generated_pkg / neuron_params_pkg,TRIANGLE_SPIKE_THRESHOLD_Q24 (negated),Constant or equivalent RTL expression,Q8.24,32,24,8
+neuron_matrix[0;0],neuron_params_generated_pkg,NEURON_MATRIX[0][0],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[0;1],neuron_params_generated_pkg,NEURON_MATRIX[0][1],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[0;2],neuron_params_generated_pkg,NEURON_MATRIX[0][2],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[0;3],neuron_params_generated_pkg,NEURON_MATRIX[0][3],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[0;4],neuron_params_generated_pkg,NEURON_MATRIX[0][4],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[0;5],neuron_params_generated_pkg,NEURON_MATRIX[0][5],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[0;6],neuron_params_generated_pkg,NEURON_MATRIX[0][6],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[0;7],neuron_params_generated_pkg,NEURON_MATRIX[0][7],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[1;0],neuron_params_generated_pkg,NEURON_MATRIX[1][0],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[1;1],neuron_params_generated_pkg,NEURON_MATRIX[1][1],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[1;2],neuron_params_generated_pkg,NEURON_MATRIX[1][2],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[1;3],neuron_params_generated_pkg,NEURON_MATRIX[1][3],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[1;4],neuron_params_generated_pkg,NEURON_MATRIX[1][4],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[1;5],neuron_params_generated_pkg,NEURON_MATRIX[1][5],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[1;6],neuron_params_generated_pkg,NEURON_MATRIX[1][6],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[1;7],neuron_params_generated_pkg,NEURON_MATRIX[1][7],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[2;0],neuron_params_generated_pkg,NEURON_MATRIX[2][0],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[2;1],neuron_params_generated_pkg,NEURON_MATRIX[2][1],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[2;2],neuron_params_generated_pkg,NEURON_MATRIX[2][2],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[2;3],neuron_params_generated_pkg,NEURON_MATRIX[2][3],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[2;4],neuron_params_generated_pkg,NEURON_MATRIX[2][4],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[2;5],neuron_params_generated_pkg,NEURON_MATRIX[2][5],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[2;6],neuron_params_generated_pkg,NEURON_MATRIX[2][6],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[2;7],neuron_params_generated_pkg,NEURON_MATRIX[2][7],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[3;0],neuron_params_generated_pkg,NEURON_MATRIX[3][0],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[3;1],neuron_params_generated_pkg,NEURON_MATRIX[3][1],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[3;2],neuron_params_generated_pkg,NEURON_MATRIX[3][2],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[3;3],neuron_params_generated_pkg,NEURON_MATRIX[3][3],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[3;4],neuron_params_generated_pkg,NEURON_MATRIX[3][4],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[3;5],neuron_params_generated_pkg,NEURON_MATRIX[3][5],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[3;6],neuron_params_generated_pkg,NEURON_MATRIX[3][6],Matrix coefficient,Q9.23,32,23,9
+neuron_matrix[3;7],neuron_params_generated_pkg,NEURON_MATRIX[3][7],Matrix coefficient,Q9.23,32,23,9
+sodium_voltage_offset,neuron_params_generated_pkg / neuron_params_pkg,VNA_OFFSET_Q24,Constant or equivalent RTL expression,Q8.24,32,24,8
+synapse_bias_excitatory,neuron_params_generated_pkg / neuron_params_pkg,SYNAPSE_EXP_BIAS_Q24[0],Constant or equivalent RTL expression,Q8.24,32,24,8
+synapse_bias_inhibitory,neuron_params_generated_pkg / neuron_params_pkg,SYNAPSE_EXP_BIAS_Q24[1],Constant or equivalent RTL expression,Q8.24,32,24,8
+synapse_coefficient,neuron_params_generated_pkg / neuron_params_pkg,SYNFIRE_1D_3_SYNAPSE_COEFFICIENT_Q24,Constant or equivalent RTL expression,Q8.24,32,24,8
+timestep,neuron_params_generated_pkg / neuron_params_pkg,DT,Constant or equivalent RTL expression,Q8.24,32,24,8
+triangle_offset_excitatory,neuron_params_generated_pkg / neuron_params_pkg,SYNAPSE_GATE_OFFSET_Q16[0],Constant or equivalent RTL expression,Q16.16,32,16,16
+triangle_offset_inhibitory,neuron_params_generated_pkg / neuron_params_pkg,SYNAPSE_GATE_OFFSET_Q16[1],Constant or equivalent RTL expression,Q16.16,32,16,16
+triangle_scaling,neuron_params_generated_pkg / neuron_params_pkg,SYNAPSE_TRIANGLE_SCALE_Q24,Constant or equivalent RTL expression,Q8.24,32,24,8
+triangle_slope[0;0],neuron_params_generated_pkg,TRIANGLE_SLOPE_MATRIX_Q16[0][0],Slope constant; RTL increment table precomputes DT times slope,Q16.16,32,16,16
+triangle_slope[0;1],neuron_params_generated_pkg,TRIANGLE_SLOPE_MATRIX_Q16[0][1],Slope constant; RTL increment table precomputes DT times slope,Q16.16,32,16,16
+triangle_slope[1;0],neuron_params_generated_pkg,TRIANGLE_SLOPE_MATRIX_Q16[1][0],Slope constant; RTL increment table precomputes DT times slope,Q16.16,32,16,16
+triangle_slope[1;1],neuron_params_generated_pkg,TRIANGLE_SLOPE_MATRIX_Q16[1][1],Slope constant; RTL increment table precomputes DT times slope,Q16.16,32,16,16
+triangle_upper_bound,neuron_params_generated_pkg / neuron_params_pkg,TRIANGLE_UPPER_BOUND_Q16,Constant or equivalent RTL expression,Q16.16,32,16,16
+raw_product.n0.coupled_triangle.constant_x_triangle,signed_32_32_multiplication,product,C full product at raw_product.n0.coupled_triangle.constant_x_triangle; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24
+raw_product.n0.current_product.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n0.current_product.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n0.current_product.current_x_current,signed_32_32_multiplication,product,C full product at raw_product.n0.current_product.current_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q48.16,64,16,48
+raw_product.n0.matrix_product.matrix_x_current,signed_32_32_multiplication,product,C full product at raw_product.n0.matrix_product.matrix_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q33.31,64,31,33
+raw_product.n0.scaled_triangle.triangle_x_constant,signed_32_32_multiplication,product,C full product at raw_product.n0.scaled_triangle.triangle_x_constant; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24
+raw_product.n0.scaled_weight.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n0.scaled_weight.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n0.state_product.constant_x_state,signed_32_32_multiplication,product,C full product at raw_product.n0.state_product.constant_x_state; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q16.48,64,48,16
+raw_product.n0.synapse_product.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n0.synapse_product.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n0.update.current_x_timestep,signed_32_32_multiplication,product,C full product at raw_product.n0.update.current_x_timestep; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n0.update.triangle_x_timestep,signed_32_32_multiplication,product,C full product at raw_product.n0.update.triangle_x_timestep; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24
+raw_product.n1.coupled_triangle.constant_x_triangle,signed_32_32_multiplication,product,C full product at raw_product.n1.coupled_triangle.constant_x_triangle; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24
+raw_product.n1.current_product.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n1.current_product.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n1.current_product.current_x_current,signed_32_32_multiplication,product,C full product at raw_product.n1.current_product.current_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q48.16,64,16,48
+raw_product.n1.matrix_product.matrix_x_current,signed_32_32_multiplication,product,C full product at raw_product.n1.matrix_product.matrix_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q33.31,64,31,33
+raw_product.n1.scaled_triangle.triangle_x_constant,signed_32_32_multiplication,product,C full product at raw_product.n1.scaled_triangle.triangle_x_constant; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24
+raw_product.n1.scaled_weight.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n1.scaled_weight.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n1.state_product.constant_x_state,signed_32_32_multiplication,product,C full product at raw_product.n1.state_product.constant_x_state; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q16.48,64,48,16
+raw_product.n1.synapse_product.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n1.synapse_product.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n1.update.current_x_timestep,signed_32_32_multiplication,product,C full product at raw_product.n1.update.current_x_timestep; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n1.update.triangle_x_timestep,signed_32_32_multiplication,product,C full product at raw_product.n1.update.triangle_x_timestep; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24
+raw_product.n2.coupled_triangle.constant_x_triangle,signed_32_32_multiplication,product,C full product at raw_product.n2.coupled_triangle.constant_x_triangle; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24
+raw_product.n2.current_product.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n2.current_product.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n2.current_product.current_x_current,signed_32_32_multiplication,product,C full product at raw_product.n2.current_product.current_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q48.16,64,16,48
+raw_product.n2.matrix_product.matrix_x_current,signed_32_32_multiplication,product,C full product at raw_product.n2.matrix_product.matrix_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q33.31,64,31,33
+raw_product.n2.scaled_triangle.triangle_x_constant,signed_32_32_multiplication,product,C full product at raw_product.n2.scaled_triangle.triangle_x_constant; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24
+raw_product.n2.scaled_weight.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n2.scaled_weight.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n2.state_product.constant_x_state,signed_32_32_multiplication,product,C full product at raw_product.n2.state_product.constant_x_state; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q16.48,64,48,16
+raw_product.n2.synapse_product.constant_x_current,signed_32_32_multiplication,product,C full product at raw_product.n2.synapse_product.constant_x_current; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n2.update.current_x_timestep,signed_32_32_multiplication,product,C full product at raw_product.n2.update.current_x_timestep; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q32.32,64,32,32
+raw_product.n2.update.triangle_x_timestep,signed_32_32_multiplication,product,C full product at raw_product.n2.update.triangle_x_timestep; Q describes full-product operand scaling. RTL multiplier instances use product; optimised/precomputed sites may have no live product register,Q24.40,64,40,24

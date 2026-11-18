@@ -1,0 +1,54 @@
+{
+  "status": "complete",
+  "additional_currents": 136,
+  "reused_original_currents": 301,
+  "combined_currents": 437,
+  "reported_positive_currents": 436,
+  "report_starts_at_pa": 1,
+  "largest_tested_current_pa": 1000000.0,
+  "valid_complete_currents": 356,
+  "invalid_currents": 81,
+  "additional_valid_currents": 55,
+  "additional_overflow_currents": 81,
+  "largest_tested_valid_current_pa": 8500.0,
+  "lowest_tested_overflow_current_pa": 7750.0,
+  "bands": [
+    {
+      "directory": "01_325_to_1000pA",
+      "minimum_pa": 325,
+      "maximum_pa": 1000,
+      "step_pa": 25,
+      "completed_currents": 28,
+      "valid_currents": 28,
+      "overflow_currents": 0
+    },
+    {
+      "directory": "02_1250_to_10000pA",
+      "minimum_pa": 1250,
+      "maximum_pa": 10000,
+      "step_pa": 250,
+      "completed_currents": 36,
+      "valid_currents": 27,
+      "overflow_currents": 9
+    },
+    {
+      "directory": "03_12500_to_100000pA",
+      "minimum_pa": 12500,
+      "maximum_pa": 100000,
+      "step_pa": 2500,
+      "completed_currents": 36,
+      "valid_currents": 0,
+      "overflow_currents": 36
+    },
+    {
+      "directory": "04_125000_to_1000000pA",
+      "minimum_pa": 125000,
+      "maximum_pa": 1000000,
+      "step_pa": 25000,
+      "completed_currents": 36,
+      "valid_currents": 0,
+      "overflow_currents": 36
+    }
+  ],
+  "limitation": "Observed requirements from valid complete runs. Overflow onset is sampled and nonmonotonic. Site checks do not always identify a stored-state index."
+}

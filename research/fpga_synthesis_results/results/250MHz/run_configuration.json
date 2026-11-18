@@ -1,0 +1,28 @@
+{
+  "part": "xc7z020clg400-1",
+  "clock_mhz": 250,
+  "clock_uncertainty_ns": 0.1,
+  "vivado_bin": "C:\\AMDDesignTools\\2026.1\\Vivado\\bin",
+  "source_multiplier": "C:\\Users\\Decla\\Desktop\\year_four_project\\ip\\scalable_digital_neurons\\build\\build.srcs\\sources_1\\ip\\signed_multiplier\\signed_multiplier.xci",
+  "source_multiplier_sha256": "8e21bedac1349543b2958bacb23d89b92a91c394856da4e4bbb12b618d2a7bf1",
+  "multiplier_configuration": {
+    "MultType": "Parallel_Multiplier",
+    "PortAType": "Signed",
+    "PortAWidth": "32",
+    "PortBType": "Signed",
+    "PortBWidth": "32",
+    "Multiplier_Construction": "Use_Mults",
+    "OptGoal": "Speed",
+    "Use_Custom_Output_Width": "false",
+    "PipeStages": "6",
+    "ClockEnable": "false",
+    "SyncClear": "true"
+  },
+  "input_fractional_bits": 24,
+  "output_fractional_bits": 24,
+  "output_total_bits": 32,
+  "output_signed": true,
+  "jobs": 1,
+  "resource_stage": "post_synthesis",
+  "timing_stage": "post_route"
+}

@@ -1,0 +1,90 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Input-current sweep</title><style>body{font:16px system-ui,sans-serif;color:#20344a;max-width:1500px;margin:35px auto;padding:0 24px;background:#f5f7fa}section,details{background:white;border:1px solid #d8e0e8;border-radius:10px;padding:20px;margin:20px 0}img{width:100%;height:auto}summary{font-size:20px;font-weight:600;cursor:pointer}p,li{line-height:1.6}a{color:#2166ac}.note{background:#fff1dc;border-left:5px solid #bd762b;padding:14px}</style></head><body>
+<h1>Input current: behaviour and integer range</h1>
+<p>301 completed currents out of 301 requested. Every case uses the existing 32-bit fixed-point C arithmetic.</p>
+<p class="note">These are measured ranges for this network, pulse and simulation duration. They are not universal bounds or MATLAB/RTL accuracy results. Above 150 pA is exploratory. Every completed valid trace was compared against the original C model.</p>
+<section><h2>Start here</h2><ul>
+<li>0 pA: total crossings 0, 0, 0; maximum neuron-0 voltage -2.10914.</li>
+<li>20 pA: total crossings 4, 3, 3; maximum neuron-0 voltage 5.07604.</li>
+<li>40 pA: total crossings 13, 10, 10; maximum neuron-0 voltage 5.11885.</li>
+<li>80 pA: total crossings 14, 10, 10; maximum neuron-0 voltage 5.20705.</li>
+<li>150 pA: total crossings 13, 11, 11; maximum neuron-0 voltage 5.35081.</li>
+<li>200 pA: total crossings 8, 12, 12; maximum neuron-0 voltage 5.4462.</li>
+<li>300 pA: total crossings 1, 7, 7; maximum neuron-0 voltage 5.6208.</li>
+</ul><p>Compare spike counts, timing and peak voltage. Then inspect integer requirements separately for states and intermediate values.</p></section>
+<section><a href="plots/behaviour/01_spike_counts.png"><img src="plots/behaviour/01_spike_counts.png" loading="lazy"></a></section>
+<section><a href="plots/behaviour/02_pulse_firing_rate.png"><img src="plots/behaviour/02_pulse_firing_rate.png" loading="lazy"></a></section>
+<section><a href="plots/behaviour/03_spike_peaks.png"><img src="plots/behaviour/03_spike_peaks.png" loading="lazy"></a></section>
+<section><a href="plots/behaviour/04_first_spike_latency.png"><img src="plots/behaviour/04_first_spike_latency.png" loading="lazy"></a></section>
+<section><a href="plots/behaviour/05_crossing_raster.png"><img src="plots/behaviour/05_crossing_raster.png" loading="lazy"></a></section>
+<section><a href="plots/behaviour/06_activity_map.png"><img src="plots/behaviour/06_activity_map.png" loading="lazy"></a></section>
+<section><h2>Integer bits for each stored state</h2><p>The intended range is separated from the wider exploratory sweep so a design decision for 0–150 pA need not use extrema found only above 150 pA.</p><a href="tables/images/01_state_integer_bits.png"><img src="tables/images/01_state_integer_bits.png"></a>
+<a href="tables/images/02_state_integer_bits_operating_range.png"><img src="tables/images/02_state_integer_bits_operating_range.png"></a>
+<img src="plots/states/required_integer_bits.png"></section>
+<details><summary>All six state types: minimum and maximum versus current</summary>
+<img loading="lazy" src="plots/states/range_vmem.png">
+<img loading="lazy" src="plots/states/range_vk.png">
+<img loading="lazy" src="plots/states/range_vg.png">
+<img loading="lazy" src="plots/states/range_vna.png">
+<img loading="lazy" src="plots/states/range_te.png">
+<img loading="lazy" src="plots/states/range_ti.png">
+</details><section><h2>Example membrane voltages</h2><img src="plots/waveforms/01_neuron0_examples.png"></section><details><summary>Individual waveform examples for all three neurons</summary>
+<img loading="lazy" src="plots/waveforms/current_000.png">
+<img loading="lazy" src="plots/waveforms/current_020.png">
+<img loading="lazy" src="plots/waveforms/current_040.png">
+<img loading="lazy" src="plots/waveforms/current_080.png">
+<img loading="lazy" src="plots/waveforms/current_150.png">
+<img loading="lazy" src="plots/waveforms/current_200.png">
+<img loading="lazy" src="plots/waveforms/current_300.png">
+</details><details><summary>Currents and derivative ranges</summary><img src="plots/intermediates/01_total_current.png"><img src="plots/intermediates/02_neuron0_derivatives.png"></details>
+<details><summary>All current levels: readable behaviour tables</summary>
+<a href="tables/images/behaviour_01.png"><img loading="lazy" src="tables/images/behaviour_01.png"></a>
+<a href="tables/images/behaviour_02.png"><img loading="lazy" src="tables/images/behaviour_02.png"></a>
+<a href="tables/images/behaviour_03.png"><img loading="lazy" src="tables/images/behaviour_03.png"></a>
+<a href="tables/images/behaviour_04.png"><img loading="lazy" src="tables/images/behaviour_04.png"></a>
+<a href="tables/images/behaviour_05.png"><img loading="lazy" src="tables/images/behaviour_05.png"></a>
+<a href="tables/images/behaviour_06.png"><img loading="lazy" src="tables/images/behaviour_06.png"></a>
+<a href="tables/images/behaviour_07.png"><img loading="lazy" src="tables/images/behaviour_07.png"></a>
+<a href="tables/images/behaviour_08.png"><img loading="lazy" src="tables/images/behaviour_08.png"></a>
+<a href="tables/images/behaviour_09.png"><img loading="lazy" src="tables/images/behaviour_09.png"></a>
+<a href="tables/images/behaviour_10.png"><img loading="lazy" src="tables/images/behaviour_10.png"></a>
+<a href="tables/images/behaviour_11.png"><img loading="lazy" src="tables/images/behaviour_11.png"></a>
+<a href="tables/images/behaviour_12.png"><img loading="lazy" src="tables/images/behaviour_12.png"></a>
+<a href="tables/images/behaviour_13.png"><img loading="lazy" src="tables/images/behaviour_13.png"></a>
+</details><details><summary>Every profiled numerical variable: readable range tables</summary>
+<a href="tables/images/variables_constant_01.png"><img loading="lazy" src="tables/images/variables_constant_01.png"></a>
+<a href="tables/images/variables_constant_02.png"><img loading="lazy" src="tables/images/variables_constant_02.png"></a>
+<a href="tables/images/variables_constant_03.png"><img loading="lazy" src="tables/images/variables_constant_03.png"></a>
+<a href="tables/images/variables_current_vector_01.png"><img loading="lazy" src="tables/images/variables_current_vector_01.png"></a>
+<a href="tables/images/variables_derivative_01.png"><img loading="lazy" src="tables/images/variables_derivative_01.png"></a>
+<a href="tables/images/variables_euler_update_01.png"><img loading="lazy" src="tables/images/variables_euler_update_01.png"></a>
+<a href="tables/images/variables_exponent_argument_01.png"><img loading="lazy" src="tables/images/variables_exponent_argument_01.png"></a>
+<a href="tables/images/variables_exponent_argument_02.png"><img loading="lazy" src="tables/images/variables_exponent_argument_02.png"></a>
+<a href="tables/images/variables_exponential_output_01.png"><img loading="lazy" src="tables/images/variables_exponential_output_01.png"></a>
+<a href="tables/images/variables_external_current_01.png"><img loading="lazy" src="tables/images/variables_external_current_01.png"></a>
+<a href="tables/images/variables_matrix_partial_sum_01.png"><img loading="lazy" src="tables/images/variables_matrix_partial_sum_01.png"></a>
+<a href="tables/images/variables_matrix_partial_sum_02.png"><img loading="lazy" src="tables/images/variables_matrix_partial_sum_02.png"></a>
+<a href="tables/images/variables_matrix_partial_sum_03.png"><img loading="lazy" src="tables/images/variables_matrix_partial_sum_03.png"></a>
+<a href="tables/images/variables_matrix_partial_sum_04.png"><img loading="lazy" src="tables/images/variables_matrix_partial_sum_04.png"></a>
+<a href="tables/images/variables_matrix_product_rescaled_01.png"><img loading="lazy" src="tables/images/variables_matrix_product_rescaled_01.png"></a>
+<a href="tables/images/variables_matrix_product_rescaled_02.png"><img loading="lazy" src="tables/images/variables_matrix_product_rescaled_02.png"></a>
+<a href="tables/images/variables_matrix_product_rescaled_03.png"><img loading="lazy" src="tables/images/variables_matrix_product_rescaled_03.png"></a>
+<a href="tables/images/variables_matrix_product_rescaled_04.png"><img loading="lazy" src="tables/images/variables_matrix_product_rescaled_04.png"></a>
+<a href="tables/images/variables_raw_product_01.png"><img loading="lazy" src="tables/images/variables_raw_product_01.png"></a>
+<a href="tables/images/variables_raw_product_02.png"><img loading="lazy" src="tables/images/variables_raw_product_02.png"></a>
+<a href="tables/images/variables_scaled_triangle_01.png"><img loading="lazy" src="tables/images/variables_scaled_triangle_01.png"></a>
+<a href="tables/images/variables_state_01.png"><img loading="lazy" src="tables/images/variables_state_01.png"></a>
+<a href="tables/images/variables_synapse_calculation_01.png"><img loading="lazy" src="tables/images/variables_synapse_calculation_01.png"></a>
+<a href="tables/images/variables_synapse_calculation_02.png"><img loading="lazy" src="tables/images/variables_synapse_calculation_02.png"></a>
+<a href="tables/images/variables_synapse_calculation_03.png"><img loading="lazy" src="tables/images/variables_synapse_calculation_03.png"></a>
+<a href="tables/images/variables_total_current_01.png"><img loading="lazy" src="tables/images/variables_total_current_01.png"></a>
+</details><section><h2>Data and definitions</h2><ul>
+<li><a href="tables/behaviour_by_current.csv">behaviour_by_current.csv</a></li>
+<li><a href="tables/state_integer_bits.csv">state_integer_bits.csv</a></li>
+<li><a href="tables/state_integer_bits_operating_range.csv">state_integer_bits_operating_range.csv</a></li>
+<li><a href="tables/all_value_ranges.csv">all_value_ranges.csv</a></li>
+<li><a href="tables/all_value_ranges_operating_range.csv">all_value_ranges_operating_range.csv</a></li>
+<li><a href="tables/all_values_by_current.csv">all_values_by_current.csv</a></li>
+<li><a href="tables/numeric_checks.csv">numeric_checks.csv</a></li>
+<li><a href="tables/upward_crossings.csv">upward_crossings.csv</a></li>
+<li><a href="tables/transitions.csv">transitions.csv</a></li>
+</ul><p>Integer bits include sign. Stored states include initial values. Intermediate ranges are profiled at their actual evaluation sites; they are not inferred from final state voltages. Constants are the original encoded 32-bit values. Raw products are measured before fractional rescaling. Diagnostic loops and flags are not proposed neuron datapath values.</p><p>Pulse counts and rates use the stated pulse interval; a threshold crossing alone does not establish a complete physiological spike or depolarisation block. Numerical failures are flagged and excluded from recommendations. Headroom is a selected policy, not a proof.</p></section></body></html>

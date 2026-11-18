@@ -1,0 +1,2 @@
+FAIL
+invalid command name "redirect"

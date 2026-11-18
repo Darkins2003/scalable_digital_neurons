@@ -1,5 +1,8 @@
 // AXI-Lite controlled three-neuron 1D network integration top.
-module three_neuron_control_top (
+module three_neuron_control_top #(
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1,
+    parameter bit USE_BRAM_EXPONENTIAL = 1'b1
+)(
     input  logic        s00_axi_aclk,
     input  logic        s00_axi_aresetn,
     input  logic [4:0]  s00_axi_awaddr,
@@ -60,7 +63,10 @@ module three_neuron_control_top (
         .network_vmem_2(network_vmem_2)
     );
 
-    three_neurons_1D network (
+    three_neurons_1D #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
+        .USE_BRAM_EXPONENTIAL(USE_BRAM_EXPONENTIAL)
+    ) network(
         .clk(neuron_clk),
         .rst(!neuron_aresetn),
         .ctrl_start(ctrl_start),

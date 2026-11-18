@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "completed_currents": 36,
+  "requested_currents": 36,
+  "currents_minimum_pa": 1250.0,
+  "currents_maximum_pa": 10000.0,
+  "profiled_variables": 486,
+  "valid_currents": 27,
+  "overflow_currents": [
+    7750.0,
+    8000.0,
+    8250.0,
+    8750.0,
+    9000.0,
+    9250.0,
+    9500.0,
+    9750.0,
+    10000.0
+  ],
+  "exact_original_c_cases": 27,
+  "observed_states": 18,
+  "profiled_c_seconds_total": 189.84847520005133,
+  "manifest_fingerprint": "27a7cee5ef84933a1a113aa5e73877657ae031941f97f67c237473b36f26bb7c",
+  "limitation": "Observed envelope of this network, pulse and 32-bit arithmetic; no universal integer-range guarantee and no new MATLAB/RTL accuracy comparison."
+}

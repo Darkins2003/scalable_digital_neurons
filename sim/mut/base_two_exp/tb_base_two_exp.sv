@@ -22,7 +22,7 @@ module tb_base_two_exp;
     // Multiply by 2^24 to create 24 fractional bits
     assign exponent = fixed_t'($rtoi(interpreted_exponent * 16777216.0));
 
-    base_two_exponential_pipe_cubic base_two_exponential_pipe_i(
+    base_two_exponential base_two_exponential_pipe_i(
         .clk(clk),
         .rst(rst),
 

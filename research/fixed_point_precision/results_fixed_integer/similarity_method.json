@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "analysis_window_ms": [
+    60,
+    190
+  ],
+  "peak_window": "Entire saved run, excluding incomplete endpoint peaks",
+  "peak_height": 1.4542,
+  "peak_prominence": 1.0,
+  "peak_separation_ms": 1.0,
+  "maximum_lag_ms": 10.0,
+  "normalisation": "Pearson correlation with mean and energy recalculated on the overlapping samples at each lag; at least 90 percent overlap",
+  "lag_sign": "Positive shifts the candidate later; negative shifts it earlier",
+  "sampling": "Derived from the retained 2000-point display samples, not the original full traces"
+}

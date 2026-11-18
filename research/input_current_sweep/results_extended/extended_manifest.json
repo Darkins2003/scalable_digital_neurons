@@ -1,0 +1,38 @@
+{
+  "original_fingerprint": "5fd00c4a5ff3ee9e50be4098bfc43e924b3bcf5f17f7c0655e5c98e9ce2d2dbc",
+  "band_fingerprints": {
+    "01_325_to_1000pA": "69e81b9319a3bd85744cb7bd24c83ee3ef7f0fc4c54d2ef5caa83c9d647361af",
+    "02_1250_to_10000pA": "27a7cee5ef84933a1a113aa5e73877657ae031941f97f67c237473b36f26bb7c",
+    "03_12500_to_100000pA": "5673abaad94a526bd8b755c5938d6b7c49d0cfe2233949e2dcf550dd3f7ba2b5",
+    "04_125000_to_1000000pA": "ac27fd2261bfa8cf97e54b9b14cc106f7d231d7575da7c5167f877885d98fd24"
+  },
+  "bands": [
+    [
+      "01_325_to_1000pA",
+      325,
+      1000,
+      25
+    ],
+    [
+      "02_1250_to_10000pA",
+      1250,
+      10000,
+      250
+    ],
+    [
+      "03_12500_to_100000pA",
+      12500,
+      100000,
+      2500
+    ],
+    [
+      "04_125000_to_1000000pA",
+      125000,
+      1000000,
+      25000
+    ]
+  ],
+  "extension_script_sha256": "4bce7c0a1ccbc6ff2f4dafda8e12693b14f6280c5f33966a65282f2d3bf98899",
+  "report_script_sha256": "92c40cc4186a7e1c240161a0ba7bd64733eaed14807aa4231e469add9e91757d",
+  "original_experiment_unchanged": true
+}

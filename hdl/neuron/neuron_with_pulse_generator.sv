@@ -2,7 +2,10 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module neuron_with_pulse_generator (
+module neuron_with_pulse_generator #(
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1,
+    parameter bit USE_BRAM_EXPONENTIAL = 1'b1
+)(
     input logic clk,
     input logic rst,
 
@@ -23,7 +26,7 @@ module neuron_with_pulse_generator (
     output fixed_t excitatory_pulse,
     output fixed_t inhibitory_pulse
 );
-    // ------------------------------TOTAL STAGES = 87 (NEURON UPDATE), 22 (START PULSE)------------------------------
+    // ------------------------------TOTAL STAGES = 78 (NEURON UPDATE), 21 (START PULSE)------------------------------
     fixed_t vmem_out_reg;
 
     logic synaptic_triangular_generator_valid_out;
@@ -36,8 +39,11 @@ module neuron_with_pulse_generator (
 
     assign vmem_out = vmem_out_reg;
 
-    // ------------------------------STAGE 0 to STAGE 0 (+59)------------------------------
-    single_neuron single_neuron_i (
+    // ------------------------------STAGE 0 to STAGE 0 (+51)------------------------------
+    single_neuron #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
+        .USE_BRAM_EXPONENTIAL(USE_BRAM_EXPONENTIAL)
+    ) single_neuron_i(
         .clk(clk),
         .rst(rst),
 
@@ -67,9 +73,12 @@ module neuron_with_pulse_generator (
         .inhibitory_triangular_state(inhibitory_triangular_state) 
     );
 
-    // ------------------------------STAGE 2 to STAGE 2 (+21)------------------------------
-    // ------------------------------START PULSE STAGE 0 to STAGE 0 (+21)------------------------------
-    synaptic_pulse_generator synaptic_pulse_generator_i(
+    // ------------------------------STAGE 2 to STAGE 2 (+20)------------------------------
+    // ------------------------------START PULSE STAGE 0 to STAGE 0 (+20)------------------------------
+    synaptic_pulse_generator #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
+        .USE_BRAM_EXPONENTIAL(USE_BRAM_EXPONENTIAL)
+    ) synaptic_pulse_generator_i(
         .clk(clk),
         .rst(rst),
 

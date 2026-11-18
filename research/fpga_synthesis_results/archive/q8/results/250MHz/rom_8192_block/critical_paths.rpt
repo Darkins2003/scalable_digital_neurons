@@ -1,0 +1,507 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sat Nov 14 02:07:45 2026
+| Host         : Declan running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file C:/Users/Decla/Desktop/year_four_project/research/fpga_comparison/results/250MHz/rom_8192_block/critical_paths.rpt
+| Design       : rom_8192_block
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             1.372ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_5/ADDRARDADDR[3]
+                            (rising edge-triggered cell RAMB36E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.945ns  (logic 0.456ns (23.442%)  route 1.489ns (76.558%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.592ns = ( 5.592 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.724ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.724     1.724    design_instance/input_register/clock
+    SLICE_X55Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y37         FDRE (Prop_fdre_C_Q)         0.456     2.180 r  design_instance/input_register/registered_exponent_reg[12]/Q
+                         net (fo=3, routed)           1.489     3.669    design_instance/registered_exponent[12]
+    RAMB36_X3Y7          RAMB36E1                                     r  design_instance/stored_value_reg_5/ADDRARDADDR[3]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.592     5.592    design_instance/clock
+    RAMB36_X3Y7          RAMB36E1                                     r  design_instance/stored_value_reg_5/CLKARDCLK
+                         clock pessimism              0.150     5.742    <hidden>
+                         clock uncertainty           -0.135     5.607    <hidden>
+    RAMB36_X3Y7          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[3])
+                                                     -0.566     5.041    design_instance/stored_value_reg_5
+  -------------------------------------------------------------------
+                         required time                          5.041    <hidden>
+                         arrival time                          -3.669    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.372    <hidden>
+
+Slack (MET) :             1.377ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_5/ADDRARDADDR[5]
+                            (rising edge-triggered cell RAMB36E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.940ns  (logic 0.456ns (23.502%)  route 1.484ns (76.498%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.592ns = ( 5.592 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.724ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.724     1.724    design_instance/input_register/clock
+    SLICE_X55Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[14]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y37         FDRE (Prop_fdre_C_Q)         0.456     2.180 r  design_instance/input_register/registered_exponent_reg[14]/Q
+                         net (fo=3, routed)           1.484     3.664    design_instance/registered_exponent[14]
+    RAMB36_X3Y7          RAMB36E1                                     r  design_instance/stored_value_reg_5/ADDRARDADDR[5]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.592     5.592    design_instance/clock
+    RAMB36_X3Y7          RAMB36E1                                     r  design_instance/stored_value_reg_5/CLKARDCLK
+                         clock pessimism              0.150     5.742    <hidden>
+                         clock uncertainty           -0.135     5.607    <hidden>
+    RAMB36_X3Y7          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[5])
+                                                     -0.566     5.041    design_instance/stored_value_reg_5
+  -------------------------------------------------------------------
+                         required time                          5.041    <hidden>
+                         arrival time                          -3.664    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.377    <hidden>
+
+Slack (MET) :             1.471ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_6/ADDRARDADDR[4]
+                            (rising edge-triggered cell RAMB18E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.849ns  (logic 0.456ns (24.666%)  route 1.393ns (75.334%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.595ns = ( 5.595 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.724ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.724     1.724    design_instance/input_register/clock
+    SLICE_X55Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[14]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y37         FDRE (Prop_fdre_C_Q)         0.456     2.180 r  design_instance/input_register/registered_exponent_reg[14]/Q
+                         net (fo=3, routed)           1.393     3.573    design_instance/registered_exponent[14]
+    RAMB18_X3Y16         RAMB18E1                                     r  design_instance/stored_value_reg_6/ADDRARDADDR[4]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.595     5.595    design_instance/clock
+    RAMB18_X3Y16         RAMB18E1                                     r  design_instance/stored_value_reg_6/CLKARDCLK
+                         clock pessimism              0.150     5.745    <hidden>
+                         clock uncertainty           -0.135     5.610    <hidden>
+    RAMB18_X3Y16         RAMB18E1 (Setup_ramb18e1_CLKARDCLK_ADDRARDADDR[4])
+                                                     -0.566     5.044    design_instance/stored_value_reg_6
+  -------------------------------------------------------------------
+                         required time                          5.044    <hidden>
+                         arrival time                          -3.573    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.471    <hidden>
+
+Slack (MET) :             1.483ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_6/ADDRARDADDR[2]
+                            (rising edge-triggered cell RAMB18E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.837ns  (logic 0.456ns (24.823%)  route 1.381ns (75.177%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.595ns = ( 5.595 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.724ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.724     1.724    design_instance/input_register/clock
+    SLICE_X55Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y37         FDRE (Prop_fdre_C_Q)         0.456     2.180 r  design_instance/input_register/registered_exponent_reg[12]/Q
+                         net (fo=3, routed)           1.381     3.561    design_instance/registered_exponent[12]
+    RAMB18_X3Y16         RAMB18E1                                     r  design_instance/stored_value_reg_6/ADDRARDADDR[2]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.595     5.595    design_instance/clock
+    RAMB18_X3Y16         RAMB18E1                                     r  design_instance/stored_value_reg_6/CLKARDCLK
+                         clock pessimism              0.150     5.745    <hidden>
+                         clock uncertainty           -0.135     5.610    <hidden>
+    RAMB18_X3Y16         RAMB18E1 (Setup_ramb18e1_CLKARDCLK_ADDRARDADDR[2])
+                                                     -0.566     5.044    design_instance/stored_value_reg_6
+  -------------------------------------------------------------------
+                         required time                          5.044    <hidden>
+                         arrival time                          -3.561    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.483    <hidden>
+
+Slack (MET) :             1.551ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_4/ADDRARDADDR[2]
+                            (rising edge-triggered cell RAMB36E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.763ns  (logic 0.456ns (25.866%)  route 1.307ns (74.134%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.015ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.588ns = ( 5.588 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.723ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.723     1.723    design_instance/input_register/clock
+    SLICE_X55Y35         FDRE                                         r  design_instance/input_register/registered_exponent_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y35         FDRE (Prop_fdre_C_Q)         0.456     2.179 r  design_instance/input_register/registered_exponent_reg[11]/Q
+                         net (fo=3, routed)           1.307     3.486    design_instance/registered_exponent[11]
+    RAMB36_X3Y6          RAMB36E1                                     r  design_instance/stored_value_reg_4/ADDRARDADDR[2]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.588     5.588    design_instance/clock
+    RAMB36_X3Y6          RAMB36E1                                     r  design_instance/stored_value_reg_4/CLKARDCLK
+                         clock pessimism              0.150     5.738    <hidden>
+                         clock uncertainty           -0.135     5.603    <hidden>
+    RAMB36_X3Y6          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[2])
+                                                     -0.566     5.037    design_instance/stored_value_reg_4
+  -------------------------------------------------------------------
+                         required time                          5.037    <hidden>
+                         arrival time                          -3.486    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.551    <hidden>
+
+Slack (MET) :             1.558ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[11]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_6/ADDRARDADDR[1]
+                            (rising edge-triggered cell RAMB18E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.763ns  (logic 0.456ns (25.866%)  route 1.307ns (74.134%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.022ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.595ns = ( 5.595 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.723ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.723     1.723    design_instance/input_register/clock
+    SLICE_X55Y35         FDRE                                         r  design_instance/input_register/registered_exponent_reg[11]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y35         FDRE (Prop_fdre_C_Q)         0.456     2.179 r  design_instance/input_register/registered_exponent_reg[11]/Q
+                         net (fo=3, routed)           1.307     3.486    design_instance/registered_exponent[11]
+    RAMB18_X3Y16         RAMB18E1                                     r  design_instance/stored_value_reg_6/ADDRARDADDR[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.595     5.595    design_instance/clock
+    RAMB18_X3Y16         RAMB18E1                                     r  design_instance/stored_value_reg_6/CLKARDCLK
+                         clock pessimism              0.150     5.745    <hidden>
+                         clock uncertainty           -0.135     5.610    <hidden>
+    RAMB18_X3Y16         RAMB18E1 (Setup_ramb18e1_CLKARDCLK_ADDRARDADDR[1])
+                                                     -0.566     5.044    design_instance/stored_value_reg_6
+  -------------------------------------------------------------------
+                         required time                          5.044    <hidden>
+                         arrival time                          -3.486    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.558    <hidden>
+
+Slack (MET) :             1.559ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[16]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_4/ADDRARDADDR[7]
+                            (rising edge-triggered cell RAMB36E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.754ns  (logic 0.456ns (26.003%)  route 1.298ns (73.997%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.014ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.588ns = ( 5.588 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.724ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.724     1.724    design_instance/input_register/clock
+    SLICE_X55Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[16]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y37         FDRE (Prop_fdre_C_Q)         0.456     2.180 r  design_instance/input_register/registered_exponent_reg[16]/Q
+                         net (fo=3, routed)           1.298     3.478    design_instance/registered_exponent[16]
+    RAMB36_X3Y6          RAMB36E1                                     r  design_instance/stored_value_reg_4/ADDRARDADDR[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.588     5.588    design_instance/clock
+    RAMB36_X3Y6          RAMB36E1                                     r  design_instance/stored_value_reg_4/CLKARDCLK
+                         clock pessimism              0.150     5.738    <hidden>
+                         clock uncertainty           -0.135     5.603    <hidden>
+    RAMB36_X3Y6          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[7])
+                                                     -0.566     5.037    design_instance/stored_value_reg_4
+  -------------------------------------------------------------------
+                         required time                          5.037    <hidden>
+                         arrival time                          -3.478    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.559    <hidden>
+
+Slack (MET) :             1.577ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[23]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_5/ADDRARDADDR[14]
+                            (rising edge-triggered cell RAMB36E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.740ns  (logic 0.518ns (29.776%)  route 1.222ns (70.224%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.592ns = ( 5.592 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.724ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.724     1.724    design_instance/input_register/clock
+    SLICE_X54Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[23]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X54Y37         FDRE (Prop_fdre_C_Q)         0.518     2.242 r  design_instance/input_register/registered_exponent_reg[23]/Q
+                         net (fo=3, routed)           1.222     3.464    design_instance/registered_exponent[23]
+    RAMB36_X3Y7          RAMB36E1                                     r  design_instance/stored_value_reg_5/ADDRARDADDR[14]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.592     5.592    design_instance/clock
+    RAMB36_X3Y7          RAMB36E1                                     r  design_instance/stored_value_reg_5/CLKARDCLK
+                         clock pessimism              0.150     5.742    <hidden>
+                         clock uncertainty           -0.135     5.607    <hidden>
+    RAMB36_X3Y7          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[14])
+                                                     -0.566     5.041    design_instance/stored_value_reg_5
+  -------------------------------------------------------------------
+                         required time                          5.041    <hidden>
+                         arrival time                          -3.464    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.577    <hidden>
+
+Slack (MET) :             1.582ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[19]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_5/ADDRARDADDR[10]
+                            (rising edge-triggered cell RAMB36E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.735ns  (logic 0.518ns (29.861%)  route 1.217ns (70.139%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.592ns = ( 5.592 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.724ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.724     1.724    design_instance/input_register/clock
+    SLICE_X54Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[19]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X54Y37         FDRE (Prop_fdre_C_Q)         0.518     2.242 r  design_instance/input_register/registered_exponent_reg[19]/Q
+                         net (fo=3, routed)           1.217     3.459    design_instance/registered_exponent[19]
+    RAMB36_X3Y7          RAMB36E1                                     r  design_instance/stored_value_reg_5/ADDRARDADDR[10]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.592     5.592    design_instance/clock
+    RAMB36_X3Y7          RAMB36E1                                     r  design_instance/stored_value_reg_5/CLKARDCLK
+                         clock pessimism              0.150     5.742    <hidden>
+                         clock uncertainty           -0.135     5.607    <hidden>
+    RAMB36_X3Y7          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[10])
+                                                     -0.566     5.041    design_instance/stored_value_reg_5
+  -------------------------------------------------------------------
+                         required time                          5.041    <hidden>
+                         arrival time                          -3.459    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.582    <hidden>
+
+Slack (MET) :             1.706ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg_4/ADDRARDADDR[3]
+                            (rising edge-triggered cell RAMB36E1 clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        1.607ns  (logic 0.456ns (28.372%)  route 1.151ns (71.629%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.014ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.588ns = ( 5.588 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.724ns
+    Clock Pessimism Removal (CPR):    0.150ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=18, unset)           1.724     1.724    design_instance/input_register/clock
+    SLICE_X55Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X55Y37         FDRE (Prop_fdre_C_Q)         0.456     2.180 r  design_instance/input_register/registered_exponent_reg[12]/Q
+                         net (fo=3, routed)           1.151     3.331    design_instance/registered_exponent[12]
+    RAMB36_X3Y6          RAMB36E1                                     r  design_instance/stored_value_reg_4/ADDRARDADDR[3]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=18, unset)           1.588     5.588    design_instance/clock
+    RAMB36_X3Y6          RAMB36E1                                     r  design_instance/stored_value_reg_4/CLKARDCLK
+                         clock pessimism              0.150     5.738    <hidden>
+                         clock uncertainty           -0.135     5.603    <hidden>
+    RAMB36_X3Y6          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[3])
+                                                     -0.566     5.037    design_instance/stored_value_reg_4
+  -------------------------------------------------------------------
+                         required time                          5.037    <hidden>
+                         arrival time                          -3.331    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  1.706    <hidden>
+
+
+
+

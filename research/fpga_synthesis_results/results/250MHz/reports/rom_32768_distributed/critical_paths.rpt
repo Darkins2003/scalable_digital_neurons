@@ -1,0 +1,635 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Mon Nov 16 19:36:28 2026
+| Host         : Declan running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file C:/Users/Decla/Desktop/year_four_project/research/fpga_synthesis_results/results/250MHz/reports/rom_32768_distributed/critical_paths.rpt
+| Design       : rom_32768_distributed
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (VIOLATED) :        -1.941ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[12]_replica_11/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[10]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.782ns  (logic 1.847ns (31.945%)  route 3.935ns (68.055%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        -0.056ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.478ns = ( 5.478 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.649     1.649    design_instance/input_register/clock
+    SLICE_X37Y24         FDRE                                         r  design_instance/input_register/registered_exponent_reg[12]_replica_11/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X37Y24         FDRE (Prop_fdre_C_Q)         0.456     2.105 r  design_instance/input_register/registered_exponent_reg[12]_replica_11/Q
+                         net (fo=193, routed)         1.489     3.594    design_instance/input_register/sel[3]_repN_11
+    SLICE_X33Y21         LUT6 (Prop_lut6_I3_O)        0.124     3.718 r  design_instance/input_register/g441_b10/O
+                         net (fo=1, routed)           0.000     3.718    design_instance/input_register/g441_b10_n_0
+    SLICE_X33Y21         MUXF7 (Prop_muxf7_I1_O)      0.217     3.935 r  design_instance/input_register/stored_value_reg[10]_i_163/O
+                         net (fo=1, routed)           1.066     5.002    design_instance/input_register/stored_value_reg[10]_i_163_n_0
+    SLICE_X45Y23         LUT6 (Prop_lut6_I5_O)        0.299     5.301 r  design_instance/input_register/stored_value[10]_i_63/O
+                         net (fo=1, routed)           0.000     5.301    design_instance/input_register/stored_value[10]_i_63_n_0
+    SLICE_X45Y23         MUXF7 (Prop_muxf7_I1_O)      0.217     5.518 r  design_instance/input_register/stored_value_reg[10]_i_25/O
+                         net (fo=1, routed)           0.000     5.518    design_instance/input_register/stored_value_reg[10]_i_25_n_0
+    SLICE_X45Y23         MUXF8 (Prop_muxf8_I1_O)      0.094     5.612 r  design_instance/input_register/stored_value_reg[10]_i_8/O
+                         net (fo=1, routed)           0.705     6.316    design_instance/input_register/stored_value_reg[10]_i_8_n_0
+    SLICE_X47Y24         LUT6 (Prop_lut6_I3_O)        0.316     6.632 r  design_instance/input_register/stored_value[10]_i_2/O
+                         net (fo=1, routed)           0.674     7.307    design_instance/input_register/stored_value[10]_i_2_n_0
+    SLICE_X43Y24         LUT6 (Prop_lut6_I0_O)        0.124     7.431 r  design_instance/input_register/stored_value[10]_i_1/O
+                         net (fo=1, routed)           0.000     7.431    design_instance/p_0_out[10]
+    SLICE_X43Y24         FDRE                                         r  design_instance/stored_value_reg[10]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.478     5.478    design_instance/clock
+    SLICE_X43Y24         FDRE                                         r  design_instance/stored_value_reg[10]/C
+                         clock pessimism              0.115     5.593    <hidden>
+                         clock uncertainty           -0.135     5.458    <hidden>
+    SLICE_X43Y24         FDRE (Setup_fdre_C_D)        0.032     5.490    design_instance/stored_value_reg[10]
+  -------------------------------------------------------------------
+                         required time                          5.490    <hidden>
+                         arrival time                          -7.431    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.941    <hidden>
+
+Slack (VIOLATED) :        -1.916ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[14]_replica_1/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[8]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.794ns  (logic 1.670ns (28.821%)  route 4.124ns (71.179%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        -0.050ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.557ns = ( 5.557 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.722ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.722     1.722    design_instance/input_register/clock
+    SLICE_X73Y31         FDRE                                         r  design_instance/input_register/registered_exponent_reg[14]_replica_1/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X73Y31         FDRE (Prop_fdre_C_Q)         0.456     2.178 r  design_instance/input_register/registered_exponent_reg[14]_replica_1/Q
+                         net (fo=207, routed)         1.526     3.704    design_instance/input_register/sel[5]_repN_1
+    SLICE_X71Y35         LUT6 (Prop_lut6_I5_O)        0.124     3.828 r  design_instance/input_register/g350_b8/O
+                         net (fo=1, routed)           0.000     3.828    design_instance/input_register/g350_b8_n_0
+    SLICE_X71Y35         MUXF7 (Prop_muxf7_I0_O)      0.238     4.066 r  design_instance/input_register/stored_value_reg[8]_i_229/O
+                         net (fo=1, routed)           0.792     4.858    design_instance/input_register/stored_value_reg[8]_i_229_n_0
+    SLICE_X72Y35         LUT6 (Prop_lut6_I0_O)        0.298     5.156 r  design_instance/input_register/stored_value[8]_i_60/O
+                         net (fo=1, routed)           0.890     6.046    design_instance/input_register/stored_value[8]_i_60_n_0
+    SLICE_X76Y36         LUT6 (Prop_lut6_I0_O)        0.124     6.170 r  design_instance/input_register/stored_value[8]_i_17/O
+                         net (fo=1, routed)           0.916     7.086    design_instance/input_register/stored_value[8]_i_17_n_0
+    SLICE_X83Y36         LUT6 (Prop_lut6_I1_O)        0.124     7.210 r  design_instance/input_register/stored_value[8]_i_6/O
+                         net (fo=1, routed)           0.000     7.210    design_instance/input_register/stored_value[8]_i_6_n_0
+    SLICE_X83Y36         MUXF7 (Prop_muxf7_I0_O)      0.212     7.422 r  design_instance/input_register/stored_value_reg[8]_i_3/O
+                         net (fo=1, routed)           0.000     7.422    design_instance/input_register/stored_value_reg[8]_i_3_n_0
+    SLICE_X83Y36         MUXF8 (Prop_muxf8_I1_O)      0.094     7.516 r  design_instance/input_register/stored_value_reg[8]_i_1/O
+                         net (fo=1, routed)           0.000     7.516    design_instance/p_0_out[8]
+    SLICE_X83Y36         FDRE                                         r  design_instance/stored_value_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.557     5.557    design_instance/clock
+    SLICE_X83Y36         FDRE                                         r  design_instance/stored_value_reg[8]/C
+                         clock pessimism              0.115     5.672    <hidden>
+                         clock uncertainty           -0.135     5.537    <hidden>
+    SLICE_X83Y36         FDRE (Setup_fdre_C_D)        0.064     5.601    design_instance/stored_value_reg[8]
+  -------------------------------------------------------------------
+                         required time                          5.601    <hidden>
+                         arrival time                          -7.516    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.916    <hidden>
+
+Slack (VIOLATED) :        -1.814ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[11]_replica_34/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.615ns  (logic 1.488ns (26.498%)  route 4.127ns (73.502%))
+  Logic Levels:           6  (LUT4=1 LUT6=4 MUXF7=1)
+  Clock Path Skew:        -0.092ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.549ns = ( 5.549 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.654ns
+    Clock Pessimism Removal (CPR):    0.013ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.654     1.654    design_instance/input_register/clock
+    SLICE_X49Y29         FDRE                                         r  design_instance/input_register/registered_exponent_reg[11]_replica_34/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y29         FDRE (Prop_fdre_C_Q)         0.456     2.110 r  design_instance/input_register/registered_exponent_reg[11]_replica_34/Q
+                         net (fo=139, routed)         1.117     3.227    design_instance/input_register/sel[2]_repN_34
+    SLICE_X48Y33         LUT4 (Prop_lut4_I0_O)        0.124     3.351 r  design_instance/input_register/g186_b15/O
+                         net (fo=1, routed)           1.037     4.389    design_instance/input_register/g186_b15_n_0
+    SLICE_X55Y35         LUT6 (Prop_lut6_I1_O)        0.124     4.513 r  design_instance/input_register/stored_value[15]_i_120/O
+                         net (fo=1, routed)           0.000     4.513    design_instance/input_register/stored_value[15]_i_120_n_0
+    SLICE_X55Y35         MUXF7 (Prop_muxf7_I0_O)      0.238     4.751 r  design_instance/input_register/stored_value_reg[15]_i_40/O
+                         net (fo=1, routed)           0.644     5.395    design_instance/input_register/stored_value_reg[15]_i_40_n_0
+    SLICE_X54Y35         LUT6 (Prop_lut6_I0_O)        0.298     5.693 r  design_instance/input_register/stored_value[15]_i_14/O
+                         net (fo=1, routed)           0.785     6.478    design_instance/input_register/stored_value[15]_i_14_n_0
+    SLICE_X56Y36         LUT6 (Prop_lut6_I3_O)        0.124     6.602 r  design_instance/input_register/stored_value[15]_i_4/O
+                         net (fo=1, routed)           0.544     7.145    design_instance/input_register/stored_value[15]_i_4_n_0
+    SLICE_X57Y35         LUT6 (Prop_lut6_I3_O)        0.124     7.269 r  design_instance/input_register/stored_value[15]_i_1/O
+                         net (fo=1, routed)           0.000     7.269    design_instance/p_0_out[15]
+    SLICE_X57Y35         FDRE                                         r  design_instance/stored_value_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.549     5.549    design_instance/clock
+    SLICE_X57Y35         FDRE                                         r  design_instance/stored_value_reg[15]/C
+                         clock pessimism              0.013     5.562    <hidden>
+                         clock uncertainty           -0.135     5.427    <hidden>
+    SLICE_X57Y35         FDRE (Setup_fdre_C_D)        0.029     5.456    design_instance/stored_value_reg[15]
+  -------------------------------------------------------------------
+                         required time                          5.456    <hidden>
+                         arrival time                          -7.269    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.814    <hidden>
+
+Slack (VIOLATED) :        -1.803ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[10]_replica_22/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.678ns  (logic 1.686ns (29.695%)  route 3.992ns (70.305%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        -0.054ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.558ns = ( 5.558 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.727ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.727     1.727    design_instance/input_register/clock
+    SLICE_X60Y37         FDRE                                         r  design_instance/input_register/registered_exponent_reg[10]_replica_22/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X60Y37         FDRE (Prop_fdre_C_Q)         0.456     2.183 r  design_instance/input_register/registered_exponent_reg[10]_replica_22/Q
+                         net (fo=215, routed)         1.412     3.595    design_instance/input_register/sel[1]_repN_22
+    SLICE_X65Y42         LUT6 (Prop_lut6_I1_O)        0.124     3.719 r  design_instance/input_register/g119_b6/O
+                         net (fo=1, routed)           0.000     3.719    design_instance/input_register/g119_b6_n_0
+    SLICE_X65Y42         MUXF7 (Prop_muxf7_I1_O)      0.217     3.936 r  design_instance/input_register/stored_value_reg[6]_i_92/O
+                         net (fo=1, routed)           0.995     4.931    design_instance/input_register/stored_value_reg[6]_i_92_n_0
+    SLICE_X66Y43         LUT6 (Prop_lut6_I0_O)        0.299     5.230 r  design_instance/input_register/stored_value[6]_i_25/O
+                         net (fo=1, routed)           0.804     6.034    design_instance/input_register/stored_value[6]_i_25_n_0
+    SLICE_X70Y43         LUT6 (Prop_lut6_I1_O)        0.124     6.158 r  design_instance/input_register/stored_value[6]_i_8/O
+                         net (fo=1, routed)           0.780     6.939    design_instance/input_register/stored_value[6]_i_8_n_0
+    SLICE_X74Y41         LUT6 (Prop_lut6_I0_O)        0.124     7.063 r  design_instance/input_register/stored_value[6]_i_4/O
+                         net (fo=1, routed)           0.000     7.063    design_instance/input_register/stored_value[6]_i_4_n_0
+    SLICE_X74Y41         MUXF7 (Prop_muxf7_I0_O)      0.238     7.301 r  design_instance/input_register/stored_value_reg[6]_i_2/O
+                         net (fo=1, routed)           0.000     7.301    design_instance/input_register/stored_value_reg[6]_i_2_n_0
+    SLICE_X74Y41         MUXF8 (Prop_muxf8_I0_O)      0.104     7.405 r  design_instance/input_register/stored_value_reg[6]_i_1/O
+                         net (fo=1, routed)           0.000     7.405    design_instance/p_0_out[6]
+    SLICE_X74Y41         FDRE                                         r  design_instance/stored_value_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.558     5.558    design_instance/clock
+    SLICE_X74Y41         FDRE                                         r  design_instance/stored_value_reg[6]/C
+                         clock pessimism              0.115     5.673    <hidden>
+                         clock uncertainty           -0.135     5.538    <hidden>
+    SLICE_X74Y41         FDRE (Setup_fdre_C_D)        0.064     5.602    design_instance/stored_value_reg[6]
+  -------------------------------------------------------------------
+                         required time                          5.602    <hidden>
+                         arrival time                          -7.405    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.803    <hidden>
+
+Slack (VIOLATED) :        -1.802ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[9]_replica_39/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.706ns  (logic 1.655ns (29.002%)  route 4.051ns (70.998%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.482ns = ( 5.482 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.654ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.654     1.654    design_instance/input_register/clock
+    SLICE_X53Y10         FDRE                                         r  design_instance/input_register/registered_exponent_reg[9]_replica_39/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X53Y10         FDRE (Prop_fdre_C_Q)         0.456     2.110 r  design_instance/input_register/registered_exponent_reg[9]_replica_39/Q
+                         net (fo=221, routed)         1.527     3.637    design_instance/input_register/sel[0]_repN_39
+    SLICE_X53Y1          LUT6 (Prop_lut6_I0_O)        0.124     3.761 r  design_instance/input_register/g431_b3/O
+                         net (fo=1, routed)           0.000     3.761    design_instance/input_register/g431_b3_n_0
+    SLICE_X53Y1          MUXF7 (Prop_muxf7_I1_O)      0.217     3.978 r  design_instance/input_register/stored_value_reg[3]_i_312/O
+                         net (fo=1, routed)           0.864     4.842    design_instance/input_register/stored_value_reg[3]_i_312_n_0
+    SLICE_X53Y1          LUT6 (Prop_lut6_I0_O)        0.299     5.141 r  design_instance/input_register/stored_value[3]_i_82/O
+                         net (fo=1, routed)           0.659     5.800    design_instance/input_register/stored_value[3]_i_82_n_0
+    SLICE_X54Y2          LUT6 (Prop_lut6_I3_O)        0.124     5.924 r  design_instance/input_register/stored_value[3]_i_22/O
+                         net (fo=1, routed)           1.002     6.925    design_instance/input_register/stored_value[3]_i_22_n_0
+    SLICE_X51Y5          LUT6 (Prop_lut6_I3_O)        0.124     7.049 r  design_instance/input_register/stored_value[3]_i_7/O
+                         net (fo=1, routed)           0.000     7.049    design_instance/input_register/stored_value[3]_i_7_n_0
+    SLICE_X51Y5          MUXF7 (Prop_muxf7_I1_O)      0.217     7.266 r  design_instance/input_register/stored_value_reg[3]_i_3/O
+                         net (fo=1, routed)           0.000     7.266    design_instance/input_register/stored_value_reg[3]_i_3_n_0
+    SLICE_X51Y5          MUXF8 (Prop_muxf8_I1_O)      0.094     7.360 r  design_instance/input_register/stored_value_reg[3]_i_1/O
+                         net (fo=1, routed)           0.000     7.360    design_instance/p_0_out[3]
+    SLICE_X51Y5          FDRE                                         r  design_instance/stored_value_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.482     5.482    design_instance/clock
+    SLICE_X51Y5          FDRE                                         r  design_instance/stored_value_reg[3]/C
+                         clock pessimism              0.148     5.630    <hidden>
+                         clock uncertainty           -0.135     5.495    <hidden>
+    SLICE_X51Y5          FDRE (Setup_fdre_C_D)        0.064     5.559    design_instance/stored_value_reg[3]
+  -------------------------------------------------------------------
+                         required time                          5.559    <hidden>
+                         arrival time                          -7.360    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.802    <hidden>
+
+Slack (VIOLATED) :        -1.785ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[11]_replica_30/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[5]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.739ns  (logic 1.912ns (33.316%)  route 3.827ns (66.684%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        0.010ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.549ns = ( 5.549 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.654ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.654     1.654    design_instance/input_register/clock
+    SLICE_X52Y39         FDRE                                         r  design_instance/input_register/registered_exponent_reg[11]_replica_30/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y39         FDRE (Prop_fdre_C_Q)         0.456     2.110 r  design_instance/input_register/registered_exponent_reg[11]_replica_30/Q
+                         net (fo=128, routed)         1.382     3.492    design_instance/input_register/sel[2]_repN_30
+    SLICE_X57Y39         LUT6 (Prop_lut6_I2_O)        0.124     3.616 r  design_instance/input_register/g335_b5/O
+                         net (fo=1, routed)           0.000     3.616    design_instance/input_register/g335_b5_n_0
+    SLICE_X57Y39         MUXF7 (Prop_muxf7_I1_O)      0.245     3.861 r  design_instance/input_register/stored_value_reg[5]_i_216/O
+                         net (fo=1, routed)           0.819     4.680    design_instance/input_register/stored_value_reg[5]_i_216_n_0
+    SLICE_X61Y39         LUT6 (Prop_lut6_I0_O)        0.298     4.978 r  design_instance/input_register/stored_value[5]_i_87/O
+                         net (fo=1, routed)           0.000     4.978    design_instance/input_register/stored_value[5]_i_87_n_0
+    SLICE_X61Y39         MUXF7 (Prop_muxf7_I1_O)      0.245     5.223 r  design_instance/input_register/stored_value_reg[5]_i_28/O
+                         net (fo=1, routed)           0.000     5.223    design_instance/input_register/stored_value_reg[5]_i_28_n_0
+    SLICE_X61Y39         MUXF8 (Prop_muxf8_I0_O)      0.104     5.327 r  design_instance/input_register/stored_value_reg[5]_i_9/O
+                         net (fo=1, routed)           1.026     6.352    design_instance/input_register/stored_value_reg[5]_i_9_n_0
+    SLICE_X69Y32         LUT6 (Prop_lut6_I1_O)        0.316     6.668 r  design_instance/input_register/stored_value[5]_i_3/O
+                         net (fo=1, routed)           0.601     7.269    design_instance/input_register/stored_value[5]_i_3_n_0
+    SLICE_X66Y32         LUT6 (Prop_lut6_I1_O)        0.124     7.393 r  design_instance/input_register/stored_value[5]_i_1/O
+                         net (fo=1, routed)           0.000     7.393    design_instance/p_0_out[5]
+    SLICE_X66Y32         FDRE                                         r  design_instance/stored_value_reg[5]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.549     5.549    design_instance/clock
+    SLICE_X66Y32         FDRE                                         r  design_instance/stored_value_reg[5]/C
+                         clock pessimism              0.115     5.664    <hidden>
+                         clock uncertainty           -0.135     5.529    <hidden>
+    SLICE_X66Y32         FDRE (Setup_fdre_C_D)        0.079     5.608    design_instance/stored_value_reg[5]
+  -------------------------------------------------------------------
+                         required time                          5.608    <hidden>
+                         arrival time                          -7.393    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.785    <hidden>
+
+Slack (VIOLATED) :        -1.767ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[10]_replica_13/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[11]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.643ns  (logic 1.677ns (29.719%)  route 3.966ns (70.281%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        -0.053ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.493ns = ( 5.493 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.661ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.661     1.661    design_instance/input_register/clock
+    SLICE_X44Y15         FDRE                                         r  design_instance/input_register/registered_exponent_reg[10]_replica_13/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X44Y15         FDRE (Prop_fdre_C_Q)         0.456     2.117 r  design_instance/input_register/registered_exponent_reg[10]_replica_13/Q
+                         net (fo=136, routed)         1.285     3.402    design_instance/input_register/sel[1]_repN_13
+    SLICE_X43Y16         LUT6 (Prop_lut6_I1_O)        0.124     3.526 r  design_instance/input_register/g287_b11/O
+                         net (fo=1, routed)           0.000     3.526    design_instance/input_register/g287_b11_n_0
+    SLICE_X43Y16         MUXF7 (Prop_muxf7_I1_O)      0.245     3.771 r  design_instance/input_register/stored_value_reg[11]_i_263/O
+                         net (fo=1, routed)           0.662     4.432    design_instance/input_register/stored_value_reg[11]_i_263_n_0
+    SLICE_X42Y16         LUT6 (Prop_lut6_I0_O)        0.298     4.730 r  design_instance/input_register/stored_value[11]_i_68/O
+                         net (fo=1, routed)           1.189     5.919    design_instance/input_register/stored_value[11]_i_68_n_0
+    SLICE_X35Y10         LUT6 (Prop_lut6_I0_O)        0.124     6.043 r  design_instance/input_register/stored_value[11]_i_19/O
+                         net (fo=1, routed)           0.831     6.874    design_instance/input_register/stored_value[11]_i_19_n_0
+    SLICE_X33Y9          LUT6 (Prop_lut6_I5_O)        0.124     6.998 r  design_instance/input_register/stored_value[11]_i_6/O
+                         net (fo=1, routed)           0.000     6.998    design_instance/input_register/stored_value[11]_i_6_n_0
+    SLICE_X33Y9          MUXF7 (Prop_muxf7_I0_O)      0.212     7.210 r  design_instance/input_register/stored_value_reg[11]_i_3/O
+                         net (fo=1, routed)           0.000     7.210    design_instance/input_register/stored_value_reg[11]_i_3_n_0
+    SLICE_X33Y9          MUXF8 (Prop_muxf8_I1_O)      0.094     7.304 r  design_instance/input_register/stored_value_reg[11]_i_1/O
+                         net (fo=1, routed)           0.000     7.304    design_instance/p_0_out[11]
+    SLICE_X33Y9          FDRE                                         r  design_instance/stored_value_reg[11]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.493     5.493    design_instance/clock
+    SLICE_X33Y9          FDRE                                         r  design_instance/stored_value_reg[11]/C
+                         clock pessimism              0.115     5.608    <hidden>
+                         clock uncertainty           -0.135     5.473    <hidden>
+    SLICE_X33Y9          FDRE (Setup_fdre_C_D)        0.064     5.537    design_instance/stored_value_reg[11]
+  -------------------------------------------------------------------
+                         required time                          5.537    <hidden>
+                         arrival time                          -7.304    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.767    <hidden>
+
+Slack (VIOLATED) :        -1.760ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[11]_replica_10/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.640ns  (logic 1.675ns (29.700%)  route 3.965ns (70.300%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.547ns = ( 5.547 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.711ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.711     1.711    design_instance/input_register/clock
+    SLICE_X60Y25         FDRE                                         r  design_instance/input_register/registered_exponent_reg[11]_replica_10/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X60Y25         FDRE (Prop_fdre_C_Q)         0.456     2.167 r  design_instance/input_register/registered_exponent_reg[11]_replica_10/Q
+                         net (fo=248, routed)         1.477     3.644    design_instance/input_register/sel[2]_repN_10
+    SLICE_X67Y22         LUT6 (Prop_lut6_I2_O)        0.124     3.768 r  design_instance/input_register/g474_b2/O
+                         net (fo=1, routed)           0.000     3.768    design_instance/input_register/g474_b2_n_0
+    SLICE_X67Y22         MUXF7 (Prop_muxf7_I0_O)      0.238     4.006 r  design_instance/input_register/stored_value_reg[2]_i_298/O
+                         net (fo=1, routed)           0.785     4.792    design_instance/input_register/stored_value_reg[2]_i_298_n_0
+    SLICE_X67Y23         LUT6 (Prop_lut6_I3_O)        0.298     5.090 r  design_instance/input_register/stored_value[2]_i_76/O
+                         net (fo=1, routed)           0.793     5.883    design_instance/input_register/stored_value[2]_i_76_n_0
+    SLICE_X73Y23         LUT6 (Prop_lut6_I0_O)        0.124     6.007 r  design_instance/input_register/stored_value[2]_i_21/O
+                         net (fo=1, routed)           0.909     6.916    design_instance/input_register/stored_value[2]_i_21_n_0
+    SLICE_X84Y23         LUT6 (Prop_lut6_I1_O)        0.124     7.040 r  design_instance/input_register/stored_value[2]_i_7/O
+                         net (fo=1, routed)           0.000     7.040    design_instance/input_register/stored_value[2]_i_7_n_0
+    SLICE_X84Y23         MUXF7 (Prop_muxf7_I1_O)      0.217     7.257 r  design_instance/input_register/stored_value_reg[2]_i_3/O
+                         net (fo=1, routed)           0.000     7.257    design_instance/input_register/stored_value_reg[2]_i_3_n_0
+    SLICE_X84Y23         MUXF8 (Prop_muxf8_I1_O)      0.094     7.351 r  design_instance/input_register/stored_value_reg[2]_i_1/O
+                         net (fo=1, routed)           0.000     7.351    design_instance/p_0_out[2]
+    SLICE_X84Y23         FDRE                                         r  design_instance/stored_value_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.547     5.547    design_instance/clock
+    SLICE_X84Y23         FDRE                                         r  design_instance/stored_value_reg[2]/C
+                         clock pessimism              0.115     5.662    <hidden>
+                         clock uncertainty           -0.135     5.527    <hidden>
+    SLICE_X84Y23         FDRE (Setup_fdre_C_D)        0.064     5.591    design_instance/stored_value_reg[2]
+  -------------------------------------------------------------------
+                         required time                          5.591    <hidden>
+                         arrival time                          -7.351    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.760    <hidden>
+
+Slack (VIOLATED) :        -1.724ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[9]_replica_33/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[13]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.492ns  (logic 1.645ns (29.955%)  route 3.847ns (70.045%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        -0.161ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.554ns = ( 5.554 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.715ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.715     1.715    design_instance/input_register/clock
+    SLICE_X65Y53         FDRE                                         r  design_instance/input_register/registered_exponent_reg[9]_replica_33/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X65Y53         FDRE (Prop_fdre_C_Q)         0.456     2.171 f  design_instance/input_register/registered_exponent_reg[9]_replica_33/Q
+                         net (fo=136, routed)         1.329     3.500    design_instance/input_register/sel[0]_repN_33
+    SLICE_X63Y52         LUT6 (Prop_lut6_I0_O)        0.124     3.624 r  design_instance/input_register/g298_b13/O
+                         net (fo=1, routed)           0.000     3.624    design_instance/input_register/g298_b13_n_0
+    SLICE_X63Y52         MUXF7 (Prop_muxf7_I0_O)      0.212     3.836 r  design_instance/input_register/stored_value_reg[13]_i_258/O
+                         net (fo=1, routed)           0.859     4.695    design_instance/input_register/stored_value_reg[13]_i_258_n_0
+    SLICE_X63Y52         LUT6 (Prop_lut6_I3_O)        0.299     4.994 r  design_instance/input_register/stored_value[13]_i_66/O
+                         net (fo=1, routed)           0.940     5.934    design_instance/input_register/stored_value[13]_i_66_n_0
+    SLICE_X61Y48         LUT6 (Prop_lut6_I3_O)        0.124     6.058 r  design_instance/input_register/stored_value[13]_i_18/O
+                         net (fo=1, routed)           0.719     6.777    design_instance/input_register/stored_value[13]_i_18_n_0
+    SLICE_X55Y48         LUT6 (Prop_lut6_I3_O)        0.124     6.901 r  design_instance/input_register/stored_value[13]_i_6/O
+                         net (fo=1, routed)           0.000     6.901    design_instance/input_register/stored_value[13]_i_6_n_0
+    SLICE_X55Y48         MUXF7 (Prop_muxf7_I0_O)      0.212     7.113 r  design_instance/input_register/stored_value_reg[13]_i_3/O
+                         net (fo=1, routed)           0.000     7.113    design_instance/input_register/stored_value_reg[13]_i_3_n_0
+    SLICE_X55Y48         MUXF8 (Prop_muxf8_I1_O)      0.094     7.207 r  design_instance/input_register/stored_value_reg[13]_i_1/O
+                         net (fo=1, routed)           0.000     7.207    design_instance/p_0_out[13]
+    SLICE_X55Y48         FDRE                                         r  design_instance/stored_value_reg[13]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.554     5.554    design_instance/clock
+    SLICE_X55Y48         FDRE                                         r  design_instance/stored_value_reg[13]/C
+                         clock pessimism              0.000     5.554    <hidden>
+                         clock uncertainty           -0.135     5.419    <hidden>
+    SLICE_X55Y48         FDRE (Setup_fdre_C_D)        0.064     5.483    design_instance/stored_value_reg[13]
+  -------------------------------------------------------------------
+                         required time                          5.483    <hidden>
+                         arrival time                          -7.207    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.724    <hidden>
+
+Slack (VIOLATED) :        -1.720ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[11]_replica_19/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/stored_value_reg[7]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        5.535ns  (logic 1.750ns (31.618%)  route 3.785ns (68.382%))
+  Logic Levels:           7  (LUT6=4 MUXF7=2 MUXF8=1)
+  Clock Path Skew:        -0.114ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.551ns = ( 5.551 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.780ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=557, unset)          1.780     1.780    design_instance/input_register/clock
+    SLICE_X92Y24         FDRE                                         r  design_instance/input_register/registered_exponent_reg[11]_replica_19/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X92Y24         FDRE (Prop_fdre_C_Q)         0.518     2.298 f  design_instance/input_register/registered_exponent_reg[11]_replica_19/Q
+                         net (fo=142, routed)         1.471     3.769    design_instance/input_register/sel[2]_repN_19
+    SLICE_X94Y18         LUT6 (Prop_lut6_I2_O)        0.124     3.893 r  design_instance/input_register/g175_b7/O
+                         net (fo=1, routed)           0.663     4.556    design_instance/input_register/g175_b7_n_0
+    SLICE_X94Y18         LUT6 (Prop_lut6_I0_O)        0.124     4.680 r  design_instance/input_register/stored_value[7]_i_188/O
+                         net (fo=1, routed)           0.000     4.680    design_instance/input_register/stored_value[7]_i_188_n_0
+    SLICE_X94Y18         MUXF7 (Prop_muxf7_I1_O)      0.214     4.894 r  design_instance/input_register/stored_value_reg[7]_i_50/O
+                         net (fo=1, routed)           0.791     5.685    design_instance/input_register/stored_value_reg[7]_i_50_n_0
+    SLICE_X93Y18         LUT6 (Prop_lut6_I3_O)        0.297     5.982 r  design_instance/input_register/stored_value[7]_i_14/O
+                         net (fo=1, routed)           0.860     6.842    design_instance/input_register/stored_value[7]_i_14_n_0
+    SLICE_X77Y18         LUT6 (Prop_lut6_I3_O)        0.124     6.966 r  design_instance/input_register/stored_value[7]_i_5/O
+                         net (fo=1, routed)           0.000     6.966    design_instance/input_register/stored_value[7]_i_5_n_0
+    SLICE_X77Y18         MUXF7 (Prop_muxf7_I1_O)      0.245     7.211 r  design_instance/input_register/stored_value_reg[7]_i_2/O
+                         net (fo=1, routed)           0.000     7.211    design_instance/input_register/stored_value_reg[7]_i_2_n_0
+    SLICE_X77Y18         MUXF8 (Prop_muxf8_I0_O)      0.104     7.315 r  design_instance/input_register/stored_value_reg[7]_i_1/O
+                         net (fo=1, routed)           0.000     7.315    design_instance/p_0_out[7]
+    SLICE_X77Y18         FDRE                                         r  design_instance/stored_value_reg[7]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=557, unset)          1.551     5.551    design_instance/clock
+    SLICE_X77Y18         FDRE                                         r  design_instance/stored_value_reg[7]/C
+                         clock pessimism              0.115     5.666    <hidden>
+                         clock uncertainty           -0.135     5.531    <hidden>
+    SLICE_X77Y18         FDRE (Setup_fdre_C_D)        0.064     5.595    design_instance/stored_value_reg[7]
+  -------------------------------------------------------------------
+                         required time                          5.595    <hidden>
+                         arrival time                          -7.315    <hidden>
+  -------------------------------------------------------------------
+                         slack                                 -1.720    <hidden>
+
+
+
+

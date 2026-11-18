@@ -2,7 +2,10 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module synaptic_pulse_generator (
+module synaptic_pulse_generator #(
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1,
+    parameter bit USE_BRAM_EXPONENTIAL = 1'b1
+)(
     input logic clk,
     input logic rst,
 
@@ -26,7 +29,7 @@ module synaptic_pulse_generator (
         fixed_t scaled_inhibitory_triangular_state; // Gi
     } pipeline_t;
 
-    localparam int PIPELINE_STAGES = 21;
+    localparam int PIPELINE_STAGES = 20;
     pipeline_t pipe [0:PIPELINE_STAGES-1];
 
     fixed_t scaled_excitatory_triangular_state;
@@ -38,14 +41,15 @@ module synaptic_pulse_generator (
     fixed_t inhibitory_exponent_argument; // Xi
 
     fixed_t inhibitory_exponent_argument_d1;
-    fixed_t linear_exponent;
-    logic [2:0] linear_exponent_independent_id_in;
-    logic [2:0] linear_exponent_independent_id_out;
-    logic linear_exponent_valid_out;
-    fixed_t linear_result_base_two_exponential;
+    fixed_t exponent;
+    logic [2:0] exponent_independent_id_in;
+    logic [2:0] exponent_independent_id_out;
+    logic exponent_valid_out;
+    fixed_t result_base_two_exponential;
 
     // ------------------------------STAGE 0 to STAGE 0 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd24),
         .TERM_2_FRACTIONAL_BITS(6'd16),
         .RESULT_FRACTIONAL_BITS(6'd16)
@@ -63,6 +67,7 @@ module synaptic_pulse_generator (
 
     // ------------------------------STAGE 0 to STAGE 0 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd24),
         .TERM_2_FRACTIONAL_BITS(6'd16),
         .RESULT_FRACTIONAL_BITS(6'd16)
@@ -80,6 +85,7 @@ module synaptic_pulse_generator (
 
     // ------------------------------STAGE 2 to STAGE 2 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd16),
         .TERM_2_FRACTIONAL_BITS(6'd24),
         .RESULT_FRACTIONAL_BITS(6'd24)
@@ -97,6 +103,7 @@ module synaptic_pulse_generator (
 
     // ------------------------------STAGE 2 to STAGE 2 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd16),
         .TERM_2_FRACTIONAL_BITS(6'd24),
         .RESULT_FRACTIONAL_BITS(6'd24)
@@ -112,19 +119,21 @@ module synaptic_pulse_generator (
         .valid_out()
     );
 
-    // ------------------------------STAGE 4 to STAGE 4 (+3)------------------------------
-    // ------------------------------STAGE 5 to STAGE 5 (+3)------------------------------
-    base_two_exponential_pipe_linear base_two_exponential_pipe_linear_i(
+    // ------------------------------STAGE 4 to STAGE 4 (+2)------------------------------
+    // ------------------------------STAGE 5 to STAGE 5 (+2)------------------------------
+    base_two_exponential #(
+        .USE_BRAM_EXPONENTIAL(USE_BRAM_EXPONENTIAL)
+    ) base_two_exponential_i(
         .clk(clk),
         .rst(rst),
 
-        .exponent(linear_exponent),
+        .exponent(exponent),
         .valid_in(pipe[15].valid | pipe[16].valid),
-        .independent_id_in(linear_exponent_independent_id_in),
+        .independent_id_in(exponent_independent_id_in),
 
-        .valid_out(linear_exponent_valid_out),
-        .independent_id_out(linear_exponent_independent_id_out),
-        .result(linear_result_base_two_exponential)
+        .valid_out(exponent_valid_out),
+        .independent_id_out(exponent_independent_id_out),
+        .result(result_base_two_exponential)
     );
 
     always_ff @(posedge clk) begin
@@ -134,15 +143,15 @@ module synaptic_pulse_generator (
             end  
 
             inhibitory_exponent_argument_d1 <= '0;
-            linear_exponent <= '0;
-            linear_exponent_independent_id_in <= '0;
+            exponent <= '0;
+            exponent_independent_id_in <= '0;
             excitatory_pulse <= '0;
             inhibitory_pulse <= '0;
             valid_out <= '0;
             id_out <= '0;
 
         end else begin
-            // ------------------------------TOTAL STAGES = 22------------------------------
+            // ------------------------------TOTAL STAGES = 21------------------------------
             // ------------------------------STAGE 0 (FEED signed_32_32_multiplication_i AND signed_32_32_multiplication_i2)------------------------------
             pipe[0].id <= id_in;
 
@@ -171,39 +180,39 @@ module synaptic_pulse_generator (
             pipe[15].id <= pipe[14].id;
 
             if (exponent_argument_valid_out) begin
-                linear_exponent <= excitatory_exponent_argument + SYNAPSE_EXP_BIAS_Q24[0];
-                linear_exponent_independent_id_in <= 3'd0;
+                exponent <= excitatory_exponent_argument + SYNAPSE_EXP_BIAS_Q24[0];
+                exponent_independent_id_in <= 3'd0;
 
                 inhibitory_exponent_argument_d1 <= inhibitory_exponent_argument;
             end
 
-            // ------------------------------STAGE 4 (FEED base_two_exponential_pipe_linear_i)------------------------------
+            // ------------------------------STAGE 4 (FEED base_two_exponential_i)------------------------------
             pipe[16].valid <= pipe[15].valid;
             pipe[16].id <= pipe[15].id;
 
             if (pipe[15].valid) begin
-                linear_exponent <= inhibitory_exponent_argument_d1 + SYNAPSE_EXP_BIAS_Q24[1];
-                linear_exponent_independent_id_in <= 3'd1;
+                exponent <= inhibitory_exponent_argument_d1 + SYNAPSE_EXP_BIAS_Q24[1];
+                exponent_independent_id_in <= 3'd1;
             end
 
-            // ------------------------------STAGE 5 (FEED base_two_exponential_pipe_linear_i)------------------------------
+            // ------------------------------STAGE 5 (FEED base_two_exponential_i)------------------------------
             pipe[17].id <= pipe[16].id;
 
-            // ------------------------------STAGE 5 (+1) to STAGE 5 (+3) (WAIT FOR base_two_exponential_pipe_linear_i)------------------------------
+            // ------------------------------STAGE 5 (+1) to STAGE 5 (+2) (WAIT FOR base_two_exponential_i)------------------------------
             for (int i = 18; i < PIPELINE_STAGES; i++) begin
                 pipe[i].id <= pipe[i-1].id;
             end
 
             // ------------------------------RESULTS STAGE 1-----------------------------
-            if (linear_exponent_valid_out && linear_exponent_independent_id_out == 3'd0) begin
-                excitatory_pulse <= linear_result_base_two_exponential;
+            if (exponent_valid_out && exponent_independent_id_out == 3'd0) begin
+                excitatory_pulse <= result_base_two_exponential;
             end 
 
             // ------------------------------RESULTS STAGE 2-----------------------------
-            valid_out <= linear_exponent_valid_out && linear_exponent_independent_id_out == 3'd1;
+            valid_out <= exponent_valid_out && exponent_independent_id_out == 3'd1;
 
-            if (linear_exponent_valid_out && linear_exponent_independent_id_out == 3'd1) begin
-                inhibitory_pulse <= linear_result_base_two_exponential;
+            if (exponent_valid_out && exponent_independent_id_out == 3'd1) begin
+                inhibitory_pulse <= result_base_two_exponential;
                 id_out <= pipe[PIPELINE_STAGES-1].id;
             end 
 

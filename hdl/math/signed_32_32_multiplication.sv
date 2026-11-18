@@ -5,7 +5,8 @@ import fixed_point_package::*;
 module signed_32_32_multiplication #(
     parameter logic [5:0] TERM_1_FRACTIONAL_BITS = 6'd24,
     parameter logic [5:0] TERM_2_FRACTIONAL_BITS = 6'd24,
-    parameter logic [5:0] RESULT_FRACTIONAL_BITS = 6'd24
+    parameter logic [5:0] RESULT_FRACTIONAL_BITS = 6'd24,
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1
 )(
     input logic clk,
     input logic rst,
@@ -28,13 +29,25 @@ module signed_32_32_multiplication #(
 
     // ------------------------------STAGE 0 to STAGE 0 (+5)------------------------------
     // Latency = 6 clk cycles
-    signed_multiplier signed_multiplier_i (
-        .CLK(clk),
-        .A(term_1),
-        .B(term_2),
-        .SCLR(rst),
-        .P(product)
-    );
+    generate
+        if (USE_DSP_MULTIPLIERS) begin : dsp_implementation
+            signed_multiplier signed_multiplier_i (
+                .CLK(clk),
+                .A(term_1),
+                .B(term_2),
+                .SCLR(rst),
+                .P(product)
+            );
+        end else begin : lut_implementation
+            signed_multiplier_lut signed_multiplier_i (
+                .CLK(clk),
+                .A(term_1),
+                .B(term_2),
+                .SCLR(rst),
+                .P(product)
+            );
+        end
+    endgenerate
 
     always_ff @(posedge clk) begin
         if (rst) begin

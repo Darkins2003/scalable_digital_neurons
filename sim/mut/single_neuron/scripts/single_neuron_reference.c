@@ -10,6 +10,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "../../../../../../EfficientAnalogNeuron-SNNsims/C_fixedpoint_modified/base_two_exponential.h"
 
 #define ONE_Q24 16777216
 #define ONE_Q8 256
@@ -25,28 +26,12 @@ static int32_t mul_shift(int32_t a, int32_t b, unsigned bits) {
     return (int32_t)(((reference_product_t)a * (reference_product_t)b) >> bits);
 }
 
-static float two_power_of(int32_t exponent) {
-    int32_t integer_part = exponent >> 24;
-    int32_t fraction = exponent & 0x00ffffff;
-    int32_t shift = integer_part - 16;
-    int32_t base_q8;
-
-    if (integer_part < -6)
-        return 0.0f;
-    if (shift >= 0)
-        base_q8 = (ONE_Q24 + fraction) << shift;
-    else
-        base_q8 = (ONE_Q24 + fraction) >> -shift;
-
-    return (float)base_q8;
+static int32_t two_power_of(int32_t exponent) {
+    return base_two_exponential(exponent);
 }
 
-static float two_power_of_cubic(int32_t exponent) {
-    int32_t fraction = exponent & 0x00ffffff;
-    int32_t correction_q24 =
-        ONE_Q24 + ((mul_shift(fraction, fraction, 24) - fraction) >> 2);
-    int32_t base_q8 = (int32_t)two_power_of(exponent);
-    return (float)mul_shift(base_q8, correction_q24, 24);
+static int32_t two_power_of_cubic(int32_t exponent) {
+    return base_two_exponential(exponent);
 }
 
 static void fh_ode(const int32_t state[4], int32_t input_current,
@@ -66,7 +51,7 @@ static void fh_ode(const int32_t state[4], int32_t input_current,
         ONE_Q8 - mul_shift(expvsat,
                            (int32_t)two_power_of(-state[3] - 390120603), 24),
         (int32_t)(two_power_of_cubic(state[0] + kp_vk) -
-                  (float)mul_shift(expek, (int32_t)two_power_of(kp_vk), 24)),
+                  mul_shift(expek, (int32_t)two_power_of(kp_vk), 24)),
         ONE_Q8 - mul_shift(expmvgk, (int32_t)two_power_of(state[1]), 24),
         (int32_t)(two_power_of(state[2]) - two_power_of(state[3]))
     };

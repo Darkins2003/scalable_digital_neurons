@@ -1,0 +1,1 @@
+set_property -dict [list CONFIG.MultType {Parallel_Multiplier} CONFIG.PortAType {Signed} CONFIG.PortAWidth {32} CONFIG.PortBType {Signed} CONFIG.PortBWidth {32} CONFIG.Multiplier_Construction {Use_Mults} CONFIG.OptGoal {Speed} CONFIG.Use_Custom_Output_Width {false} CONFIG.PipeStages {6} CONFIG.ClockEnable {false} CONFIG.SyncClear {true}] [get_ips signed_multiplier]

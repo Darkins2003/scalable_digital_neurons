@@ -2,7 +2,10 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module three_neurons_1D (
+module three_neurons_1D #(
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1,
+    parameter bit USE_BRAM_EXPONENTIAL = 1'b1
+)(
     input logic clk,
     input logic rst,
 
@@ -77,7 +80,10 @@ module three_neurons_1D (
     assign vmem_1 = vmem_out_reg[1];
    assign vmem_2 = vmem_out_reg[2];
 
-    neuron_with_pulse_generator neuron_with_pulse_generator_i (
+    neuron_with_pulse_generator #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
+        .USE_BRAM_EXPONENTIAL(USE_BRAM_EXPONENTIAL)
+    ) neuron_with_pulse_generator_i (
         .clk(clk),
         .rst(rst),
 
@@ -97,7 +103,10 @@ module three_neurons_1D (
         .inhibitory_pulse(inhibitory_pulse)
     );
 
-    synapse synapse_i (
+    synapse #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
+        .USE_BRAM_EXPONENTIAL(USE_BRAM_EXPONENTIAL)
+    ) synapse_i (
         .clk(clk),
         .rst(rst),
 

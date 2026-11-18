@@ -6,7 +6,7 @@ module tb_three_neurons_1D;
     parameter bit CLOCK_CONVERTER_ENABLED = 1'b0;
     // ------------------------------TOTAL STAGES = N/A------------------------------
     logic clk = 1'b0;
-    always #5 clk = ~clk;
+    always #($test$plusargs("tc_005_timing") ? (500.0 / 218.0) : 5.0) clk = ~clk;
     logic rst = 1;
     logic ctrl_start = 0;
     fixed_t current_in = 0;
@@ -65,7 +65,7 @@ module tb_three_neurons_1D;
     logic asynchronous_neuron_clock_enabled = 1'b0;
     realtime neuron_clock_half_period = 7.0;
     realtime neuron_clock_phase_offset = 1.0;
-    wire selected_neuron_clock = $test$plusargs("tc_006_clock_domain_crossing") ? asynchronous_neuron_clock : clk;
+    wire selected_neuron_clock = ($test$plusargs("tc_010_c_reference_trace") || $test$plusargs("tc_011_golden_reference_trace")) ? 1'b0 : ($test$plusargs("tc_006_clock_domain_crossing") ? asynchronous_neuron_clock : clk);
     wire selected_neuron_reset_n = $test$plusargs("tc_006_clock_domain_crossing") ? asynchronous_neuron_reset_n : rst_n;
     logic [4:0] awaddr = '0;
     logic [2:0] awprot = '0;
@@ -249,6 +249,7 @@ module tb_three_neurons_1D;
     `include "tc_005_timing.svh"
     `include "tc_006_clock_domain_crossing.svh"
     `include "tc_010_c_reference_trace.svh"
+    `include "tc_011_golden_reference_trace.svh"
 
     initial begin
         if ($test$plusargs("tc_001_reset_access")) begin
@@ -272,6 +273,9 @@ module tb_three_neurons_1D;
         end else if ($test$plusargs("tc_010_c_reference_trace")) begin
             run_tc_010_c_reference_trace();
             $display("PASS: tc_010_c_reference_trace");
+        end else if ($test$plusargs("tc_011_golden_reference_trace")) begin
+            run_tc_011_golden_reference_trace();
+            $display("PASS: tc_011_golden_reference_trace");
         end else begin
             $fatal(1, "Select a three-neuron testcase with -testplusarg");
         end

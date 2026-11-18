@@ -1,0 +1,5 @@
+baseline_width,baseline_fractional_bits,baseline_q,observed_integer_bits,headroom_bits,allocated_integer_bits,limiting_value,limiting_current_pa,assigned_groups
+32,8,Q24.8,17,1,18,n0.exponential_output.exponential,12.0,current
+32,16,Q16.16,10,1,11,triangle_slope[1;0],0.0,triangle
+32,23,Q9.23,9,1,10,neuron_matrix[3;4],0.0,matrix
+32,24,Q8.24,8,1,9,n0.coupled_triangle_excitatory,0.0,"state, constant, timestep"
