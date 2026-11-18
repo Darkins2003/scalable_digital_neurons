@@ -9,6 +9,7 @@ common runner:
 ./sim/run_testcase.ps1 ./sim/mut/three_neurons_1D/testcases/tc_003_commands.svh
 ./sim/run_testcase.ps1 ./sim/mut/three_neurons_1D/testcases/tc_004_hardware_updates.svh
 ./sim/run_testcase.ps1 ./sim/mut/three_neurons_1D/testcases/tc_010_c_reference_trace.svh
+./sim/run_testcase.ps1 ./sim/mut/three_neurons_1D/testcases/tc_011_golden_reference_trace.svh
 ```
 
 `tb_three_neurons_1D.sv` is the single shared testbench. It provides the clock,

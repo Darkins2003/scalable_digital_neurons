@@ -1,0 +1,733 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Nov 15 23:28:04 2026
+| Host         : Declan running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file C:/Users/Decla/Desktop/year_four_project/research/fpga_synthesis_results/results/250MHz/reports/research_cubic_lut/critical_paths.rpt
+| Design       : research_cubic_lut
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.278ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.639ns  (logic 2.174ns (59.741%)  route 1.465ns (40.259%))
+  Logic Levels:           9  (CARRY4=8 LUT4=1)
+  Clock Path Skew:        -0.057ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.466ns = ( 5.466 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.638ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.638     1.638    design_instance/clock
+    SLICE_X32Y71         FDRE                                         r  design_instance/correction_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y71         FDRE (Prop_fdre_C_Q)         0.478     2.116 r  design_instance/correction_reg[6]/Q
+                         net (fo=37, routed)          1.456     3.572    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y71         LUT4 (Prop_lut4_I3_O)        0.295     3.867 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.867    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y71         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     4.243 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.243    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.360 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.360    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.477 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.477    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.594 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     4.603    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.720 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.720    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.837 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.837    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.954 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.954    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     5.277 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.277    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y78         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.466     5.466    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y78         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.581    <hidden>
+                         clock uncertainty           -0.135     5.446    <hidden>
+    SLICE_X32Y78         FDRE (Setup_fdre_C_D)        0.109     5.555    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.555    <hidden>
+                         arrival time                          -5.277    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.278    <hidden>
+
+Slack (MET) :             0.308ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.618ns  (logic 2.113ns (58.408%)  route 1.505ns (41.592%))
+  Logic Levels:           7  (CARRY4=6 LUT4=1)
+  Clock Path Skew:        -0.001ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.519ns = ( 5.519 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.635ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.635     1.635    design_instance/clock
+    SLICE_X32Y72         FDRE                                         r  design_instance/correction_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y72         FDRE (Prop_fdre_C_Q)         0.478     2.113 r  design_instance/correction_reg[12]/Q
+                         net (fo=37, routed)          1.505     3.618    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y81         LUT4 (Prop_lut4_I3_O)        0.295     3.913 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.913    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y81         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.463 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.463    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.577 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.577    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.691 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.691    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y84         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.805 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.805    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.919 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.919    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y86         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     5.253 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.253    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y86         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.519     5.519    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y86         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.634    <hidden>
+                         clock uncertainty           -0.135     5.499    <hidden>
+    SLICE_X31Y86         FDRE (Setup_fdre_C_D)        0.062     5.561    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.561    <hidden>
+                         arrival time                          -5.253    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.308    <hidden>
+
+Slack (MET) :             0.382ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.535ns  (logic 2.070ns (58.556%)  route 1.465ns (41.444%))
+  Logic Levels:           9  (CARRY4=8 LUT4=1)
+  Clock Path Skew:        -0.057ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.466ns = ( 5.466 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.638ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.638     1.638    design_instance/clock
+    SLICE_X32Y71         FDRE                                         r  design_instance/correction_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y71         FDRE (Prop_fdre_C_Q)         0.478     2.116 r  design_instance/correction_reg[6]/Q
+                         net (fo=37, routed)          1.456     3.572    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y71         LUT4 (Prop_lut4_I3_O)        0.295     3.867 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.867    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y71         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     4.243 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.243    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.360 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.360    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.477 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.477    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.594 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     4.603    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.720 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.720    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.837 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.837    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.954 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.954    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y78         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219     5.173 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.173    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y78         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.466     5.466    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y78         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.581    <hidden>
+                         clock uncertainty           -0.135     5.446    <hidden>
+    SLICE_X32Y78         FDRE (Setup_fdre_C_D)        0.109     5.555    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.555    <hidden>
+                         arrival time                          -5.173    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.382    <hidden>
+
+Slack (MET) :             0.393ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.522ns  (logic 2.057ns (58.403%)  route 1.465ns (41.597%))
+  Logic Levels:           8  (CARRY4=7 LUT4=1)
+  Clock Path Skew:        -0.059ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.464ns = ( 5.464 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.638ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.638     1.638    design_instance/clock
+    SLICE_X32Y71         FDRE                                         r  design_instance/correction_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y71         FDRE (Prop_fdre_C_Q)         0.478     2.116 r  design_instance/correction_reg[6]/Q
+                         net (fo=37, routed)          1.456     3.572    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y71         LUT4 (Prop_lut4_I3_O)        0.295     3.867 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.867    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y71         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     4.243 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.243    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.360 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.360    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.477 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.477    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.594 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     4.603    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.720 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.720    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.837 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.837    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y77         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     5.160 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.160    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y77         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.464     5.464    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y77         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.579    <hidden>
+                         clock uncertainty           -0.135     5.444    <hidden>
+    SLICE_X32Y77         FDRE (Setup_fdre_C_D)        0.109     5.553    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.553    <hidden>
+                         arrival time                          -5.160    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.393    <hidden>
+
+Slack (MET) :             0.401ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.514ns  (logic 2.049ns (58.309%)  route 1.465ns (41.691%))
+  Logic Levels:           8  (CARRY4=7 LUT4=1)
+  Clock Path Skew:        -0.059ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.464ns = ( 5.464 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.638ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.638     1.638    design_instance/clock
+    SLICE_X32Y71         FDRE                                         r  design_instance/correction_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y71         FDRE (Prop_fdre_C_Q)         0.478     2.116 r  design_instance/correction_reg[6]/Q
+                         net (fo=37, routed)          1.456     3.572    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y71         LUT4 (Prop_lut4_I3_O)        0.295     3.867 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.867    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y71         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.376     4.243 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.243    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.360 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.360    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.477 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.477    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.594 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     4.603    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.720 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.720    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.837 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.837    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y77         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315     5.152 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.152    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y77         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.464     5.464    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X32Y77         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.579    <hidden>
+                         clock uncertainty           -0.135     5.444    <hidden>
+    SLICE_X32Y77         FDRE (Setup_fdre_C_D)        0.109     5.553    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.553    <hidden>
+                         arrival time                          -5.152    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.401    <hidden>
+
+Slack (MET) :             0.419ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.507ns  (logic 2.002ns (57.092%)  route 1.505ns (42.908%))
+  Logic Levels:           7  (CARRY4=6 LUT4=1)
+  Clock Path Skew:        -0.001ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.519ns = ( 5.519 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.635ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.635     1.635    design_instance/clock
+    SLICE_X32Y72         FDRE                                         r  design_instance/correction_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y72         FDRE (Prop_fdre_C_Q)         0.478     2.113 r  design_instance/correction_reg[12]/Q
+                         net (fo=37, routed)          1.505     3.618    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y81         LUT4 (Prop_lut4_I3_O)        0.295     3.913 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.913    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y81         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.463 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.463    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.577 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.577    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.691 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.691    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y84         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.805 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.805    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.919 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.919    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y86         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223     5.142 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.142    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y86         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.519     5.519    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y86         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.634    <hidden>
+                         clock uncertainty           -0.135     5.499    <hidden>
+    SLICE_X31Y86         FDRE (Setup_fdre_C_D)        0.062     5.561    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.561    <hidden>
+                         arrival time                          -5.142    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.419    <hidden>
+
+Slack (MET) :             0.422ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.504ns  (logic 1.999ns (57.055%)  route 1.505ns (42.945%))
+  Logic Levels:           6  (CARRY4=5 LUT4=1)
+  Clock Path Skew:        -0.001ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.519ns = ( 5.519 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.635ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.635     1.635    design_instance/clock
+    SLICE_X32Y72         FDRE                                         r  design_instance/correction_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y72         FDRE (Prop_fdre_C_Q)         0.478     2.113 r  design_instance/correction_reg[12]/Q
+                         net (fo=37, routed)          1.505     3.618    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y81         LUT4 (Prop_lut4_I3_O)        0.295     3.913 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.913    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y81         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.463 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.463    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.577 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.577    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.691 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.691    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y84         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.805 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.805    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y85         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     5.139 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.139    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y85         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.519     5.519    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y85         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.634    <hidden>
+                         clock uncertainty           -0.135     5.499    <hidden>
+    SLICE_X31Y85         FDRE (Setup_fdre_C_D)        0.062     5.561    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.561    <hidden>
+                         arrival time                          -5.139    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.422    <hidden>
+
+Slack (MET) :             0.443ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[12]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.483ns  (logic 1.978ns (56.796%)  route 1.505ns (43.204%))
+  Logic Levels:           6  (CARRY4=5 LUT4=1)
+  Clock Path Skew:        -0.001ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.519ns = ( 5.519 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.635ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.635     1.635    design_instance/clock
+    SLICE_X32Y72         FDRE                                         r  design_instance/correction_reg[12]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X32Y72         FDRE (Prop_fdre_C_Q)         0.478     2.113 r  design_instance/correction_reg[12]/Q
+                         net (fo=37, routed)          1.505     3.618    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y81         LUT4 (Prop_lut4_I3_O)        0.295     3.913 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.913    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y81         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.463 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.463    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.577 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.577    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.691 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.691    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y84         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.805 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.805    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y85         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     5.118 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.118    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y85         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.519     5.519    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X31Y85         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.634    <hidden>
+                         clock uncertainty           -0.135     5.499    <hidden>
+    SLICE_X31Y85         FDRE (Setup_fdre_C_D)        0.062     5.561    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.561    <hidden>
+                         arrival time                          -5.118    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.443    <hidden>
+
+Slack (MET) :             0.451ns  (required time - arrival time)
+  Source:                 design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.428ns  (logic 2.398ns (69.944%)  route 1.030ns (30.056%))
+  Logic Levels:           12  (CARRY4=11 LUT2=1)
+  Clock Path Skew:        -0.094ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.476ns = ( 5.476 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.685ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.685     1.685    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X30Y78         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X30Y78         FDRE (Prop_fdre_C_Q)         0.518     2.203 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           1.030     3.233    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y80         LUT2 (Prop_lut2_I0_O)        0.124     3.357 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.357    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y80         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.380     3.737 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.737    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.854 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.854    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y82         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.971 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.971    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y83         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.088 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.088    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y84         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.205 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.205    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y85         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.322 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.322    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y86         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.439 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.439    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y87         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.556 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.556    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y88         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.673 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.673    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y89         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.790 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.790    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y90         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     5.113 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.113    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y90         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.476     5.476    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y90         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.591    <hidden>
+                         clock uncertainty           -0.135     5.456    <hidden>
+    SLICE_X36Y90         FDRE (Setup_fdre_C_D)        0.109     5.565    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.565    <hidden>
+                         arrival time                          -5.113    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.451    <hidden>
+
+Slack (MET) :             0.466ns  (required time - arrival time)
+  Source:                 design_instance/correction_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.447ns  (logic 2.262ns (65.621%)  route 1.185ns (34.379%))
+  Logic Levels:           10  (CARRY4=9 LUT4=1)
+  Clock Path Skew:        -0.014ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.505ns = ( 5.505 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.634ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2023, unset)         1.634     1.634    design_instance/clock
+    SLICE_X33Y73         FDRE                                         r  design_instance/correction_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X33Y73         FDRE (Prop_fdre_C_Q)         0.456     2.090 r  design_instance/correction_reg[1]/Q
+                         net (fo=37, routed)          1.176     3.266    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y68         LUT4 (Prop_lut4_I1_O)        0.124     3.390 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.390    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y68         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     3.940 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.940    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.054 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.054    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.168 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.168    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.282 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.282    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.396 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.396    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.510 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.510    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.624 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     4.633    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.747 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.747    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y76         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     5.081 r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.081    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y76         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2023, unset)         1.505     5.505    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X27Y76         FDRE                                         r  design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.620    <hidden>
+                         clock uncertainty           -0.135     5.485    <hidden>
+    SLICE_X27Y76         FDRE (Setup_fdre_C_D)        0.062     5.547    design_instance/correction_multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.547    <hidden>
+                         arrival time                          -5.081    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.466    <hidden>
+
+
+
+

@@ -1,0 +1,13 @@
+{
+  "target_designs": 47,
+  "synthesis_reports": 47,
+  "completed_designs": 47,
+  "timing_passes": 42,
+  "mapping_mismatches": [],
+  "missing_designs": [],
+  "clock_mhz": 250.0,
+  "input_fractional_bits": 24,
+  "output_fractional_bits": 8,
+  "resource_stage": "post_synthesis",
+  "timing_stage": "post_route"
+}

@@ -1,0 +1,587 @@
+[
+  {
+    "name": "w32_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 32,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "w31_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 31,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        31,
+        22
+      ],
+      "matrix": [
+        31,
+        21
+      ],
+      "current": [
+        31,
+        13
+      ],
+      "triangle": [
+        31,
+        20
+      ],
+      "constant": [
+        31,
+        22
+      ],
+      "timestep": [
+        31,
+        22
+      ]
+    }
+  },
+  {
+    "name": "w30_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 30,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        30,
+        21
+      ],
+      "matrix": [
+        30,
+        20
+      ],
+      "current": [
+        30,
+        12
+      ],
+      "triangle": [
+        30,
+        19
+      ],
+      "constant": [
+        30,
+        21
+      ],
+      "timestep": [
+        30,
+        21
+      ]
+    }
+  },
+  {
+    "name": "w29_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 29,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        29,
+        20
+      ],
+      "matrix": [
+        29,
+        19
+      ],
+      "current": [
+        29,
+        11
+      ],
+      "triangle": [
+        29,
+        18
+      ],
+      "constant": [
+        29,
+        20
+      ],
+      "timestep": [
+        29,
+        20
+      ]
+    }
+  },
+  {
+    "name": "w28_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 28,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        28,
+        19
+      ],
+      "matrix": [
+        28,
+        18
+      ],
+      "current": [
+        28,
+        10
+      ],
+      "triangle": [
+        28,
+        17
+      ],
+      "constant": [
+        28,
+        19
+      ],
+      "timestep": [
+        28,
+        19
+      ]
+    }
+  },
+  {
+    "name": "w27_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 27,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        27,
+        18
+      ],
+      "matrix": [
+        27,
+        17
+      ],
+      "current": [
+        27,
+        9
+      ],
+      "triangle": [
+        27,
+        16
+      ],
+      "constant": [
+        27,
+        18
+      ],
+      "timestep": [
+        27,
+        18
+      ]
+    }
+  },
+  {
+    "name": "w26_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 26,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        26,
+        17
+      ],
+      "matrix": [
+        26,
+        16
+      ],
+      "current": [
+        26,
+        8
+      ],
+      "triangle": [
+        26,
+        15
+      ],
+      "constant": [
+        26,
+        17
+      ],
+      "timestep": [
+        26,
+        17
+      ]
+    }
+  },
+  {
+    "name": "w25_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 25,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        25,
+        16
+      ],
+      "matrix": [
+        25,
+        15
+      ],
+      "current": [
+        25,
+        7
+      ],
+      "triangle": [
+        25,
+        14
+      ],
+      "constant": [
+        25,
+        16
+      ],
+      "timestep": [
+        25,
+        16
+      ]
+    }
+  },
+  {
+    "name": "w24_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 24,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        24,
+        15
+      ],
+      "matrix": [
+        24,
+        14
+      ],
+      "current": [
+        24,
+        6
+      ],
+      "triangle": [
+        24,
+        13
+      ],
+      "constant": [
+        24,
+        15
+      ],
+      "timestep": [
+        24,
+        15
+      ]
+    }
+  },
+  {
+    "name": "w23_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 23,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        23,
+        14
+      ],
+      "matrix": [
+        23,
+        13
+      ],
+      "current": [
+        23,
+        5
+      ],
+      "triangle": [
+        23,
+        12
+      ],
+      "constant": [
+        23,
+        14
+      ],
+      "timestep": [
+        23,
+        14
+      ]
+    }
+  },
+  {
+    "name": "w22_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 22,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        22,
+        13
+      ],
+      "matrix": [
+        22,
+        12
+      ],
+      "current": [
+        22,
+        4
+      ],
+      "triangle": [
+        22,
+        11
+      ],
+      "constant": [
+        22,
+        13
+      ],
+      "timestep": [
+        22,
+        13
+      ]
+    }
+  },
+  {
+    "name": "w21_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 21,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        21,
+        12
+      ],
+      "matrix": [
+        21,
+        11
+      ],
+      "current": [
+        21,
+        3
+      ],
+      "triangle": [
+        21,
+        10
+      ],
+      "constant": [
+        21,
+        12
+      ],
+      "timestep": [
+        21,
+        12
+      ]
+    }
+  },
+  {
+    "name": "w20_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 20,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        20,
+        11
+      ],
+      "matrix": [
+        20,
+        10
+      ],
+      "current": [
+        20,
+        2
+      ],
+      "triangle": [
+        20,
+        9
+      ],
+      "constant": [
+        20,
+        11
+      ],
+      "timestep": [
+        20,
+        11
+      ]
+    }
+  },
+  {
+    "name": "w19_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 19,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        19,
+        10
+      ],
+      "matrix": [
+        19,
+        9
+      ],
+      "current": [
+        19,
+        1
+      ],
+      "triangle": [
+        19,
+        8
+      ],
+      "constant": [
+        19,
+        10
+      ],
+      "timestep": [
+        19,
+        10
+      ]
+    }
+  },
+  {
+    "name": "w18_fixed_integer",
+    "stage": "fixed_integer",
+    "width": 18,
+    "integer_bits": {
+      "state": 9,
+      "matrix": 10,
+      "current": 18,
+      "triangle": 11,
+      "constant": 9,
+      "timestep": 9
+    },
+    "formats": {
+      "state": [
+        18,
+        9
+      ],
+      "matrix": [
+        18,
+        8
+      ],
+      "current": [
+        18,
+        0
+      ],
+      "triangle": [
+        18,
+        7
+      ],
+      "constant": [
+        18,
+        9
+      ],
+      "timestep": [
+        18,
+        9
+      ]
+    }
+  }
+]

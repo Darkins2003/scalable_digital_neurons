@@ -1,0 +1,7 @@
++====================+===================+========================================+
+| Launch Setup Clock | Launch Hold Clock | Pin                                    |
++====================+===================+========================================+
+| comparison_clock   | comparison_clock  | design_instance/stored_value_reg[19]/D |
+| comparison_clock   | comparison_clock  | design_instance/stored_value_reg[20]/D |
+| comparison_clock   | comparison_clock  | design_instance/stored_value_reg[21]/D |
++--------------------+-------------------+----------------------------------------+

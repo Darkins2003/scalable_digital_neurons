@@ -99,13 +99,16 @@ def run_simulator(directory: Path, vivado_bin: Path | None) -> None:
             "or use --reference-only and run the testbench in Vivado manually."
         )
 
+    (directory / "fractional_exponent_estimation_table.mem").write_bytes(
+        (ROOT / "hdl/math/memory/fractional_exponent_estimation_table.mem").read_bytes()
+    )
+
     source_names = (
         "packages/neuron_params_generated_pkg.sv",
         "packages/neuron_params_pkg.sv",
         "packages/fixed_point_package.sv",
         "math/signed_32_32_multiplication.sv",
-        "math/base_two_exponential_pipe_linear.sv",
-        "math/base_two_exponential_pipe_cubic.sv",
+        "math/base_two_exponential.sv",
         "math/compute_current_vector.sv",
         "math/matrix_mul_and_euler_update.sv",
         "neuron/single_neuron.sv",

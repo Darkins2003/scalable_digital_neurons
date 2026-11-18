@@ -1,0 +1,32 @@
+{
+  "reason": "Removed obsolete precision sweep; extracted unchanged shared numerical functions and changed import paths only. Saved range data and numerical model are unchanged.",
+  "source_aliases": {
+    "research/fixed_point_precision/run_study.py": {
+      "previous_sha256": "569b929bd6646c1c6cba85808a3b340f74bb954881f13898fcca0cf238690fde",
+      "current_path": "research/fixed_point_precision/precision_support.py",
+      "current_sha256": "c7a1e52f4b6413e586177a53cfa9c3b25387bc296535cb1ef46402ea4e6fb932"
+    },
+    "research/fixed_point_precision/run_fixed_integer_study.py": {
+      "previous_sha256": "7a107135689d8fe719320b76a5a94ef40a8f1b94b918922d1e234e7c7fd26915",
+      "current_path": "research/fixed_point_precision/run_fixed_integer_study.py",
+      "current_sha256": "8dd9969a00d1c7cee081027ce0c4f2b9694d25bf02a24ba0199e84a130b65acc"
+    },
+    "research/input_current_sweep/run_current_sweep.py": {
+      "previous_sha256": "8a2712a6849488d22fe58582df92798ca93ab6c95278e830d6c1c560026f1470",
+      "current_path": "research/input_current_sweep/run_current_sweep.py",
+      "current_sha256": "53fb2536226d774adfad320bee6405c80f541481f9efd6abd814d55b51a8bd03"
+    }
+  },
+  "shared_function_ast_sha256": {
+    "digest": "e56d4d9619aa10f41b4ac1b07c682e42870ee4ad0859b5e5e939871064193f91",
+    "save_json": "6c423fe87218d581c2d7bafdc09e7ca4f87fcc6865e86276b3ca8a033a608272",
+    "write_rows": "2e11ca6938e06ef5a900e4d34b444884bafb85e40632ef11878af7745694b3d2",
+    "command": "691582d0ec8d37735d2f506dc19092a2e733577f5f00adfaa95be0a2c44951ce",
+    "build": "07fa68d68cce117828e7686bbede454d8c4a8656302e1dcecb82a0c88295f917",
+    "read_raw": "35e64281839668709aecb41c4622b96d90cf582a605920b2fea499be0e0ea12f",
+    "decode": "8df11d61268b0de6de38ddf5fd3aa5acf5efc96638b9fe586864840cd0add606",
+    "accuracy": "f9f2288dd18ab7ea981bac1564d515ce9cee804af8648f96cd20ae233b006358",
+    "run_model": "f05d2ede601881b8c374800630cf363c506200262c8867fb2ba473e8571cac38",
+    "required_integer_bits": "3508b6492e13d9afa5292328be5ed95709fb1401412195be122235aea90c6a22"
+  }
+}

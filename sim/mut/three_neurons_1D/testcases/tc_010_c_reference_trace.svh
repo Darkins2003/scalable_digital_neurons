@@ -4,6 +4,8 @@ localparam int PULSE_END_STEP = 140000;
 localparam int PULSE_HEIGHT_Q8 = 20480;
 
 task automatic run_tc_010_c_reference_trace;
+        int startup_file_handle;
+        fixed_t expected_startup_currents [0:2];
         string preparation_command;
         int requested_steps;
         int requested_pulse_start;
@@ -23,6 +25,18 @@ task automatic run_tc_010_c_reference_trace;
         if ($system(preparation_command) != 0) begin
             $fatal(1, "Could not prepare the three-neuron C reference");
         end
+
+        startup_file_handle = $fopen("startup_currents.txt", "r");
+        if (!startup_file_handle) begin
+            $fatal(1, "Could not open startup_currents.txt");
+        end
+        for (int neuron_index = 0; neuron_index < 3; neuron_index++) begin
+            items_read = $fscanf(startup_file_handle, "%d", expected_startup_currents[neuron_index]);
+            if (items_read != 1) begin
+                $fatal(1, "Missing C startup current for neuron %0d", neuron_index);
+            end
+        end
+        $fclose(startup_file_handle);
 
         stimulus_file_handle = $fopen("stimulus.txt", "r");
         trace_file_handle = $fopen("hdl_trace.csv", "w");
@@ -62,8 +76,8 @@ task automatic run_tc_010_c_reference_trace;
                     $fatal(1, "Neuron %0d state %0d updated during startup", neuron_index, state_index);
                 end
             end
-            if (dut.excitatory_current_contribution_reg[neuron_index] !== 32'sd1091) begin
-                $fatal(1, "Startup synaptic current for source %0d differs from C (1091 Q8)", neuron_index);
+            if (dut.excitatory_current_contribution_reg[neuron_index] !== expected_startup_currents[neuron_index]) begin
+                $fatal(1, "Startup synaptic current for source %0d differs from C: expected %0d Q8, got %0d Q8", neuron_index, expected_startup_currents[neuron_index], dut.excitatory_current_contribution_reg[neuron_index]);
             end
         end
         @(negedge clk);
@@ -87,6 +101,10 @@ task automatic run_tc_010_c_reference_trace;
                 $fwrite(trace_file_handle, ",%0d,%0d", dut.neuron_with_pulse_generator_i.synaptic_triangular_generator_i.excitatory_triangular_state_reg[neuron_index], dut.neuron_with_pulse_generator_i.synaptic_triangular_generator_i.inhibitory_triangular_state_reg[neuron_index]);
             end
             $fwrite(trace_file_handle, "\n");
+            if ((step_index + 1) % 1000 == 0 || step_index + 1 == total_steps) begin
+                $fflush(trace_file_handle);
+                $display("PROGRESS: recorded %0d/%0d three-neuron steps", step_index + 1, total_steps);
+            end
             @(negedge clk);
             if (step_index + 2 < total_steps) begin
                 current_in = stimulus_currents[step_index + 2];

@@ -1,0 +1,557 @@
+{
+  "part": "xc7z020clg400-1",
+  "clock_mhz": 250,
+  "input_fractional_bits": 24,
+  "output_fractional_bits": 8,
+  "input_total_bits": 24,
+  "output_total_bits": 32,
+  "initiation_interval_cycles": 1,
+  "designs": [
+    {
+      "name": "maclaurin_0_logic",
+      "model": "maclaurin_0",
+      "implementation": "logic",
+      "kind": "polynomial",
+      "degree": 0,
+      "coefficients": [
+        16777216,
+        0,
+        0,
+        0,
+        0
+      ],
+      "latency_cycles": 1,
+      "register_stages": 2
+    },
+    {
+      "name": "sollya_0_logic",
+      "model": "sollya_0",
+      "implementation": "logic",
+      "kind": "polynomial",
+      "degree": 0,
+      "coefficients": [
+        25165824,
+        0,
+        0,
+        0,
+        0
+      ],
+      "latency_cycles": 1,
+      "register_stages": 2
+    },
+    {
+      "name": "maclaurin_1_lut",
+      "model": "maclaurin_1",
+      "implementation": "lut",
+      "kind": "polynomial",
+      "degree": 1,
+      "coefficients": [
+        16777216,
+        11629080,
+        0,
+        0,
+        0
+      ],
+      "latency_cycles": 9,
+      "register_stages": 10
+    },
+    {
+      "name": "maclaurin_1_dsp",
+      "model": "maclaurin_1",
+      "implementation": "dsp",
+      "kind": "polynomial",
+      "degree": 1,
+      "coefficients": [
+        16777216,
+        11629080,
+        0,
+        0,
+        0
+      ],
+      "latency_cycles": 9,
+      "register_stages": 10
+    },
+    {
+      "name": "sollya_1_lut",
+      "model": "sollya_1",
+      "implementation": "lut",
+      "kind": "polynomial",
+      "degree": 1,
+      "coefficients": [
+        16055197,
+        16777216,
+        0,
+        0,
+        0
+      ],
+      "latency_cycles": 9,
+      "register_stages": 10
+    },
+    {
+      "name": "sollya_1_dsp",
+      "model": "sollya_1",
+      "implementation": "dsp",
+      "kind": "polynomial",
+      "degree": 1,
+      "coefficients": [
+        16055197,
+        16777216,
+        0,
+        0,
+        0
+      ],
+      "latency_cycles": 9,
+      "register_stages": 10
+    },
+    {
+      "name": "maclaurin_2_lut",
+      "model": "maclaurin_2",
+      "implementation": "lut",
+      "kind": "polynomial",
+      "degree": 2,
+      "coefficients": [
+        16777216,
+        11629080,
+        4030332,
+        0,
+        0
+      ],
+      "latency_cycles": 17,
+      "register_stages": 18
+    },
+    {
+      "name": "maclaurin_2_dsp",
+      "model": "maclaurin_2",
+      "implementation": "dsp",
+      "kind": "polynomial",
+      "degree": 2,
+      "coefficients": [
+        16777216,
+        11629080,
+        4030332,
+        0,
+        0
+      ],
+      "latency_cycles": 17,
+      "register_stages": 18
+    },
+    {
+      "name": "sollya_2_lut",
+      "model": "sollya_2",
+      "implementation": "lut",
+      "kind": "polynomial",
+      "degree": 2,
+      "coefficients": [
+        16818757,
+        10922753,
+        5771381,
+        0,
+        0
+      ],
+      "latency_cycles": 17,
+      "register_stages": 18
+    },
+    {
+      "name": "sollya_2_dsp",
+      "model": "sollya_2",
+      "implementation": "dsp",
+      "kind": "polynomial",
+      "degree": 2,
+      "coefficients": [
+        16818757,
+        10922753,
+        5771381,
+        0,
+        0
+      ],
+      "latency_cycles": 17,
+      "register_stages": 18
+    },
+    {
+      "name": "maclaurin_3_lut",
+      "model": "maclaurin_3",
+      "implementation": "lut",
+      "kind": "polynomial",
+      "degree": 3,
+      "coefficients": [
+        16777216,
+        11629080,
+        4030332,
+        931204,
+        0
+      ],
+      "latency_cycles": 25,
+      "register_stages": 26
+    },
+    {
+      "name": "maclaurin_3_dsp",
+      "model": "maclaurin_3",
+      "implementation": "dsp",
+      "kind": "polynomial",
+      "degree": 3,
+      "coefficients": [
+        16777216,
+        11629080,
+        4030332,
+        931204,
+        0
+      ],
+      "latency_cycles": 25,
+      "register_stages": 26
+    },
+    {
+      "name": "sollya_3_lut",
+      "model": "sollya_3",
+      "implementation": "lut",
+      "kind": "polynomial",
+      "degree": 3,
+      "coefficients": [
+        16775420,
+        11684617,
+        3763773,
+        1328826,
+        0
+      ],
+      "latency_cycles": 25,
+      "register_stages": 26
+    },
+    {
+      "name": "sollya_3_dsp",
+      "model": "sollya_3",
+      "implementation": "dsp",
+      "kind": "polynomial",
+      "degree": 3,
+      "coefficients": [
+        16775420,
+        11684617,
+        3763773,
+        1328826,
+        0
+      ],
+      "latency_cycles": 25,
+      "register_stages": 26
+    },
+    {
+      "name": "maclaurin_4_lut",
+      "model": "maclaurin_4",
+      "implementation": "lut",
+      "kind": "polynomial",
+      "degree": 4,
+      "coefficients": [
+        16777216,
+        11629080,
+        4030332,
+        931204,
+        161365
+      ],
+      "latency_cycles": 33,
+      "register_stages": 34
+    },
+    {
+      "name": "maclaurin_4_dsp",
+      "model": "maclaurin_4",
+      "implementation": "dsp",
+      "kind": "polynomial",
+      "degree": 4,
+      "coefficients": [
+        16777216,
+        11629080,
+        4030332,
+        931204,
+        161365
+      ],
+      "latency_cycles": 33,
+      "register_stages": 34
+    },
+    {
+      "name": "sollya_4_lut",
+      "model": "sollya_4",
+      "implementation": "lut",
+      "kind": "polynomial",
+      "degree": 4,
+      "coefficients": [
+        16777278,
+        11626044,
+        4054016,
+        867224,
+        229808
+      ],
+      "latency_cycles": 33,
+      "register_stages": 34
+    },
+    {
+      "name": "sollya_4_dsp",
+      "model": "sollya_4",
+      "implementation": "dsp",
+      "kind": "polynomial",
+      "degree": 4,
+      "coefficients": [
+        16777278,
+        11626044,
+        4054016,
+        867224,
+        229808
+      ],
+      "latency_cycles": 33,
+      "register_stages": 34
+    },
+    {
+      "name": "research_linear_logic",
+      "model": "linear",
+      "implementation": "logic",
+      "kind": "linear",
+      "latency_cycles": 1,
+      "register_stages": 2
+    },
+    {
+      "name": "research_cubic_lut",
+      "model": "cubic",
+      "implementation": "lut",
+      "kind": "cubic",
+      "latency_cycles": 17,
+      "register_stages": 18
+    },
+    {
+      "name": "research_cubic_dsp",
+      "model": "cubic",
+      "implementation": "dsp",
+      "kind": "cubic",
+      "latency_cycles": 17,
+      "register_stages": 18
+    },
+    {
+      "name": "rom_16_distributed",
+      "model": "bram_16",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 16,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_16_block",
+      "model": "bram_16",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 16,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_32_distributed",
+      "model": "bram_32",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 32,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_32_block",
+      "model": "bram_32",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 32,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_64_distributed",
+      "model": "bram_64",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 64,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_64_block",
+      "model": "bram_64",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 64,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_128_distributed",
+      "model": "bram_128",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 128,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_128_block",
+      "model": "bram_128",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 128,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_256_distributed",
+      "model": "bram_256",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 256,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_256_block",
+      "model": "bram_256",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 256,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_512_distributed",
+      "model": "bram_512",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 512,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_512_block",
+      "model": "bram_512",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 512,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_1024_distributed",
+      "model": "bram_1024",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 1024,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_1024_block",
+      "model": "bram_1024",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 1024,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_2048_distributed",
+      "model": "bram_2048",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 2048,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_2048_block",
+      "model": "bram_2048",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 2048,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_4096_distributed",
+      "model": "bram_4096",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 4096,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_4096_block",
+      "model": "bram_4096",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 4096,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_8192_distributed",
+      "model": "bram_8192",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 8192,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_8192_block",
+      "model": "bram_8192",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 8192,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_16384_distributed",
+      "model": "bram_16384",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 16384,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_16384_block",
+      "model": "bram_16384",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 16384,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_32768_distributed",
+      "model": "bram_32768",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 32768,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_32768_block",
+      "model": "bram_32768",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 32768,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_65536_distributed",
+      "model": "bram_65536",
+      "implementation": "distributed",
+      "kind": "rom",
+      "entries": 65536,
+      "latency_cycles": 2,
+      "register_stages": 3
+    },
+    {
+      "name": "rom_65536_block",
+      "model": "bram_65536",
+      "implementation": "block",
+      "kind": "rom",
+      "entries": 65536,
+      "latency_cycles": 2,
+      "register_stages": 3
+    }
+  ]
+}

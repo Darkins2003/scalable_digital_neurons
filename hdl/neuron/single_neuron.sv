@@ -2,7 +2,10 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module single_neuron (
+module single_neuron #(
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1,
+    parameter bit USE_BRAM_EXPONENTIAL = 1'b1
+)(
     input logic clk,
     input logic rst,
 
@@ -38,8 +41,11 @@ module single_neuron (
     assign vmem_out = neuron_state_variables[0][id_out];
     assign vmem_out_previous = vmem_out_previous_reg[id_out];
 
-    // ------------------------------STAGE 0 to STAGE 0 (+41)------------------------------
-    compute_current_vector compute_current_vector_i(
+    // ------------------------------STAGE 0 to STAGE 0 (+33)------------------------------
+    compute_current_vector #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
+        .USE_BRAM_EXPONENTIAL(USE_BRAM_EXPONENTIAL)
+    ) compute_current_vector_i(
         .clk(clk),
         .rst(rst),
 
@@ -55,7 +61,9 @@ module single_neuron (
     );
 
     // ------------------------------STAGE 1 to STAGE 1 (+16)------------------------------
-    matrix_mul_and_euler_update matrix_mul_and_euler_update_i(
+    matrix_mul_and_euler_update #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS)
+    ) matrix_mul_and_euler_update_i(
         .clk(clk),
         .rst(rst),
 
@@ -82,7 +90,7 @@ module single_neuron (
             valid_out <= '0;
 
         end else begin
-            // ------------------------------TOTAL STAGES = 60------------------------------
+            // ------------------------------TOTAL STAGES = 52------------------------------
             // ------------------------------STAGE 2 (EULER UPDATE)------------------------------
             valid_out <= matrix_mul_and_euler_update_valid_out;
             id_out <= matrix_mul_and_euler_update_id_out;

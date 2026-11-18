@@ -1,0 +1,24 @@
+{
+  "objective": "Complete the full 47-design FPGA resource and routed timing sweep at 250 MHz, as explicitly confirmed by Declan.",
+  "clock_mhz": 250,
+  "part": "xc7z020clg400-1",
+  "input_fractional_bits": 24,
+  "output_fractional_bits": 8,
+  "functional_validation": "All 47 designs matched Python; 845390 checked outputs, including valid gaps and reset flushes. Both generated vendor multiplier backends also passed.",
+  "completed_earlier_phase": "completed_before_remaining.csv",
+  "completed_earlier_phase_count": 26,
+  "status": "complete",
+  "completed_designs": 47,
+  "timing_passes": 42,
+  "timing_failed_designs": [
+    "rom_4096_distributed",
+    "rom_8192_distributed",
+    "rom_16384_distributed",
+    "rom_32768_distributed",
+    "rom_65536_distributed"
+  ],
+  "verification": "All 47 resource mappings matched requests; identical clock constraints; no unconstrained internal endpoints, missing clocks or combinational loops; all routed checkpoints present.",
+  "scheduling": "Initial runs used two concurrent jobs, later runs used one. Each Vivado job used two threads. All 47 were aggregated from completed report directories.",
+  "resource_stage": "post_synthesis",
+  "timing_stage": "post_route"
+}

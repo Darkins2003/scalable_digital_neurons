@@ -2,7 +2,9 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module matrix_mul_and_euler_update(
+module matrix_mul_and_euler_update #(
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1
+)(
     input logic clk,
     input logic rst,
 
@@ -34,6 +36,7 @@ module matrix_mul_and_euler_update(
     for (genvar row = 0; row < 4; row++) begin : generate_products
         for (genvar column = 0; column < 8; column++) begin : generate_columns
             signed_32_32_multiplication #(
+                .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
                 .TERM_1_FRACTIONAL_BITS(6'd23),
                 .TERM_2_FRACTIONAL_BITS(6'd8),
                 .RESULT_FRACTIONAL_BITS(6'd8)
@@ -53,6 +56,7 @@ module matrix_mul_and_euler_update(
 
     // ------------------------------STAGE 4 to STAGE 4 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd24),
         .TERM_2_FRACTIONAL_BITS(6'd8),
         .RESULT_FRACTIONAL_BITS(6'd24)
@@ -71,6 +75,7 @@ module matrix_mul_and_euler_update(
     // ------------------------------STAGE 4 to STAGE 4 (+6)------------------------------
     for (genvar row = 1; row < 4; row++) begin : generate_euler_updates
         signed_32_32_multiplication #(
+            .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
             .TERM_1_FRACTIONAL_BITS(6'd24),
             .TERM_2_FRACTIONAL_BITS(6'd8),
             .RESULT_FRACTIONAL_BITS(6'd24)

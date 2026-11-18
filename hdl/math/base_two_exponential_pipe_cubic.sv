@@ -2,7 +2,9 @@ import neuron_params_generated_pkg::*;
 import neuron_params_pkg::*;
 import fixed_point_package::*;
 
-module base_two_exponential_pipe_cubic (
+module base_two_exponential_pipe_cubic #(
+    parameter bit USE_DSP_MULTIPLIERS = 1'b1
+)(
     input logic clk,
     input logic rst,
     input fixed_t exponent,
@@ -52,6 +54,7 @@ module base_two_exponential_pipe_cubic (
 
     // ------------------------------STAGE 1 to STAGE 1 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd24),
         .TERM_2_FRACTIONAL_BITS(6'd24),
         .RESULT_FRACTIONAL_BITS(6'd24)
@@ -69,6 +72,7 @@ module base_two_exponential_pipe_cubic (
 
     // ------------------------------STAGE 5 to STAGE 5 (+6)------------------------------
     signed_32_32_multiplication #(
+        .USE_DSP_MULTIPLIERS(USE_DSP_MULTIPLIERS),
         .TERM_1_FRACTIONAL_BITS(6'd24),
         .TERM_2_FRACTIONAL_BITS(6'd8),
         .RESULT_FRACTIONAL_BITS(6'd8)

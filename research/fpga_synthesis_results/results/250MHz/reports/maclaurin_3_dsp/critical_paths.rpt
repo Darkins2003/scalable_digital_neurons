@@ -1,0 +1,697 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Nov 15 22:36:33 2026
+| Host         : Declan running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file C:/Users/Decla/Desktop/year_four_project/research/fpga_synthesis_results/results/250MHz/reports/maclaurin_3_dsp/critical_paths.rpt
+| Design       : maclaurin_3_dsp
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.646ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[1].accumulated_result_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.235ns  (logic 2.210ns (68.315%)  route 1.025ns (31.685%))
+  Logic Levels:           9  (CARRY4=8 LUT1=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.471ns = ( 5.471 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.632ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.632     1.632    design_instance/polynomial_stage[1].multiplication/clock
+    SLICE_X36Y74         FDRE                                         r  design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X36Y74         FDRE (Prop_fdre_C_Q)         0.518     2.150 f  design_instance/polynomial_stage[1].multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           1.025     3.175    design_instance/polynomial_stage[1].multiplication_n_28
+    SLICE_X35Y75         LUT1 (Prop_lut1_I0_O)        0.124     3.299 r  design_instance/polynomial_stage[1].accumulated_result[5]_i_3/O
+                         net (fo=1, routed)           0.000     3.299    design_instance/polynomial_stage[1].accumulated_result[5]_i_3_n_0
+    SLICE_X35Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     3.849 r  design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.849    design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1_n_0
+    SLICE_X35Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.963 r  design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.963    design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1_n_0
+    SLICE_X35Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.077 r  design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.077    design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1_n_0
+    SLICE_X35Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.191 r  design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.191    design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1_n_0
+    SLICE_X35Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.305 r  design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.305    design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1_n_0
+    SLICE_X35Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.419 r  design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.419    design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1_n_0
+    SLICE_X35Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.533 r  design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.533    design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1_n_0
+    SLICE_X35Y82         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.867 r  design_instance/polynomial_stage[1].accumulated_result_reg[31]_i_1/O[1]
+                         net (fo=1, routed)           0.000     4.867    design_instance/polynomial_stage[1].accumulated_result_reg[31]_i_1_n_6
+    SLICE_X35Y82         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.471     5.471    design_instance/clock
+    SLICE_X35Y82         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[31]/C
+                         clock pessimism              0.115     5.586    <hidden>
+                         clock uncertainty           -0.135     5.451    <hidden>
+    SLICE_X35Y82         FDRE (Setup_fdre_C_D)        0.062     5.513    design_instance/polynomial_stage[1].accumulated_result_reg[31]
+  -------------------------------------------------------------------
+                         required time                          5.513    <hidden>
+                         arrival time                          -4.867    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.646    <hidden>
+
+Slack (MET) :             0.722ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].accumulated_result_reg[30]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.171ns  (logic 2.005ns (63.222%)  route 1.166ns (36.778%))
+  Logic Levels:           6  (CARRY4=5 LUT1=1)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.649     1.649    design_instance/polynomial_stage[0].multiplication/clock
+    SLICE_X34Y61         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X34Y61         FDRE (Prop_fdre_C_Q)         0.478     2.127 f  design_instance/polynomial_stage[0].multiplication/result_reg[14]/Q
+                         net (fo=2, routed)           1.166     3.293    design_instance/polynomial_stage[0].multiplication_n_17
+    SLICE_X35Y66         LUT1 (Prop_lut1_I0_O)        0.301     3.594 r  design_instance/polynomial_stage[0].accumulated_result[16]_i_3/O
+                         net (fo=1, routed)           0.000     3.594    design_instance/polynomial_stage[0].accumulated_result[16]_i_3_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.144 r  design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.144    design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.258 r  design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.258    design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.372 r  design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.372    design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.486 r  design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.486    design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1_n_0
+    SLICE_X35Y70         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.820 r  design_instance/polynomial_stage[0].accumulated_result_reg[31]_i_1/O[1]
+                         net (fo=1, routed)           0.000     4.820    design_instance/polynomial_stage[0].accumulated_result_reg[31]_i_1_n_6
+    SLICE_X35Y70         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[30]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y70         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[30]/C
+                         clock pessimism              0.148     5.616    <hidden>
+                         clock uncertainty           -0.135     5.481    <hidden>
+    SLICE_X35Y70         FDRE (Setup_fdre_C_D)        0.062     5.543    design_instance/polynomial_stage[0].accumulated_result_reg[30]
+  -------------------------------------------------------------------
+                         required time                          5.543    <hidden>
+                         arrival time                          -4.820    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.722    <hidden>
+
+Slack (MET) :             0.757ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[1].accumulated_result_reg[30]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.124ns  (logic 2.099ns (67.189%)  route 1.025ns (32.811%))
+  Logic Levels:           9  (CARRY4=8 LUT1=1)
+  Clock Path Skew:        -0.046ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.471ns = ( 5.471 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.632ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.632     1.632    design_instance/polynomial_stage[1].multiplication/clock
+    SLICE_X36Y74         FDRE                                         r  design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X36Y74         FDRE (Prop_fdre_C_Q)         0.518     2.150 f  design_instance/polynomial_stage[1].multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           1.025     3.175    design_instance/polynomial_stage[1].multiplication_n_28
+    SLICE_X35Y75         LUT1 (Prop_lut1_I0_O)        0.124     3.299 r  design_instance/polynomial_stage[1].accumulated_result[5]_i_3/O
+                         net (fo=1, routed)           0.000     3.299    design_instance/polynomial_stage[1].accumulated_result[5]_i_3_n_0
+    SLICE_X35Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     3.849 r  design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.849    design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1_n_0
+    SLICE_X35Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.963 r  design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.963    design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1_n_0
+    SLICE_X35Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.077 r  design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.077    design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1_n_0
+    SLICE_X35Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.191 r  design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.191    design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1_n_0
+    SLICE_X35Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.305 r  design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.305    design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1_n_0
+    SLICE_X35Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.419 r  design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.419    design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1_n_0
+    SLICE_X35Y81         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.533 r  design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.533    design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1_n_0
+    SLICE_X35Y82         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223     4.756 r  design_instance/polynomial_stage[1].accumulated_result_reg[31]_i_1/O[0]
+                         net (fo=1, routed)           0.000     4.756    design_instance/polynomial_stage[1].accumulated_result_reg[31]_i_1_n_7
+    SLICE_X35Y82         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[30]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.471     5.471    design_instance/clock
+    SLICE_X35Y82         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[30]/C
+                         clock pessimism              0.115     5.586    <hidden>
+                         clock uncertainty           -0.135     5.451    <hidden>
+    SLICE_X35Y82         FDRE (Setup_fdre_C_D)        0.062     5.513    design_instance/polynomial_stage[1].accumulated_result_reg[30]
+  -------------------------------------------------------------------
+                         required time                          5.513    <hidden>
+                         arrival time                          -4.756    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.757    <hidden>
+
+Slack (MET) :             0.758ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[1].accumulated_result_reg[27]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.121ns  (logic 2.096ns (67.158%)  route 1.025ns (32.842%))
+  Logic Levels:           8  (CARRY4=7 LUT1=1)
+  Clock Path Skew:        -0.048ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.469ns = ( 5.469 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.632ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.632     1.632    design_instance/polynomial_stage[1].multiplication/clock
+    SLICE_X36Y74         FDRE                                         r  design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X36Y74         FDRE (Prop_fdre_C_Q)         0.518     2.150 f  design_instance/polynomial_stage[1].multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           1.025     3.175    design_instance/polynomial_stage[1].multiplication_n_28
+    SLICE_X35Y75         LUT1 (Prop_lut1_I0_O)        0.124     3.299 r  design_instance/polynomial_stage[1].accumulated_result[5]_i_3/O
+                         net (fo=1, routed)           0.000     3.299    design_instance/polynomial_stage[1].accumulated_result[5]_i_3_n_0
+    SLICE_X35Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     3.849 r  design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.849    design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1_n_0
+    SLICE_X35Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.963 r  design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.963    design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1_n_0
+    SLICE_X35Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.077 r  design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.077    design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1_n_0
+    SLICE_X35Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.191 r  design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.191    design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1_n_0
+    SLICE_X35Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.305 r  design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.305    design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1_n_0
+    SLICE_X35Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.419 r  design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.419    design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1_n_0
+    SLICE_X35Y81         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.753 r  design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1/O[1]
+                         net (fo=1, routed)           0.000     4.753    design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1_n_6
+    SLICE_X35Y81         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[27]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.469     5.469    design_instance/clock
+    SLICE_X35Y81         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[27]/C
+                         clock pessimism              0.115     5.584    <hidden>
+                         clock uncertainty           -0.135     5.449    <hidden>
+    SLICE_X35Y81         FDRE (Setup_fdre_C_D)        0.062     5.511    design_instance/polynomial_stage[1].accumulated_result_reg[27]
+  -------------------------------------------------------------------
+                         required time                          5.511    <hidden>
+                         arrival time                          -4.753    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.758    <hidden>
+
+Slack (MET) :             0.779ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[1].accumulated_result_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.100ns  (logic 2.075ns (66.935%)  route 1.025ns (33.065%))
+  Logic Levels:           8  (CARRY4=7 LUT1=1)
+  Clock Path Skew:        -0.048ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.469ns = ( 5.469 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.632ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.632     1.632    design_instance/polynomial_stage[1].multiplication/clock
+    SLICE_X36Y74         FDRE                                         r  design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X36Y74         FDRE (Prop_fdre_C_Q)         0.518     2.150 f  design_instance/polynomial_stage[1].multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           1.025     3.175    design_instance/polynomial_stage[1].multiplication_n_28
+    SLICE_X35Y75         LUT1 (Prop_lut1_I0_O)        0.124     3.299 r  design_instance/polynomial_stage[1].accumulated_result[5]_i_3/O
+                         net (fo=1, routed)           0.000     3.299    design_instance/polynomial_stage[1].accumulated_result[5]_i_3_n_0
+    SLICE_X35Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     3.849 r  design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.849    design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1_n_0
+    SLICE_X35Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.963 r  design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.963    design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1_n_0
+    SLICE_X35Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.077 r  design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.077    design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1_n_0
+    SLICE_X35Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.191 r  design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.191    design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1_n_0
+    SLICE_X35Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.305 r  design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.305    design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1_n_0
+    SLICE_X35Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.419 r  design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.419    design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1_n_0
+    SLICE_X35Y81         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     4.732 r  design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1/O[3]
+                         net (fo=1, routed)           0.000     4.732    design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1_n_4
+    SLICE_X35Y81         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.469     5.469    design_instance/clock
+    SLICE_X35Y81         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[29]/C
+                         clock pessimism              0.115     5.584    <hidden>
+                         clock uncertainty           -0.135     5.449    <hidden>
+    SLICE_X35Y81         FDRE (Setup_fdre_C_D)        0.062     5.511    design_instance/polynomial_stage[1].accumulated_result_reg[29]
+  -------------------------------------------------------------------
+                         required time                          5.511    <hidden>
+                         arrival time                          -4.732    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.779    <hidden>
+
+Slack (MET) :             0.817ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].accumulated_result_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.076ns  (logic 1.910ns (62.086%)  route 1.166ns (37.914%))
+  Logic Levels:           6  (CARRY4=5 LUT1=1)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.649     1.649    design_instance/polynomial_stage[0].multiplication/clock
+    SLICE_X34Y61         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X34Y61         FDRE (Prop_fdre_C_Q)         0.478     2.127 f  design_instance/polynomial_stage[0].multiplication/result_reg[14]/Q
+                         net (fo=2, routed)           1.166     3.293    design_instance/polynomial_stage[0].multiplication_n_17
+    SLICE_X35Y66         LUT1 (Prop_lut1_I0_O)        0.301     3.594 r  design_instance/polynomial_stage[0].accumulated_result[16]_i_3/O
+                         net (fo=1, routed)           0.000     3.594    design_instance/polynomial_stage[0].accumulated_result[16]_i_3_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.144 r  design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.144    design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.258 r  design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.258    design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.372 r  design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.372    design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.486 r  design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.486    design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1_n_0
+    SLICE_X35Y70         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     4.725 r  design_instance/polynomial_stage[0].accumulated_result_reg[31]_i_1/O[2]
+                         net (fo=1, routed)           0.000     4.725    design_instance/polynomial_stage[0].accumulated_result_reg[31]_i_1_n_5
+    SLICE_X35Y70         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y70         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[31]/C
+                         clock pessimism              0.148     5.616    <hidden>
+                         clock uncertainty           -0.135     5.481    <hidden>
+    SLICE_X35Y70         FDRE (Setup_fdre_C_D)        0.062     5.543    design_instance/polynomial_stage[0].accumulated_result_reg[31]
+  -------------------------------------------------------------------
+                         required time                          5.543    <hidden>
+                         arrival time                          -4.725    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.817    <hidden>
+
+Slack (MET) :             0.833ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].accumulated_result_reg[29]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.060ns  (logic 1.894ns (61.888%)  route 1.166ns (38.112%))
+  Logic Levels:           6  (CARRY4=5 LUT1=1)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.649     1.649    design_instance/polynomial_stage[0].multiplication/clock
+    SLICE_X34Y61         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X34Y61         FDRE (Prop_fdre_C_Q)         0.478     2.127 f  design_instance/polynomial_stage[0].multiplication/result_reg[14]/Q
+                         net (fo=2, routed)           1.166     3.293    design_instance/polynomial_stage[0].multiplication_n_17
+    SLICE_X35Y66         LUT1 (Prop_lut1_I0_O)        0.301     3.594 r  design_instance/polynomial_stage[0].accumulated_result[16]_i_3/O
+                         net (fo=1, routed)           0.000     3.594    design_instance/polynomial_stage[0].accumulated_result[16]_i_3_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.144 r  design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.144    design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.258 r  design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.258    design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.372 r  design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.372    design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.486 r  design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.486    design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1_n_0
+    SLICE_X35Y70         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223     4.709 r  design_instance/polynomial_stage[0].accumulated_result_reg[31]_i_1/O[0]
+                         net (fo=1, routed)           0.000     4.709    design_instance/polynomial_stage[0].accumulated_result_reg[31]_i_1_n_7
+    SLICE_X35Y70         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[29]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y70         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[29]/C
+                         clock pessimism              0.148     5.616    <hidden>
+                         clock uncertainty           -0.135     5.481    <hidden>
+    SLICE_X35Y70         FDRE (Setup_fdre_C_D)        0.062     5.543    design_instance/polynomial_stage[0].accumulated_result_reg[29]
+  -------------------------------------------------------------------
+                         required time                          5.543    <hidden>
+                         arrival time                          -4.709    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.833    <hidden>
+
+Slack (MET) :             0.836ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].accumulated_result_reg[26]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.057ns  (logic 1.891ns (61.851%)  route 1.166ns (38.149%))
+  Logic Levels:           5  (CARRY4=4 LUT1=1)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.649     1.649    design_instance/polynomial_stage[0].multiplication/clock
+    SLICE_X34Y61         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X34Y61         FDRE (Prop_fdre_C_Q)         0.478     2.127 f  design_instance/polynomial_stage[0].multiplication/result_reg[14]/Q
+                         net (fo=2, routed)           1.166     3.293    design_instance/polynomial_stage[0].multiplication_n_17
+    SLICE_X35Y66         LUT1 (Prop_lut1_I0_O)        0.301     3.594 r  design_instance/polynomial_stage[0].accumulated_result[16]_i_3/O
+                         net (fo=1, routed)           0.000     3.594    design_instance/polynomial_stage[0].accumulated_result[16]_i_3_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.144 r  design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.144    design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.258 r  design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.258    design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.372 r  design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.372    design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.706 r  design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1/O[1]
+                         net (fo=1, routed)           0.000     4.706    design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1_n_6
+    SLICE_X35Y69         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[26]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y69         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[26]/C
+                         clock pessimism              0.148     5.616    <hidden>
+                         clock uncertainty           -0.135     5.481    <hidden>
+    SLICE_X35Y69         FDRE (Setup_fdre_C_D)        0.062     5.543    design_instance/polynomial_stage[0].accumulated_result_reg[26]
+  -------------------------------------------------------------------
+                         required time                          5.543    <hidden>
+                         arrival time                          -4.706    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.836    <hidden>
+
+Slack (MET) :             0.853ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[1].accumulated_result_reg[28]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.026ns  (logic 2.001ns (66.127%)  route 1.025ns (33.873%))
+  Logic Levels:           8  (CARRY4=7 LUT1=1)
+  Clock Path Skew:        -0.048ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.469ns = ( 5.469 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.632ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.632     1.632    design_instance/polynomial_stage[1].multiplication/clock
+    SLICE_X36Y74         FDRE                                         r  design_instance/polynomial_stage[1].multiplication/result_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X36Y74         FDRE (Prop_fdre_C_Q)         0.518     2.150 f  design_instance/polynomial_stage[1].multiplication/result_reg[3]/Q
+                         net (fo=2, routed)           1.025     3.175    design_instance/polynomial_stage[1].multiplication_n_28
+    SLICE_X35Y75         LUT1 (Prop_lut1_I0_O)        0.124     3.299 r  design_instance/polynomial_stage[1].accumulated_result[5]_i_3/O
+                         net (fo=1, routed)           0.000     3.299    design_instance/polynomial_stage[1].accumulated_result[5]_i_3_n_0
+    SLICE_X35Y75         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     3.849 r  design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.849    design_instance/polynomial_stage[1].accumulated_result_reg[5]_i_1_n_0
+    SLICE_X35Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.963 r  design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     3.963    design_instance/polynomial_stage[1].accumulated_result_reg[9]_i_1_n_0
+    SLICE_X35Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.077 r  design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.077    design_instance/polynomial_stage[1].accumulated_result_reg[13]_i_1_n_0
+    SLICE_X35Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.191 r  design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.191    design_instance/polynomial_stage[1].accumulated_result_reg[17]_i_1_n_0
+    SLICE_X35Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.305 r  design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.305    design_instance/polynomial_stage[1].accumulated_result_reg[21]_i_1_n_0
+    SLICE_X35Y80         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.419 r  design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.419    design_instance/polynomial_stage[1].accumulated_result_reg[25]_i_1_n_0
+    SLICE_X35Y81         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     4.658 r  design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1/O[2]
+                         net (fo=1, routed)           0.000     4.658    design_instance/polynomial_stage[1].accumulated_result_reg[29]_i_1_n_5
+    SLICE_X35Y81         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.469     5.469    design_instance/clock
+    SLICE_X35Y81         FDRE                                         r  design_instance/polynomial_stage[1].accumulated_result_reg[28]/C
+                         clock pessimism              0.115     5.584    <hidden>
+                         clock uncertainty           -0.135     5.449    <hidden>
+    SLICE_X35Y81         FDRE (Setup_fdre_C_D)        0.062     5.511    design_instance/polynomial_stage[1].accumulated_result_reg[28]
+  -------------------------------------------------------------------
+                         required time                          5.511    <hidden>
+                         arrival time                          -4.658    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.853    <hidden>
+
+Slack (MET) :             0.857ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].accumulated_result_reg[28]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.036ns  (logic 1.870ns (61.587%)  route 1.166ns (38.413%))
+  Logic Levels:           5  (CARRY4=4 LUT1=1)
+  Clock Path Skew:        -0.033ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.468ns = ( 5.468 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.649ns
+    Clock Pessimism Removal (CPR):    0.148ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=554, unset)          1.649     1.649    design_instance/polynomial_stage[0].multiplication/clock
+    SLICE_X34Y61         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/result_reg[14]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X34Y61         FDRE (Prop_fdre_C_Q)         0.478     2.127 f  design_instance/polynomial_stage[0].multiplication/result_reg[14]/Q
+                         net (fo=2, routed)           1.166     3.293    design_instance/polynomial_stage[0].multiplication_n_17
+    SLICE_X35Y66         LUT1 (Prop_lut1_I0_O)        0.301     3.594 r  design_instance/polynomial_stage[0].accumulated_result[16]_i_3/O
+                         net (fo=1, routed)           0.000     3.594    design_instance/polynomial_stage[0].accumulated_result[16]_i_3_n_0
+    SLICE_X35Y66         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.144 r  design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.144    design_instance/polynomial_stage[0].accumulated_result_reg[16]_i_1_n_0
+    SLICE_X35Y67         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.258 r  design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.258    design_instance/polynomial_stage[0].accumulated_result_reg[20]_i_1_n_0
+    SLICE_X35Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.372 r  design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1/CO[3]
+                         net (fo=1, routed)           0.000     4.372    design_instance/polynomial_stage[0].accumulated_result_reg[24]_i_1_n_0
+    SLICE_X35Y69         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     4.685 r  design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1/O[3]
+                         net (fo=1, routed)           0.000     4.685    design_instance/polynomial_stage[0].accumulated_result_reg[28]_i_1_n_4
+    SLICE_X35Y69         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[28]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=554, unset)          1.468     5.468    design_instance/clock
+    SLICE_X35Y69         FDRE                                         r  design_instance/polynomial_stage[0].accumulated_result_reg[28]/C
+                         clock pessimism              0.148     5.616    <hidden>
+                         clock uncertainty           -0.135     5.481    <hidden>
+    SLICE_X35Y69         FDRE (Setup_fdre_C_D)        0.062     5.543    design_instance/polynomial_stage[0].accumulated_result_reg[28]
+  -------------------------------------------------------------------
+                         required time                          5.543    <hidden>
+                         arrival time                          -4.685    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.857    <hidden>
+
+
+
+

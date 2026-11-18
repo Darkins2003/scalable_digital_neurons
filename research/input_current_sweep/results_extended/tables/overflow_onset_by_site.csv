@@ -1,0 +1,7 @@
+signal,format_group,neuron,lowest_tested_flagged_current_pa,lowest_tested_primary_current_pa,currents_flagged,primary_trigger_currents,available_integer_bits
+current_difference,current,0,400000.0,,7,0,24
+current_product,current,0,7750.0,7750.0,29,11,24
+exponential,current,0,8000.0,8000.0,52,48,24
+matrix_product,current,0,9000.0,25000.0,39,6,24
+next_state,state,0,9000.0,,9,0,8
+update,state,0,8000.0,15000.0,61,16,8

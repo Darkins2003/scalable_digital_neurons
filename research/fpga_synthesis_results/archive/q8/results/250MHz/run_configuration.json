@@ -1,0 +1,49 @@
+{
+  "part": "xc7z020clg400-1",
+  "clock_mhz": 250,
+  "clock_uncertainty_ns": 0.1,
+  "vivado_bin": "C:\\AMDDesignTools\\2026.1\\Vivado\\bin",
+  "source_multiplier": "C:\\Users\\Decla\\Desktop\\year_four_project\\ip\\scalable_digital_neurons\\build\\build.srcs\\sources_1\\ip\\signed_multiplier\\signed_multiplier.xci",
+  "source_multiplier_sha256": "8e21bedac1349543b2958bacb23d89b92a91c394856da4e4bbb12b618d2a7bf1",
+  "multiplier_configuration": {
+    "MultType": "Parallel_Multiplier",
+    "PortAType": "Signed",
+    "PortAWidth": "32",
+    "PortBType": "Signed",
+    "PortBWidth": "32",
+    "Multiplier_Construction": "Use_Mults",
+    "OptGoal": "Speed",
+    "Use_Custom_Output_Width": "false",
+    "PipeStages": "6",
+    "ClockEnable": "false",
+    "SyncClear": "true"
+  },
+  "input_fractional_bits": 24,
+  "output_fractional_bits": 8,
+  "jobs": 1,
+  "completed_designs": 47,
+  "timing_passes": 42,
+  "timing_failed_designs": [
+    "rom_4096_distributed",
+    "rom_8192_distributed",
+    "rom_16384_distributed",
+    "rom_32768_distributed",
+    "rom_65536_distributed"
+  ],
+  "scheduling": "Measured across multiple invocations, initially two jobs then one; two Vivado threads per job.",
+  "timing_scope": "Standalone out-of-context internal register paths; external I/O paths excluded.",
+  "resource_stage": "post_synthesis",
+  "timing_stage": "post_route",
+  "terminology": "The zero-centred polynomial family is named Maclaurin. This is a naming change only; all numerical results are unchanged.",
+  "original_measured_top_names": {
+    "maclaurin_0_logic": "taylor_0_logic",
+    "maclaurin_1_lut": "taylor_1_lut",
+    "maclaurin_1_dsp": "taylor_1_dsp",
+    "maclaurin_2_lut": "taylor_2_lut",
+    "maclaurin_2_dsp": "taylor_2_dsp",
+    "maclaurin_3_lut": "taylor_3_lut",
+    "maclaurin_3_dsp": "taylor_3_dsp",
+    "maclaurin_4_lut": "taylor_4_lut",
+    "maclaurin_4_dsp": "taylor_4_dsp"
+  }
+}

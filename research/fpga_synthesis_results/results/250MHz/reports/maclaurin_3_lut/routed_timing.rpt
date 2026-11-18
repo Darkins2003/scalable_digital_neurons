@@ -1,0 +1,537 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Nov 15 22:33:48 2026
+| Host         : Declan running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -delay_type min_max -report_unconstrained -file C:/Users/Decla/Desktop/year_four_project/research/fpga_synthesis_results/results/250MHz/reports/maclaurin_3_lut/routed_timing.rpt
+| Design       : maclaurin_3_lut
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+  Inter-SLR Compensation                     :  Conservative
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+No report available as report_methodology has not been run prior. Run report_methodology on the current design for the summary of methodology violations.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (0)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (0)
+5. checking no_input_delay (26)
+6. checking no_output_delay (33)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (0)
+
+1. checking no_clock (0)
+------------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (0)
+------------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (26)
+-------------------------------
+ There are 0 input ports with no input delay specified.
+
+ There are 26 input ports with no input delay but user has a false path constraint. (MEDIUM)
+
+
+6. checking no_output_delay (33)
+--------------------------------
+ There are 0 ports with no output delay specified.
+
+ There are 33 ports with no output delay but user has a false path constraint (MEDIUM)
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (0)
+----------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      0.312        0.000                      0                 2709        0.051        0.000                      0                 2709        1.020        0.000                       0                  2750  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock             Waveform(ns)         Period(ns)      Frequency(MHz)
+-----             ------------         ----------      --------------
+comparison_clock  {0.000 2.000}        4.000           250.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock                 WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----                 -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+comparison_clock        0.312        0.000                      0                 2709        0.051        0.000                      0                 2709        1.020        0.000                       0                  2750  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group        From Clock        To Clock        
+----------        ----------        --------        
+(none)            comparison_clock                    
+(none)                              comparison_clock  
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  comparison_clock
+  To Clock:  comparison_clock
+
+Setup :            0  Failing Endpoints,  Worst Slack        0.312ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.051ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        1.020ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.312ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.390ns  (logic 2.130ns (62.833%)  route 1.260ns (37.167%))
+  Logic Levels:           9  (CARRY4=8 LUT2=1)
+  Clock Path Skew:        -0.225ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.466ns = ( 5.466 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.705ns
+    Clock Pessimism Removal (CPR):    0.014ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2749, unset)         1.705     1.705    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X59Y84         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X59Y84         FDRE (Prop_fdre_C_Q)         0.456     2.161 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           1.251     3.412    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y73         LUT2 (Prop_lut2_I1_O)        0.124     3.536 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.536    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y73         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     4.068 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.068    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.182 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     4.191    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.305 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.305    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.419 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.419    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.533 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.533    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y78         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.647 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.647    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y79         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.761 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.761    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y80         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     5.095 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     5.095    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y80         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=2749, unset)         1.466     5.466    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X44Y80         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.014     5.480    <hidden>
+                         clock uncertainty           -0.135     5.345    <hidden>
+    SLICE_X44Y80         FDRE (Setup_fdre_C_D)        0.062     5.407    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.407    <hidden>
+                         arrival time                          -5.095    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.312    <hidden>
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.051ns  (arrival time - required time)
+  Source:                 design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (comparison_clock rise@0.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        0.302ns  (logic 0.250ns (82.753%)  route 0.052ns (17.247%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.017ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.823ns
+    Source Clock Delay      (SCD):    0.554ns
+    Clock Pessimism Removal (CPR):    0.252ns
+  Clock Uncertainty:      0.100ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.000ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2749, unset)         0.554     0.554    design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X47Y90         FDRE                                         r  design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y90         FDRE (Prop_fdre_C_Q)         0.141     0.695 r  design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.052     0.747    design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X46Y90         CARRY4 (Prop_carry4_S[3]_O[3])
+                                                      0.109     0.856 r  design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     0.856    design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X46Y90         FDRE                                         r  design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2749, unset)         0.823     0.823    design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X46Y90         FDRE                                         r  design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism             -0.252     0.571    <hidden>
+                         clock uncertainty            0.100     0.671    <hidden>
+    SLICE_X46Y90         FDRE (Hold_fdre_C_D)         0.134     0.805    design_instance/polynomial_stage[1].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                         -0.805    <hidden>
+                         arrival time                           0.856    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.051    <hidden>
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         comparison_clock
+Waveform(ns):       { 0.000 2.000 }
+Period(ns):         4.000
+Sources:            { clock }
+
+Check Type        Corner  Lib Pin     Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location      Pin
+Min Period        n/a     FDRE/C      n/a            1.000         4.000       3.000      SLICE_X48Y66  design_instance/output_valid_reg/C
+Low Pulse Width   Slow    SRL16E/CLK  n/a            0.980         2.000       1.020      SLICE_X42Y60  design_instance/polynomial_stage[0].exponent_delay/values_reg[5][0]_srl6___design_instance_polynomial_stage_r_71/CLK
+High Pulse Width  Slow    SRL16E/CLK  n/a            0.980         2.000       1.020      SLICE_X42Y60  design_instance/polynomial_stage[0].exponent_delay/values_reg[5][0]_srl6___design_instance_polynomial_stage_r_71/CLK
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  comparison_clock
+  To Clock:  
+
+Max Delay            33 Endpoints
+Min Delay            33 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 design_instance/result_reg[14]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            result[14]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        1.491ns  (logic 0.518ns (34.742%)  route 0.973ns (65.258%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2749, unset)         1.647     1.647    design_instance/clock
+    SLICE_X46Y87         FDRE                                         r  design_instance/result_reg[14]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X46Y87         FDRE (Prop_fdre_C_Q)         0.518     2.165 r  design_instance/result_reg[14]/Q
+                         net (fo=0)                   0.973     3.138    result[14]
+                                                                      r  result[14]
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 design_instance/result_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            result[7]
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.538ns  (logic 0.128ns (23.786%)  route 0.410ns (76.214%))
+  Logic Levels:           0  
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2749, unset)         0.548     0.548    design_instance/clock
+    SLICE_X40Y81         FDRE                                         r  design_instance/result_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X40Y81         FDRE (Prop_fdre_C_Q)         0.128     0.676 r  design_instance/result_reg[7]/Q
+                         net (fo=0)                   0.410     1.086    result[7]
+                                                                      r  result[7]
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  
+  To Clock:  comparison_clock
+
+Max Delay          2669 Endpoints
+Min Delay          2669 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 fractional_exponent[0]
+                            (input port)
+  Destination:            design_instance/input_register/registered_exponent_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Setup (Max at Slow Process Corner)
+  Data Path Delay:        0.973ns  (logic 0.000ns (0.000%)  route 0.973ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        1.476ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.476ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.125ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.050ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  fractional_exponent[0]
+                         net (fo=0)                   0.973     0.973    design_instance/input_register/fractional_exponent[0]
+    SLICE_X40Y60         FDRE                                         r  design_instance/input_register/registered_exponent_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2749, unset)         1.476     1.476    design_instance/input_register/clock
+    SLICE_X40Y60         FDRE                                         r  design_instance/input_register/registered_exponent_reg[0]/C
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 fractional_exponent[0]
+                            (input port)
+  Destination:            design_instance/input_register/registered_exponent_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             (none)
+  Path Type:              Hold (Min at Fast Process Corner)
+  Data Path Delay:        0.410ns  (logic 0.000ns (0.000%)  route 0.410ns (100.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.821ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.821ns
+    Source Clock Delay      (SCD):    0.000ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+  Timing Exception:       False Path
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                                                      0.000     0.000 r  fractional_exponent[0]
+                         net (fo=0)                   0.410     0.410    design_instance/input_register/fractional_exponent[0]
+    SLICE_X40Y60         FDRE                                         r  design_instance/input_register/registered_exponent_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=2749, unset)         0.821     0.821    design_instance/input_register/clock
+    SLICE_X40Y60         FDRE                                         r  design_instance/input_register/registered_exponent_reg[0]/C
+
+
+
+
+

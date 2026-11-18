@@ -1,0 +1,94 @@
+{
+  "rom_sizes": [
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    8192,
+    16384,
+    32768,
+    65536
+  ],
+  "maclaurin_degrees": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "maclaurin_expansion_point": 0,
+  "maclaurin_arithmetic": "Ideal references and Q24 input/coefficient/intermediate Horner evaluation with coefficients rounded to nearest, ties to even; each product shifted by 24, final output retained as signed 32-bit Q24.",
+  "sollya_coefficient_integers": {
+    "0": [
+      25165824
+    ],
+    "1": [
+      16055197,
+      16777216
+    ],
+    "2": [
+      16818757,
+      10922753,
+      5771381
+    ],
+    "3": [
+      16775420,
+      11684617,
+      3763773,
+      1328826
+    ],
+    "4": [
+      16777278,
+      11626044,
+      4054016,
+      867224,
+      229808
+    ]
+  },
+  "sollya_coefficient_fractional_bits": 24,
+  "polynomial_fixed_point": "Q24 input, coefficients and intermediates; Q24 output. Maclaurin/Sollya use Horner evaluation with 64-bit products shifted by 24; there is no final shift by 16. Research cubic retains its linear term in Q24, unlike the original Q8 IP. Maclaurin/Sollya models are not verified HDL implementations.",
+  "integer_exponent": 0,
+  "fractional_exponent_range": "0 <= f < 1",
+  "input_fractional_bits": 24,
+  "output_fractional_bits": 24,
+  "output_total_bits": 32,
+  "output_signed": true,
+  "output_storage": "NumPy int64 container, range checked against signed 32-bit Q24",
+  "overflow_policy": "Raise OverflowError before any signed 32-bit Q24 overflow; no clipping at 2.",
+  "research_cubic_variant": "Q24 linear term and Q24 correction, followed by a 64-bit product shifted by 24; modified from the original Q8 IP.",
+  "table_fractional_bits": 24,
+  "table_width_bits": 25,
+  "uniform_encoded_input_count": 16777216,
+  "directed_input_count": 196608,
+  "exhaustive_q24_coverage": true,
+  "batch_size": 262144,
+  "encoded_step_size": 1,
+  "fractional_step_size": 5.960464477539063e-08,
+  "requested_plot_bin_count": 256,
+  "plot_bin_count": 256,
+  "plot_profile_uses_every_input": true,
+  "raw_samples_saved": false,
+  "first_uniform_exponent": 0.0,
+  "second_uniform_exponent": 5.960464477539063e-08,
+  "last_uniform_exponent": 0.9999999403953552,
+  "last_directed_exponent": 0.9999999403953552,
+  "sampling": "Encoded inputs start at zero and increase by the selected step size, excluding 2**24.",
+  "reference": "NumPy float64 sweep; hardware worst-case candidates independently reevaluated using 60-digit Decimal arithmetic.",
+  "reference_rounding": "Nearest integer, ties to even, for the reference-match statistic; fixed-point product shifts truncate instead.",
+  "boundary_coverage": "Every ROM boundary and adjacent Q24 inputs inside [0,1). These are already included in exhaustive mode and remain a separate diagnostic population.",
+  "mathematical_model": "Ideal linear, cubic and ROM fractional approximations evaluated in float64 before table rounding and fixed-point truncation.",
+  "hardware_model": "Fractional core only, before the integer shift: Q24 input and signed 32-bit Q24 output; rounded Q24 ROM entries; research cubic retains the full Q24 linear term. Existing Q8 HDL/resource results describe different implementations.",
+  "limitations": [
+    "Exhaustive means all representable Q24 inputs, not every real number in [0,1).",
+    "Sweeps use float64 reference arithmetic; the Decimal audit reevaluates identified hardware worst cases, not all references.",
+    "Uniform and directed means have different input weighting.",
+    "Logical ROM storage does not measure physical hardware resources."
+  ],
+  "runtime_seconds": 329.675,
+  "numpy_version": "2.4.1"
+}

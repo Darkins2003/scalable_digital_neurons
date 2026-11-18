@@ -1,0 +1,4066 @@
+[
+  {
+    "name": "type_individual_baseline_w32",
+    "stage": "signal_type",
+    "width": 32,
+    "signal_type": "baseline",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w31",
+    "stage": "signal_type",
+    "width": 31,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        31,
+        22
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w30",
+    "stage": "signal_type",
+    "width": 30,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        30,
+        21
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w29",
+    "stage": "signal_type",
+    "width": 29,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        29,
+        20
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w28",
+    "stage": "signal_type",
+    "width": 28,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        28,
+        19
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w27",
+    "stage": "signal_type",
+    "width": 27,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        27,
+        18
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w26",
+    "stage": "signal_type",
+    "width": 26,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        26,
+        17
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w25",
+    "stage": "signal_type",
+    "width": 25,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        25,
+        16
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w24",
+    "stage": "signal_type",
+    "width": 24,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        24,
+        15
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w23",
+    "stage": "signal_type",
+    "width": 23,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        23,
+        14
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w22",
+    "stage": "signal_type",
+    "width": 22,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        22,
+        13
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w21",
+    "stage": "signal_type",
+    "width": 21,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        21,
+        12
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w20",
+    "stage": "signal_type",
+    "width": 20,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        20,
+        11
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w19",
+    "stage": "signal_type",
+    "width": 19,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        19,
+        10
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w18",
+    "stage": "signal_type",
+    "width": 18,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        18,
+        9
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w17",
+    "stage": "signal_type",
+    "width": 17,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        17,
+        8
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w16",
+    "stage": "signal_type",
+    "width": 16,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        16,
+        7
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w15",
+    "stage": "signal_type",
+    "width": 15,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        15,
+        6
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w14",
+    "stage": "signal_type",
+    "width": 14,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        14,
+        5
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w13",
+    "stage": "signal_type",
+    "width": 13,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        13,
+        4
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w12",
+    "stage": "signal_type",
+    "width": 12,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        12,
+        3
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w11",
+    "stage": "signal_type",
+    "width": 11,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        11,
+        2
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w10",
+    "stage": "signal_type",
+    "width": 10,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        10,
+        1
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_state_w09",
+    "stage": "signal_type",
+    "width": 9,
+    "signal_type": "state",
+    "formats": {
+      "state": [
+        9,
+        0
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w31",
+    "stage": "signal_type",
+    "width": 31,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        31,
+        22
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w30",
+    "stage": "signal_type",
+    "width": 30,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        30,
+        21
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w29",
+    "stage": "signal_type",
+    "width": 29,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        29,
+        20
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w28",
+    "stage": "signal_type",
+    "width": 28,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        28,
+        19
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w27",
+    "stage": "signal_type",
+    "width": 27,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        27,
+        18
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w26",
+    "stage": "signal_type",
+    "width": 26,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        26,
+        17
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w25",
+    "stage": "signal_type",
+    "width": 25,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        25,
+        16
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w24",
+    "stage": "signal_type",
+    "width": 24,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        24,
+        15
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w23",
+    "stage": "signal_type",
+    "width": 23,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        23,
+        14
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w22",
+    "stage": "signal_type",
+    "width": 22,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        22,
+        13
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w21",
+    "stage": "signal_type",
+    "width": 21,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        21,
+        12
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w20",
+    "stage": "signal_type",
+    "width": 20,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        20,
+        11
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w19",
+    "stage": "signal_type",
+    "width": 19,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        19,
+        10
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w18",
+    "stage": "signal_type",
+    "width": 18,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        18,
+        9
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w17",
+    "stage": "signal_type",
+    "width": 17,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        17,
+        8
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w16",
+    "stage": "signal_type",
+    "width": 16,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        16,
+        7
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w15",
+    "stage": "signal_type",
+    "width": 15,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        15,
+        6
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w14",
+    "stage": "signal_type",
+    "width": 14,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        14,
+        5
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w13",
+    "stage": "signal_type",
+    "width": 13,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        13,
+        4
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w12",
+    "stage": "signal_type",
+    "width": 12,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        12,
+        3
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w11",
+    "stage": "signal_type",
+    "width": 11,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        11,
+        2
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w10",
+    "stage": "signal_type",
+    "width": 10,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        10,
+        1
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_constant_w09",
+    "stage": "signal_type",
+    "width": 9,
+    "signal_type": "constant",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        9,
+        0
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w31",
+    "stage": "signal_type",
+    "width": 31,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        31,
+        22
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w30",
+    "stage": "signal_type",
+    "width": 30,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        30,
+        21
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w29",
+    "stage": "signal_type",
+    "width": 29,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        29,
+        20
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w28",
+    "stage": "signal_type",
+    "width": 28,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        28,
+        19
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w27",
+    "stage": "signal_type",
+    "width": 27,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        27,
+        18
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w26",
+    "stage": "signal_type",
+    "width": 26,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        26,
+        17
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w25",
+    "stage": "signal_type",
+    "width": 25,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        25,
+        16
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w24",
+    "stage": "signal_type",
+    "width": 24,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        24,
+        15
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w23",
+    "stage": "signal_type",
+    "width": 23,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        23,
+        14
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w22",
+    "stage": "signal_type",
+    "width": 22,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        22,
+        13
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w21",
+    "stage": "signal_type",
+    "width": 21,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        21,
+        12
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w20",
+    "stage": "signal_type",
+    "width": 20,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        20,
+        11
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w19",
+    "stage": "signal_type",
+    "width": 19,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        19,
+        10
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w18",
+    "stage": "signal_type",
+    "width": 18,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        18,
+        9
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w17",
+    "stage": "signal_type",
+    "width": 17,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        17,
+        8
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w16",
+    "stage": "signal_type",
+    "width": 16,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        16,
+        7
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w15",
+    "stage": "signal_type",
+    "width": 15,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        15,
+        6
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w14",
+    "stage": "signal_type",
+    "width": 14,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        14,
+        5
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w13",
+    "stage": "signal_type",
+    "width": 13,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        13,
+        4
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w12",
+    "stage": "signal_type",
+    "width": 12,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        12,
+        3
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w11",
+    "stage": "signal_type",
+    "width": 11,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        11,
+        2
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w10",
+    "stage": "signal_type",
+    "width": 10,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        10,
+        1
+      ]
+    }
+  },
+  {
+    "name": "type_timestep_w09",
+    "stage": "signal_type",
+    "width": 9,
+    "signal_type": "timestep",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        9,
+        0
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w31",
+    "stage": "signal_type",
+    "width": 31,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        31,
+        21
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w30",
+    "stage": "signal_type",
+    "width": 30,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        30,
+        20
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w29",
+    "stage": "signal_type",
+    "width": 29,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        29,
+        19
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w28",
+    "stage": "signal_type",
+    "width": 28,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        28,
+        18
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w27",
+    "stage": "signal_type",
+    "width": 27,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        27,
+        17
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w26",
+    "stage": "signal_type",
+    "width": 26,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        26,
+        16
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w25",
+    "stage": "signal_type",
+    "width": 25,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        25,
+        15
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w24",
+    "stage": "signal_type",
+    "width": 24,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        24,
+        14
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w23",
+    "stage": "signal_type",
+    "width": 23,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        23,
+        13
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w22",
+    "stage": "signal_type",
+    "width": 22,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        22,
+        12
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w21",
+    "stage": "signal_type",
+    "width": 21,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        21,
+        11
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w20",
+    "stage": "signal_type",
+    "width": 20,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        20,
+        10
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w19",
+    "stage": "signal_type",
+    "width": 19,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        19,
+        9
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w18",
+    "stage": "signal_type",
+    "width": 18,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        18,
+        8
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w17",
+    "stage": "signal_type",
+    "width": 17,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        17,
+        7
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w16",
+    "stage": "signal_type",
+    "width": 16,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        16,
+        6
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w15",
+    "stage": "signal_type",
+    "width": 15,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        15,
+        5
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w14",
+    "stage": "signal_type",
+    "width": 14,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        14,
+        4
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w13",
+    "stage": "signal_type",
+    "width": 13,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        13,
+        3
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w12",
+    "stage": "signal_type",
+    "width": 12,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        12,
+        2
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w11",
+    "stage": "signal_type",
+    "width": 11,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        11,
+        1
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_matrix_w10",
+    "stage": "signal_type",
+    "width": 10,
+    "signal_type": "matrix",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        10,
+        0
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w31",
+    "stage": "signal_type",
+    "width": 31,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        31,
+        13
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w30",
+    "stage": "signal_type",
+    "width": 30,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        30,
+        12
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w29",
+    "stage": "signal_type",
+    "width": 29,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        29,
+        11
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w28",
+    "stage": "signal_type",
+    "width": 28,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        28,
+        10
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w27",
+    "stage": "signal_type",
+    "width": 27,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        27,
+        9
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w26",
+    "stage": "signal_type",
+    "width": 26,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        26,
+        8
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w25",
+    "stage": "signal_type",
+    "width": 25,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        25,
+        7
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w24",
+    "stage": "signal_type",
+    "width": 24,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        24,
+        6
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w23",
+    "stage": "signal_type",
+    "width": 23,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        23,
+        5
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w22",
+    "stage": "signal_type",
+    "width": 22,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        22,
+        4
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w21",
+    "stage": "signal_type",
+    "width": 21,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        21,
+        3
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w20",
+    "stage": "signal_type",
+    "width": 20,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        20,
+        2
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w19",
+    "stage": "signal_type",
+    "width": 19,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        19,
+        1
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_current_w18",
+    "stage": "signal_type",
+    "width": 18,
+    "signal_type": "current",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        18,
+        0
+      ],
+      "triangle": [
+        32,
+        21
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w31",
+    "stage": "signal_type",
+    "width": 31,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        31,
+        20
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w30",
+    "stage": "signal_type",
+    "width": 30,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        30,
+        19
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w29",
+    "stage": "signal_type",
+    "width": 29,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        29,
+        18
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w28",
+    "stage": "signal_type",
+    "width": 28,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        28,
+        17
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w27",
+    "stage": "signal_type",
+    "width": 27,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        27,
+        16
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w26",
+    "stage": "signal_type",
+    "width": 26,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        26,
+        15
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w25",
+    "stage": "signal_type",
+    "width": 25,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        25,
+        14
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w24",
+    "stage": "signal_type",
+    "width": 24,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        24,
+        13
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w23",
+    "stage": "signal_type",
+    "width": 23,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        23,
+        12
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w22",
+    "stage": "signal_type",
+    "width": 22,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        22,
+        11
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w21",
+    "stage": "signal_type",
+    "width": 21,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        21,
+        10
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w20",
+    "stage": "signal_type",
+    "width": 20,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        20,
+        9
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w19",
+    "stage": "signal_type",
+    "width": 19,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        19,
+        8
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w18",
+    "stage": "signal_type",
+    "width": 18,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        18,
+        7
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w17",
+    "stage": "signal_type",
+    "width": 17,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        17,
+        6
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w16",
+    "stage": "signal_type",
+    "width": 16,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        16,
+        5
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w15",
+    "stage": "signal_type",
+    "width": 15,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        15,
+        4
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w14",
+    "stage": "signal_type",
+    "width": 14,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        14,
+        3
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w13",
+    "stage": "signal_type",
+    "width": 13,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        13,
+        2
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w12",
+    "stage": "signal_type",
+    "width": 12,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        12,
+        1
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  },
+  {
+    "name": "type_triangle_w11",
+    "stage": "signal_type",
+    "width": 11,
+    "signal_type": "triangle",
+    "formats": {
+      "state": [
+        32,
+        23
+      ],
+      "matrix": [
+        32,
+        22
+      ],
+      "current": [
+        32,
+        14
+      ],
+      "triangle": [
+        11,
+        0
+      ],
+      "constant": [
+        32,
+        23
+      ],
+      "timestep": [
+        32,
+        23
+      ]
+    }
+  }
+]

@@ -25,3 +25,29 @@ compare all four neuron states and both triangle states for each neuron. The
 Python script is a helper; `sim/run_testcase.ps1` is the simulation entry point.
 The runner compiles the C reference and Vivado simulation. Results go to
 `build/sim/three_neurons_1D/tc_010_c_reference_trace/`.
+
+## MATLAB golden reference
+
+Run the golden-reference testcase through the same simulation entry point:
+
+```powershell
+./sim/run_testcase.ps1 three_neurons_1D tc_011_golden_reference_trace
+```
+
+It runs the C/RTL checks above. After XSim exits, the runner uses
+`compare_golden_reference.py` to compare the freshly generated RTL trace with
+the saved MATLAB golden trace. It uses the same Python interpreter as preflight,
+outside XSim's modified Python environment. The saved
+MATLAB model and trace remain in `EfficientAnalogNeuron-SNNsims/MATLAB/Golden_reference`.
+MATLAB does not need to be running.
+
+For a shorter run with the original stimulus, append `-PlusArgs 'steps=70000'`.
+The helper compares the first 70000 golden samples and labels the JSON as a
+prefix comparison. Input still begins at step 60000; do not move the pulse
+without generating a matching MATLAB reference.
+
+Plots, trace files, state errors, spike metrics and source hashes are written to
+`build/sim/three_neurons_1D/tc_011_golden_reference_trace/`. See `sim/README.md`
+for the output list and the interpretation of PASS. The testcase measures the
+fixed-point implementation's error; equality with the mathematical model is
+not required.

@@ -1,0 +1,711 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Sun Nov 15 22:11:15 2026
+| Host         : Declan running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 10 -file C:/Users/Decla/Desktop/year_four_project/research/fpga_synthesis_results/results/250MHz/reports/maclaurin_1_lut/critical_paths.rpt
+| Design       : maclaurin_1_lut
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.863ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[13]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.039ns  (logic 1.453ns (47.806%)  route 1.586ns (52.195%))
+  Logic Levels:           2  (CARRY4=2)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.463ns = ( 5.463 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.634ns
+    Clock Pessimism Removal (CPR):    0.147ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.634     1.634    design_instance/input_register/clock
+    SLICE_X41Y72         FDRE                                         r  design_instance/input_register/registered_exponent_reg[13]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y72         FDRE (Prop_fdre_C_Q)         0.419     2.053 r  design_instance/input_register/registered_exponent_reg[13]/Q
+                         net (fo=20, routed)          1.586     3.639    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y72         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.700     4.339 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.339    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.673 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.673    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.463     5.463    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.147     5.610    <hidden>
+                         clock uncertainty           -0.135     5.475    <hidden>
+    SLICE_X41Y73         FDRE (Setup_fdre_C_D)        0.062     5.537    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.537    <hidden>
+                         arrival time                          -4.673    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.863    <hidden>
+
+Slack (MET) :             0.883ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.026ns  (logic 2.336ns (77.204%)  route 0.690ns (22.796%))
+  Logic Levels:           11  (CARRY4=11)
+  Clock Path Skew:        -0.065ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.464ns = ( 5.464 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.644ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.644     1.644    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y66         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y66         FDRE (Prop_fdre_C_Q)         0.456     2.100 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           0.681     2.781    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y67         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.504     3.285 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.285    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.402 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.402    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.519 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.519    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.636 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.636    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.753 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.753    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.870 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.870    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.987 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.987    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.104 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     4.113    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.230 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.230    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.347 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.347    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y77         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     4.670 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.670    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y77         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.464     5.464    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y77         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.579    <hidden>
+                         clock uncertainty           -0.135     5.444    <hidden>
+    SLICE_X38Y77         FDRE (Setup_fdre_C_D)        0.109     5.553    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.553    <hidden>
+                         arrival time                          -4.670    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.883    <hidden>
+
+Slack (MET) :             0.897ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.018ns  (logic 2.414ns (79.985%)  route 0.604ns (20.015%))
+  Logic Levels:           10  (CARRY4=10)
+  Clock Path Skew:        -0.059ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.466ns = ( 5.466 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.640ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.640     1.640    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y69         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y69         FDRE (Prop_fdre_C_Q)         0.518     2.158 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           0.595     2.753    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y69         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.637     3.390 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.390    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.507 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.507    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.624 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.624    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.741 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.741    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.858 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.858    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.975 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     3.984    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.101 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.101    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.218 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.218    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.335 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.335    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     4.658 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.658    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.466     5.466    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.581    <hidden>
+                         clock uncertainty           -0.135     5.446    <hidden>
+    SLICE_X36Y78         FDRE (Setup_fdre_C_D)        0.109     5.555    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.555    <hidden>
+                         arrival time                          -4.658    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.897    <hidden>
+
+Slack (MET) :             0.905ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        3.010ns  (logic 2.406ns (79.932%)  route 0.604ns (20.068%))
+  Logic Levels:           10  (CARRY4=10)
+  Clock Path Skew:        -0.059ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.466ns = ( 5.466 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.640ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.640     1.640    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y69         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y69         FDRE (Prop_fdre_C_Q)         0.518     2.158 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           0.595     2.753    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y69         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.637     3.390 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.390    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.507 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.507    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.624 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.624    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.741 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.741    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.858 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.858    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.975 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     3.984    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.101 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.101    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.218 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.218    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.335 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.335    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.315     4.650 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.650    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.466     5.466    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.581    <hidden>
+                         clock uncertainty           -0.135     5.446    <hidden>
+    SLICE_X36Y78         FDRE (Setup_fdre_C_D)        0.109     5.555    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.555    <hidden>
+                         arrival time                          -4.650    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.905    <hidden>
+
+Slack (MET) :             0.927ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.935ns  (logic 1.964ns (66.925%)  route 0.971ns (33.075%))
+  Logic Levels:           7  (CARRY4=6 LUT2=1)
+  Clock Path Skew:        -0.065ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.464ns = ( 5.464 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.644ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.644     1.644    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X42Y65         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y65         FDRE (Prop_fdre_C_Q)         0.518     2.162 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           0.971     3.133    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y67         LUT2 (Prop_lut2_I0_O)        0.124     3.257 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.257    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y67         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     3.789 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.789    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.903 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.903    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.017 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.017    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.131 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.131    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.245 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.245    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y72         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.334     4.579 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.579    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y72         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.464     5.464    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y72         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.579    <hidden>
+                         clock uncertainty           -0.135     5.444    <hidden>
+    SLICE_X39Y72         FDRE (Setup_fdre_C_D)        0.062     5.506    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.506    <hidden>
+                         arrival time                          -4.579    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.927    <hidden>
+
+Slack (MET) :             0.948ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.914ns  (logic 1.943ns (66.687%)  route 0.971ns (33.313%))
+  Logic Levels:           7  (CARRY4=6 LUT2=1)
+  Clock Path Skew:        -0.065ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.464ns = ( 5.464 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.644ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.644     1.644    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X42Y65         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X42Y65         FDRE (Prop_fdre_C_Q)         0.518     2.162 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           0.971     3.133    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y67         LUT2 (Prop_lut2_I0_O)        0.124     3.257 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.257    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y67         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.532     3.789 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.789    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     3.903 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.903    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.017 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.017    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.131 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.131    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.245 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.245    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y72         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     4.558 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.558    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y72         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.464     5.464    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y72         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.579    <hidden>
+                         clock uncertainty           -0.135     5.444    <hidden>
+    SLICE_X39Y72         FDRE (Setup_fdre_C_D)        0.062     5.506    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.506    <hidden>
+                         arrival time                          -4.558    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.948    <hidden>
+
+Slack (MET) :             0.958ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[13]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.944ns  (logic 1.358ns (46.121%)  route 1.586ns (53.879%))
+  Logic Levels:           2  (CARRY4=2)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.463ns = ( 5.463 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.634ns
+    Clock Pessimism Removal (CPR):    0.147ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.634     1.634    design_instance/input_register/clock
+    SLICE_X41Y72         FDRE                                         r  design_instance/input_register/registered_exponent_reg[13]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y72         FDRE (Prop_fdre_C_Q)         0.419     2.053 r  design_instance/input_register/registered_exponent_reg[13]/Q
+                         net (fo=20, routed)          1.586     3.639    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y72         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.700     4.339 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.339    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     4.578 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.578    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.463     5.463    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.147     5.610    <hidden>
+                         clock uncertainty           -0.135     5.475    <hidden>
+    SLICE_X41Y73         FDRE (Setup_fdre_C_D)        0.062     5.537    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.537    <hidden>
+                         arrival time                          -4.578    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.958    <hidden>
+
+Slack (MET) :             0.974ns  (required time - arrival time)
+  Source:                 design_instance/input_register/registered_exponent_reg[13]/C
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.928ns  (logic 1.342ns (45.827%)  route 1.586ns (54.173%))
+  Logic Levels:           2  (CARRY4=2)
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.463ns = ( 5.463 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.634ns
+    Clock Pessimism Removal (CPR):    0.147ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.634     1.634    design_instance/input_register/clock
+    SLICE_X41Y72         FDRE                                         r  design_instance/input_register/registered_exponent_reg[13]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X41Y72         FDRE (Prop_fdre_C_Q)         0.419     2.053 r  design_instance/input_register/registered_exponent_reg[13]/Q
+                         net (fo=20, routed)          1.586     3.639    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y72         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.700     4.339 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.339    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.223     4.562 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.562    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.463     5.463    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X41Y73         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.147     5.610    <hidden>
+                         clock uncertainty           -0.135     5.475    <hidden>
+    SLICE_X41Y73         FDRE (Setup_fdre_C_D)        0.062     5.537    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.537    <hidden>
+                         arrival time                          -4.562    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.974    <hidden>
+
+Slack (MET) :             0.981ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.934ns  (logic 2.330ns (79.412%)  route 0.604ns (20.588%))
+  Logic Levels:           10  (CARRY4=10)
+  Clock Path Skew:        -0.059ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.466ns = ( 5.466 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.640ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.640     1.640    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y69         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X38Y69         FDRE (Prop_fdre_C_Q)         0.518     2.158 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           0.595     2.753    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y69         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.637     3.390 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.390    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.507 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.507    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.624 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.624    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.741 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.741    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.858 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.858    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.975 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     3.984    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.101 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.101    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.218 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.218    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y77         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.335 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.335    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         CARRY4 (Prop_carry4_CI_O[2])
+                                                      0.239     4.574 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.574    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.466     5.466    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X36Y78         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.581    <hidden>
+                         clock uncertainty           -0.135     5.446    <hidden>
+    SLICE_X36Y78         FDRE (Setup_fdre_C_D)        0.109     5.555    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.555    <hidden>
+                         arrival time                          -4.574    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.981    <hidden>
+
+Slack (MET) :             0.987ns  (required time - arrival time)
+  Source:                 design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Destination:            design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                            (rising edge-triggered cell FDRE clocked by comparison_clock  {rise@0.000ns fall@2.000ns period=4.000ns})
+  Path Group:             comparison_clock
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            4.000ns  (comparison_clock rise@4.000ns - comparison_clock rise@0.000ns)
+  Data Path Delay:        2.922ns  (logic 2.232ns (76.392%)  route 0.690ns (23.608%))
+  Logic Levels:           11  (CARRY4=11)
+  Clock Path Skew:        -0.065ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.464ns = ( 5.464 - 4.000 ) 
+    Source Clock Delay      (SCD):    1.644ns
+    Clock Pessimism Removal (CPR):    0.115ns
+  Clock Uncertainty:      0.135ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE + UU
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+    User Uncertainty         (UU):    0.100ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock comparison_clock rise edge)
+                                                      0.000     0.000 r  <hidden>
+                                                      0.000     0.000 r  clock
+                         net (fo=760, unset)          1.644     1.644    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X39Y66         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+    SLICE_X39Y66         FDRE (Prop_fdre_C_Q)         0.456     2.100 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=2, routed)           0.681     2.781    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y67         CARRY4 (Prop_carry4_S[2]_CO[3])
+                                                      0.504     3.285 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.285    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y68         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.402 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.402    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y69         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.519 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.519    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y70         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.636 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.636    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y71         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.753 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.753    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y72         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.870 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.870    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y73         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.987 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     3.987    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y74         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.104 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.009     4.113    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y75         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.230 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.230    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y76         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.347 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.347    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y77         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.219     4.566 r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         net (fo=1, routed)           0.000     4.566    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y77         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------    -------------------
+
+                         (clock comparison_clock rise edge)
+                                                      4.000     4.000 r  <hidden>
+                                                      0.000     4.000 r  clock
+                         net (fo=760, unset)          1.464     5.464    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+    SLICE_X38Y77         FDRE                                         r  design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>/<hidden>
+                         clock pessimism              0.115     5.579    <hidden>
+                         clock uncertainty           -0.135     5.444    <hidden>
+    SLICE_X38Y77         FDRE (Setup_fdre_C_D)        0.109     5.553    design_instance/polynomial_stage[0].multiplication/signed_multiplier_i/U0/<hidden>/<hidden>/<hidden>
+  -------------------------------------------------------------------
+                         required time                          5.553    <hidden>
+                         arrival time                          -4.566    <hidden>
+  -------------------------------------------------------------------
+                         slack                                  0.987    <hidden>
+
+
+
+

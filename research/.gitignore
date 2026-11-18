@@ -1,0 +1,8 @@
+**/runs/
+**/_work/
+**/xsim.dir/
+**/stimuli/
+**/similarity_cache/
+*.dcp
+*.npz
+!**/images/

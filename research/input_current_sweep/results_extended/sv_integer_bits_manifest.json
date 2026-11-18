@@ -1,0 +1,31 @@
+{
+  "report_script_sha256": "c33bda71688614f66eaf115b864340596dae03a7724e6f65d19cbd86db5ad2cc",
+  "inputs": {
+    "extended_current_summary.csv": "df7013de5653ab52c4a3970b005defda1ee4f79e8f727c343699340fda34e775",
+    "all_values_by_current.csv": "6cba4022d01e082061e5f60e9653328ecb9f685ab120c8734f62383abd12a697"
+  },
+  "rtl_sha256": {
+    "math\\base_two_exponential.sv": "cd3ce6b54bb7fc7f9cf6c6f9eeec920ea2f14ae080bc36b8cd04b7ceab7a289a",
+    "math\\base_two_exponential_pipe_cubic.sv": "6d72c6f4ca17e69ac6a502de609485806f2cec9155c75204d81c06fde6c961fc",
+    "math\\base_two_exponential_pipe_linear.sv": "1d633ca5ea4d5b1648f290857c50740ce9cc751158ec465bb352cde006c77d33",
+    "math\\compute_current_vector.sv": "513b95e70429cde7afe2e3f5417d3168e8b92c6f5ab2b7a31a4201123e5e62de",
+    "math\\matrix_mul_and_euler_update.sv": "b5ab809d71c2e729052ac53e9ddbf688fa7b57db981d6b888cf39603d06e6c83",
+    "math\\signed_32_32_multiplication.sv": "9ff7877562e7946befd3a82a5b3f49308ed02b81a75d9cefa9b72ab9c89b3eac",
+    "network\\many_neurons_1D.sv": "cc5431e7ec771d5fde0a42c31ce714fad52241a8dcb2bdb2380f1639b7e58ca9",
+    "network\\synapse.sv": "ed488c77a93c6364ef0f12973a735227b307449fb9eb1d5205d3db6d588a9386",
+    "network\\three_neurons_1D.sv": "c82631554d0e6d335ccbc507bda6f30ebaab2d92b5178e13d7853b918f133f33",
+    "neuron\\neuron_with_pulse_generator.sv": "faf785771694fd090fcbcf60b0a96f9f4adada648b20fcf7e94122863357d7c2",
+    "neuron\\single_neuron.sv": "ca8d6a0d9ca5fa50b2b5b5d7cabc8517e3a6cc060ed28bfcf8500f820c33976b",
+    "neuron\\synaptic_pulse_generator.sv": "7fd351f0abe1dc8dae6ec8b3dcde43388bb450c556486394ca9d9f953a2a1e24",
+    "neuron\\synaptic_triangular_generator.sv": "88e4094af48a7024612392e9df6efed58c85133c27c2a5791d484896b6c716f1",
+    "packages\\fixed_point_package.sv": "59dd22c61e97ad50e75fb24af04a336642dba91337bcac9b2428446ebb0ac545",
+    "packages\\neuron_params_generated_pkg.sv": "51ccc0f732e62425bf9710cd42910019e87f4542520c5549aae0770d78b46a09",
+    "packages\\neuron_params_pkg.sv": "0970daed610143e907e466737c466bbcfc6f39ed7e74b16b5ad1d8bdf863e1a7",
+    "control\\three_neurons_1D\\three_neuron_control_top.sv": "8e14d3ff4dec7d1efdddbb159f259afe3cb6a16f85e0978b486803ef76dffdcf",
+    "control\\three_neurons_1D\\three_neuron_registers.sv": "1caf8bebbf4f7f2374f53c43453c001646712c6b4487030b11855f35ba71d5dc",
+    "control\\three_neurons_1D\\three_neuron_regs_pkg.sv": "d65cae686099935ee827f90d5755739dae1f9bc9c86d074f7f7fdd3d2b07470b"
+  },
+  "profiled_quantities": 486,
+  "format_groups": 26,
+  "tested_positive_currents": 436
+}

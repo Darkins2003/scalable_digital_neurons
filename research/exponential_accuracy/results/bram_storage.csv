@@ -1,0 +1,14 @@
+entries,address_bits,bits_per_entry,logical_storage_bits,logical_storage_bytes,source
+16,4,25,400,50.0,round_to_nearest(2**(address/entries) * 2**24)
+32,5,25,800,100.0,round_to_nearest(2**(address/entries) * 2**24)
+64,6,25,1600,200.0,round_to_nearest(2**(address/entries) * 2**24)
+128,7,25,3200,400.0,round_to_nearest(2**(address/entries) * 2**24)
+256,8,25,6400,800.0,round_to_nearest(2**(address/entries) * 2**24)
+512,9,25,12800,1600.0,round_to_nearest(2**(address/entries) * 2**24)
+1024,10,25,25600,3200.0,C:\Users\Decla\Desktop\year_four_project\ip\scalable_digital_neurons\hdl\math\memory\fractional_exponent_estimation_table.mem
+2048,11,25,51200,6400.0,round_to_nearest(2**(address/entries) * 2**24)
+4096,12,25,102400,12800.0,round_to_nearest(2**(address/entries) * 2**24)
+8192,13,25,204800,25600.0,round_to_nearest(2**(address/entries) * 2**24)
+16384,14,25,409600,51200.0,round_to_nearest(2**(address/entries) * 2**24)
+32768,15,25,819200,102400.0,round_to_nearest(2**(address/entries) * 2**24)
+65536,16,25,1638400,204800.0,round_to_nearest(2**(address/entries) * 2**24)
